@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Zoya</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicons/site.webmanifest">
+  <link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="assets/favicons/favicon.ico">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+</head>
+<body class="inner-page">
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">Zoya</a>
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="index.html#home" class="nav__link" aria-label="Home"><i class='bx bx-home'></i></a></li>
+          <li class="nav__item"><a href="index.html#about" class="nav__link" aria-label="About"><i class='bx bx-user'></i></a></li>
+          <li class="nav__item"><a href="projects.html" class="nav__link active-link" aria-label="Projects"><i class='bx bx-briefcase-alt-2'></i></a></li>
+          <li class="nav__item"><a href="index.html#contact" class="nav__link" aria-label="Contact"><i class='bx bx-message-square-dots'></i></a></li>
+        </ul>
+      </div>
+      <i class='bx bx-moon change-theme change-theme-button' id="theme-button"></i>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="projects-page section">
+      <div class="container">
+        <span class="section__subtitle">Selected Work</span>
+        <h1 class="section__title">Project Showcase</h1>
+        <p class="projects-page__lead">
+          A broader look at app interfaces, Play Store launch assets, and graphics work built to feel polished, modern, and conversion-aware.
+        </p>
+
+        <div class="work__filters">
+          <span class="work__item active-work" data-filter='all'>All</span>
+          <span class="work__item" data-filter='.apps'>Apps</span>
+          <span class="work__item" data-filter='.playstore'>Playstore</span>
+          <span class="work__item" data-filter='.graphics'>Graphics</span>
+        </div>
+
+        <div class="work__container container grid">
+          <div class="work__card mix apps">
+            <img src="assets/img/work1.jpg" alt="Task manager app interface" class="work__img">
+            <span class="work__category">Apps</span>
+            <h3 class="work__title">TaskFlow Mobile UI</h3>
+            <p class="work__description">A productivity system with simplified navigation, focus-friendly task views, and better progress visibility.</p>
+            <a href="index.html#contact" class="work__button">Request Similar Work <i class='bx bx-right-arrow work__icon'></i></a>
+          </div>
+
+          <div class="work__card mix apps">
+            <img src="assets/img/work2.jpg" alt="Food delivery app screens" class="work__img">
+            <span class="work__category">Apps</span>
+            <h3 class="work__title">Food Delivery Dashboard</h3>
+            <p class="work__description">Ordering flows and account screens designed for faster product discovery and stronger checkout completion.</p>
+            <a href="index.html#contact" class="work__button">Request Similar Work <i class='bx bx-right-arrow work__icon'></i></a>
+          </div>
+
+          <div class="work__card mix apps">
+            <img src="assets/img/work4.jpg" alt="Finance app concept interface" class="work__img">
+            <span class="work__category">Apps</span>
+            <h3 class="work__title">Finance Tracker Concept</h3>
+            <p class="work__description">A financial dashboard concept with a calmer data hierarchy and more premium visual language.</p>
+            <a href="index.html#contact" class="work__button">Request Similar Work <i class='bx bx-right-arrow work__icon'></i></a>
+          </div>
+
+          <div class="work__card mix playstore">
+            <img src="assets/img/work4.jpg" alt="Play Store app presentation design" class="work__img">
+            <span class="work__category">Playstore</span>
+            <h3 class="work__title">Store Launch Preview</h3>
+            <p class="work__description">A screenshot direction for launch campaigns focused on feature clarity and high-scroll stopping power.</p>
+            <a href="index.html#contact" class="work__button">Request Similar Work <i class='bx bx-right-arrow work__icon'></i></a>
+          </div>
+
+          <div class="work__card mix playstore">
+            <img src="assets/img/work5.jpg" alt="Fitness app store listing mockup" class="work__img">
+            <span class="work__category">Playstore</span>
+            <h3 class="work__title">Fitness App Listing</h3>
+            <p class="work__description">Store assets built around transformation messaging, key screens, and stronger user trust cues.</p>
+            <a href="index.html#contact" class="work__button">Request Similar Work <i class='bx bx-right-arrow work__icon'></i></a>
+          </div>
+
+          <div class="work__card mix playstore">
+            <img src="assets/img/work2.jpg" alt="Wellness app listing design" class="work__img">
+            <span class="work__category">Playstore</span>
+            <h3 class="work__title">Wellness Listing System</h3>
+            <p class="work__description">A listing refresh concept designed to improve readability, retention of screenshots, and install intent.</p>
+            <a href="index.html#contact" class="work__button">Request Similar Work <i class='bx bx-right-arrow work__icon'></i></a>
+          </div>
+
+          <div class="work__card mix graphics">
+            <img src="assets/img/work3.jpg" alt="Poster and branding graphic design" class="work__img">
+            <span class="work__category">Graphics</span>
+            <h3 class="work__title">Brand Poster Series</h3>
+            <p class="work__description">A bold set of campaign posters using motion-inspired composition and sharper typography choices.</p>
+            <a href="index.html#contact" class="work__button">Request Similar Work <i class='bx bx-right-arrow work__icon'></i></a>
+          </div>
+
+          <div class="work__card mix graphics">
+            <img src="assets/img/work1.jpg" alt="Social media graphic kit presentation" class="work__img">
+            <span class="work__category">Graphics</span>
+            <h3 class="work__title">Social Media Kit</h3>
+            <p class="work__description">Promo-ready static graphics designed for launches, stories, ad creatives, and product announcements.</p>
+            <a href="index.html#contact" class="work__button">Request Similar Work <i class='bx bx-right-arrow work__icon'></i></a>
+          </div>
+
+          <div class="work__card mix graphics">
+            <img src="assets/img/work5.jpg" alt="Creative campaign banner layout" class="work__img">
+            <span class="work__category">Graphics</span>
+            <h3 class="work__title">Campaign Banner Suite</h3>
+            <p class="work__description">A flexible graphics pack for launches and promotions with consistent visual rhythm across formats.</p>
+            <a href="index.html#contact" class="work__button">Request Similar Work <i class='bx bx-right-arrow work__icon'></i></a>
+          </div>
+        </div>
+
+        <div class="work__actions">
+          <a href="index.html#contact" class="button">Let’s Build Your Project</a>
+          <a href="index.html#work" class="button button--ghost">Back to Recent Works</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/mixitup.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
