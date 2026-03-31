@@ -479,7 +479,16 @@ body.light-theme {
 }
 
 .about__description {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.7;
   margin-bottom: 2rem;
+}
+
+.about__button-contact {
+  display: inline-flex;
 }
 
 .about__actions {
@@ -1311,8 +1320,8 @@ body.light-theme {
   }
 
   .about__description {
-    padding: 1rem 5rem;
-    width: 600px;
+    padding: 0 5rem;
+    max-width: 600px;
     margin: 0 auto 2rem auto;
   }
 
@@ -1473,9 +1482,8 @@ body.light-theme {
   }
 
   .about__container {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    column-gap: 4rem;
+    grid-template-columns: 1fr;
+    justify-items: center;
   }
 
   .about__img {
@@ -1483,7 +1491,7 @@ body.light-theme {
   }
 
   .about__data {
-    text-align: initial;
+    text-align: center;
   }
 
   .about__info {
@@ -1497,8 +1505,8 @@ body.light-theme {
   }
 
   .about__description {
-    padding: 0 4rem 0 0;
-    margin-bottom: 2.5rem;
+    padding: 0;
+    margin: 0 auto 2.5rem;
   }
 
   .about-details__hero {
