@@ -159,9 +159,9 @@ const contactMessage = document.getElementById("contact-message-status");
 let contactMessageTimeout;
 
 const emailJsConfig = {
-  publicKey: "2DvEElY4qqv5DP42K",
-  serviceId: "service_4j9xj4l",
-  templateId: "template_04dx9oq",
+  publicKey: "kMGhI-hVRSUA4w8sX",
+  serviceId: "service_jcdax7j",
+  templateId: "template_yd1mizo",
 };
 
 const hasEmailJsConfig = Object.values(emailJsConfig).every(
