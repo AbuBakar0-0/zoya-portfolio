@@ -1057,6 +1057,11 @@ body.light-theme {
   padding-bottom: 3rem;
 }
 
+.contact__content {
+  display: flex;
+  flex-direction: column;
+}
+
 .contact__title {
   text-align: center;
   font-size: var(--h3-font-size);
@@ -1066,6 +1071,7 @@ body.light-theme {
 .contact__info {
   display: grid;
   gap: 1rem;
+  flex: 1;
 }
 
 .contact__card {
@@ -1152,6 +1158,12 @@ body.light-theme {
 
 .contact__form-area textarea {
   resize: none;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .contact__message {
@@ -1602,6 +1614,7 @@ body.light-theme {
   .contact__container {
     grid-template-columns: repeat(2, 430px);
     column-gap: 6rem;
+    align-items: stretch;
   }
 
   .footer__social-link {

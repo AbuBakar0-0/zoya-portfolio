@@ -156,6 +156,7 @@ if (themeButton) {
 /*=============== CONTACT FORM / EMAILJS ===============*/
 const contactForm = document.getElementById("contact-form");
 const contactMessage = document.getElementById("contact-message-status");
+let contactMessageTimeout;
 
 const emailJsConfig = {
   publicKey: "2DvEElY4qqv5DP42K",
@@ -176,6 +177,7 @@ if (window.emailjs && hasEmailJsConfig) {
 if (contactForm && contactMessage) {
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+    clearTimeout(contactMessageTimeout);
 
     if (!window.emailjs || !hasEmailJsConfig) {
       contactMessage.textContent =
@@ -202,6 +204,10 @@ if (contactForm && contactMessage) {
       contactMessage.textContent = "Message sent successfully.";
       contactMessage.className = "contact__message contact__message--success";
       contactForm.reset();
+      contactMessageTimeout = setTimeout(() => {
+        contactMessage.textContent = "";
+        contactMessage.className = "contact__message";
+      }, 4000);
     } catch (error) {
       console.error("EmailJS error:", error);
       contactMessage.textContent =
