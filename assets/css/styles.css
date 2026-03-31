@@ -1153,6 +1153,21 @@ body.light-theme {
 .contact__form-area textarea {
   resize: none;
 }
+
+.contact__message {
+  min-height: 1.5rem;
+  margin: -0.75rem 0 1rem;
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+.contact__message--success {
+  color: hsl(142, 56%, 52%);
+}
+
+.contact__message--error {
+  color: hsl(0, 78%, 66%);
+}
 /*=============== FOOTER ===============*/
 .footer {
   background-color: var(--first-color);

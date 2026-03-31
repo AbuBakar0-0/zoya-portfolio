@@ -153,6 +153,66 @@ if (themeButton) {
   });
 }
 
+/*=============== CONTACT FORM / EMAILJS ===============*/
+const contactForm = document.getElementById("contact-form");
+const contactMessage = document.getElementById("contact-message-status");
+
+const emailJsConfig = {
+  publicKey: "2DvEElY4qqv5DP42K",
+  serviceId: "service_4j9xj4l",
+  templateId: "template_04dx9oq",
+};
+
+const hasEmailJsConfig = Object.values(emailJsConfig).every(
+  (value) => value && !value.startsWith("YOUR_EMAILJS_")
+);
+
+if (window.emailjs && hasEmailJsConfig) {
+  emailjs.init({
+    publicKey: emailJsConfig.publicKey,
+  });
+}
+
+if (contactForm && contactMessage) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!window.emailjs || !hasEmailJsConfig) {
+      contactMessage.textContent =
+        "Email service is not configured yet. Add your EmailJS keys in assets/js/main.js.";
+      contactMessage.className = "contact__message contact__message--error";
+      return;
+    }
+
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    contactMessage.textContent = "Sending message...";
+    contactMessage.className = "contact__message";
+
+    try {
+      await emailjs.sendForm(
+        emailJsConfig.serviceId,
+        emailJsConfig.templateId,
+        contactForm,
+        {
+          publicKey: emailJsConfig.publicKey,
+        }
+      );
+
+      contactMessage.textContent = "Message sent successfully.";
+      contactMessage.className = "contact__message contact__message--success";
+      contactForm.reset();
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      contactMessage.textContent =
+        error?.text || "Message could not be sent. Please try again.";
+      contactMessage.className = "contact__message contact__message--error";
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+}
+
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
   origin: "top",
