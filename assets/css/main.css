@@ -1480,7 +1480,7 @@ Contact Page
 .contact-field input,
 .contact-field textarea {
     border: 0;
-    border-bottom: 2px solid rgba(248, 121, 143, 0.55);
+    border-bottom: 2px solid rgba(205, 115, 130, 0.4);
     background: transparent;
     font-size: 15px;
     color: #25131a;
