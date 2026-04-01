@@ -231,13 +231,13 @@ header {
     float: right;
 }
 
-.ti-menu {
+.nav-button .fa {
     color: #121212;
     font-size: 2.5em;
     line-height: 85px;
 }
 
-.ti-menu:hover {
+.nav-button .fa:hover {
     color: #121212;
     text-decoration: none;
 }
@@ -246,7 +246,7 @@ header {
     display: none;
 }
 
-.ti-close {
+.close-btn .fa {
     color: #121212;
     position: absolute;
     right: 37px;
@@ -254,7 +254,7 @@ header {
     font-size: 1.7em;
 }
 
-.ti-close:hover {
+.close-btn .fa:hover {
     color: #f8798f;
     text-decoration: none;
 }
