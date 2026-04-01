@@ -1,0 +1,277 @@
+#intro {
+    width: 100%;
+    height: 100%;
+    margin-top: 0
+}
+
+h1.hello {
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    font-weight: 500;
+    margin: 0;
+    margin-left: 20%;
+    margin: 0
+}
+
+h1.hello span {
+    background-repeat: no-repeat;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    background-image: -moz-linear-gradient(180deg, transparent 10%, #F8798F 0);
+    /*background-image:-webkit-linear-gradient(180deg, transparent 10%, #F8798F 0);*/
+    /*background-image:linear-gradient(180deg, transparent 10%, #F8798F 0);*/
+    background-size: 130%;
+    background-position: 0 33.5px
+}
+
+h1.hello span a {
+    color: black;
+    text-decoration: none
+}
+
+/*
+h1.hello span a:hover{
+	transition:.3s;color:white
+}
+
+h1.hello span:hover{
+	background-position:0
+}
+*/
+
+h2.description {
+    font-family: soleil, sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+h2.description a {
+    font-family: soleil, sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    color: #F8798F
+}
+
+img.portrait {
+    border-radius: 50%
+}
+
+.arrow {
+    text-decoration: none
+}
+
+.arrow:hover {
+    text-decoration: none
+}
+
+.action-down {
+    text-align: center;
+}
+
+p.scroll {
+    font-family: soleil, sans-serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.bounce {
+    margin-bottom: 50px;
+    padding: 0;
+    animation: bounce 2s infinite;
+    color: #F8798F;
+    font-size: 14px
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0)
+    }
+    10% {
+        transform: translateY(-50%)
+    }
+    20% {
+        transform: translateY(0)
+    }
+    30% {
+        transform: translateY(-25%)
+    }
+    40% {
+        transform: translateY(0)
+    }
+    50% {
+        transform: translateY(-10%)
+    }
+    60% {
+        transform: translateY(0)
+    }
+    70% {
+        transform: translateY(0)
+    }
+    80% {
+        transform: translateY(0)
+    }
+    100% {
+        transform: translateY(0)
+    }
+}
+
+#portfolio {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0
+}
+
+.content {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 8px
+}
+
+.content:hover .content-overlay {
+    opacity: 1
+}
+
+.content:hover .content-details {
+    top: 50%;
+    left: 50%;
+    opacity: 1
+}
+
+.content .content-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    border-radius: 8px;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s
+}
+
+.content-details {
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s
+}
+
+.content-details h3 {
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0.5em
+}
+
+.content-details p {
+    color: white;
+    font-family: soleil, sans-serif;
+    font-size: 18px
+}
+
+.fadeIn-top {
+    top: 20%
+}
+
+@media only screen and (max-width: 1200px) {
+    .content-details h3 {
+        font-size: 21px
+    }
+    .content-details p {
+        font-size: 16px
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .content:hover .content-details {
+        top: auto;
+        left: 0;
+        bottom: 8%
+    }
+    .content .content-overlay {
+        background: none;
+        opacity: 1;
+        top: 20%;
+        height: 80%;
+        background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5))
+    }
+    .content-details {
+        opacity: 1;
+        width: 80%;
+        text-align: left;
+        height: auto;
+        top: auto;
+        left: 0;
+        bottom: 8%;
+        -webkit-transform: none;
+        -moz-transform: none;
+        transform: none;
+        -webkit-transition: none;
+        -moz-transition: none;
+        transition: none
+    }
+    .content-details h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0 0 6px 0
+    }
+    .content-details p {
+        font-size: 12px;
+        margin: 6px 0 0 0
+    }
+    .fadeIn-top {
+        top: auto
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    h1.hello {
+        font-size: 32px
+    }
+    h1.hello span {
+        background-size: 120%;
+        background-position: 0 30px
+    }
+    h2.description {
+        font-size: 21px
+    }
+    img.portrait {
+        display: none
+    }
+    .action-down {
+        margin: 0
+    }
+    .content-details h3 {
+        font-size: 16px
+    }
+    .content-details p,
+    p.scroll,
+    .fa-chevron-down {
+        font-size: 12px
+    }
+}
+
+@media only screen and (max-width: 361px) {
+    h1.hello {
+        font-size: 28px
+    }
+}
+
+/*# sourceMappingURL=home.css.map */

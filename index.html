@@ -2,354 +2,220 @@
 <html lang="en">
 
 <head>
+    <!-- Metas -->
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoya Abbasi Portfolio</title>
 
-    <!--=============== FAVICON ===============-->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicons/site.webmanifest">
-    <link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="assets/favicons/favicon.ico">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="msapplication-config" content="assets/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#a789d4">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!--=============== BOXICONS ===============-->
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="home.css">
 
-    <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600%7CPoppins:600" rel="stylesheet">
 
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
 
-    <title> Zoya's Portfolio </title>
+    <!-- Javascript -->
+    <!--
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+     -->
+
 </head>
 
 <body>
-    <!--=============== HEADER ===============-->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">Zoya</a>
 
-            <div class="nav__menu">
-                <ul class="nav__list">
-                    <li class="nav__item ">
-                        <a href="#home" class="nav__link">
-                            <i class='bx bx-home'></i>
-                        </a>
-                    </li>
+    <!-- Header -->
 
-                    <li class="nav__item ">
-                        <a href="#about" class="nav__link">
-                            <i class='bx bx-user'></i>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#work" class="nav__link">
-                            <i class='bx bx-briefcase-alt-2'></i>
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">
-                            <i class='bx bx-message-square-dots'></i>
-                        </a>
-                    </li>
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="logo">ZOYA ABBASI</a>
+            <a href="#" onclick="openNav()" class="nav-button"><span class="ti-menu"></span></a>
+            <nav id="navigation">
+                <a href="javascript:void(0)" onclick="closeNav()" class="close-btn"><span class=" ti-close"></span></a>
+                <ul class="main-menu">
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="index.html#portfolio">portfolio</a></li>
+                    <li><a href="https://drive.google.com/file/d/1ZeGyzx0algK5ML9Zcx8u7j0LVXLcGRCB/view?usp=sharing">resume</a></li>
+                    <li><a href="">Contact me</a></li>
                 </ul>
-            </div>
-
-            <!--=============== theme change button ===============-->
-            <i class='bx bx-moon change-theme change-theme-button' id="theme-button"></i>
-
-        </nav>
+            </nav>
+        </div>
+        <!-- /.container -->
     </header>
 
-    <!--=============== MAIN ===============-->
-    <main class="main">
-        <!--=============== HOME ===============-->
-        <section class="home section" id="home">
-            <div class="home__container container grid">
-                <div class="home__data">
-                    <span class="home__greeting">Hello, I'm</span>
-                    <h1 class="home__name">Zoya Abbasi</h1>
-                    <h3 class="home__education">UI/UX Designer</h3>
-                    <p class="home__description">
-                        I create web pages with UI / UX user interfaces, I have years of experience and many clients are happy with the work i did.
-                    </p>
+    <!-------------end of navigation bar------------->
 
-                    <div class="home__buttons">
-                        <a download="" href="assets/pdf/zoya-Cv.pdf" class="button button--ghost">
-                            Download CV
+    <!-------------intro------------->
+
+    <div class="container">
+        <div class="hero-homepage">
+            <div class="hero-content">
+                <h1>Hi, I'm <span><a href="about.html" title="About">Zoya Abbasi!</a></span> 👋🏽</h1>
+                <h2>I'm a <span style="color: #F8798F" id="typewriter"></span>
+                    <div class="description">passionate about creating well-rounded experiences.</div>
+                </h2>
+            </div>
+        </div>
+        <div class="action-down">
+            <a class="arrow" href="#portfolio">
+                <p class="scroll">View my work!</p>
+                <div class="bounce"><i class="fa fa-chevron-circle-down"></i></div>
+            </a>
+        </div>
+
+    </div>
+
+    <!-------------end of intro------------->
+
+
+    <!-- ----------portfolio------------ -->
+    <!-- Main -->
+
+    <main>
+
+        <div class="container-full">
+
+            <!-- <div class="hero-homepage">
+                <div class="hero-content">
+                    <h1>Hi, I'm <span><a href="about.html" title="About">Ayesha!</a></span> 👋🏽</h1>
+                    <h2>I'm a <span style="color: #F8798F" id="typewriter"></span>
+                    <div class="description">passionate about creating well-rounded experiences.</div></h2>
+                    <div class="action-down">
+                        <a class="arrow" href="#portfolio">
+                        <p class="scroll">View my work!</p>
+                        <div class="bounce"><i class="fa fa-chevron-circle-down"></i></div>
                         </a>
-
-                        <a href="#work" class="button">View Projects</a>
-                    </div>
                 </div>
-
-                <div class="home__handle">
-                    <img src="assets/img/perfil.png" alt="" class="home__img">
                 </div>
+            </div> -->
 
-                <div class="home__social">
-                    <a href="https://www.linkedin.com/in/zoya-abbasi022/" target="_blank" class="home__social-link">
-                        <i class='bx bxl-linkedin'></i>
+            <div id="portfolio">
+                <div class="works_2-columns">
+
+                    <a href="halo.html">
+                        <div class="works-item">
+                            <img src="media/thumbnails/halo.png">
+                            <div class="works-item-overlay">
+                                <div class="works-item-info">
+                                    <h3 class="works-info-title">HALO</h3>
+                                    <p class="works-info-category">Research, UX/UI Design, Prototyping</p>
+                                </div>
+                            </div>
+                        </div>
                     </a>
-                    <a href="mailto:zoyaabbasi022@gmail.com" target="_blank" class="home__social-link">
-                        <i class='bx bx-mail-send'></i>
+
+                    <a href="snooze.html">
+                        <div class="works-item">
+                            <img src="media/thumbnails/snooze.png" alt="Snooze App UI Mockup">
+                            <div class="works-item-overlay">
+                                <div class="works-item-info">
+                                    <h3 class="works-info-title">Snooze</h3>
+                                    <p class="works-info-category">Research, UX/UI Design</p>
+                                </div>
+                            </div>
+                        </div>
                     </a>
-                    <a href="https://www.behance.net/zoyaabbasi1" target="_blank" class="home__social-link">
-                        <i class='bx bxl-behance'></i>
+
+                    <a href="fit2b.html">
+                        <div class="works-item">
+                            <img src="media/thumbnails/fit2b.png" alt="Fit2B Splash Screen">
+                            <div class="works-item-overlay">
+                                <div class="works-item-info">
+                                    <h3 class="works-info-title">Fit2B</h3>
+                                    <p class="works-info-category">UX/UI Design Internship @ UT Austin</p>
+                                </div>
+                            </div>
+                        </div>
                     </a>
+
+                    <a href="afterglow-mag.html">
+                        <div class="works-item">
+                            <img src="media/thumbnails/magcover.png" alt="Afterglow Magazine Issue 01 Cover">
+                            <div class="works-item-overlay">
+                                <div class="works-item-info">
+                                    <h3 class="works-info-title">Afterglow: Print Magazine</h3>
+                                    <p class="works-info-category">Creative Directing, Editorial Design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="afterglow.html">
+                        <div class="works-item">
+                            <img src="media/thumbnails/afterglow.png" alt="Afterglow logo">
+                            <div class="works-item-overlay">
+                                <div class="works-item-info">
+                                    <h3 class="works-info-title">Afterglow</h3>
+                                    <p class="works-info-category">Brand Identity</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="100daysUI.html">
+                        <div class="works-item">
+                            <img src="media/thumbnails/dailyUI.png" alt="Collage of the 100 Days of UI Challenge">
+                            <div class="works-item-overlay">
+                                <div class="works-item-info">
+                                    <h3 class="works-info-title">100 Days of UI</h3>
+                                    <p class="works-info-category">UI Design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="clearfix"></div>
+
                 </div>
+                <!-- /.works_2-columns -->
+
             </div>
-        </section>
+            <!-- /.container-full -->
 
-        <!--=============== ABOUT ===============-->
-        <section class="about section" id="about">
-            <span class="section__subtitle">My Intro</span>
-            <h2 class="section__title">About Me</h2>
-
-            <div class="about__container container grid">
-                <div class="about__data">
-                    <p class="about__description">
-                        UI/UX Designer creating intuitive, visually engaging digital experiences with a strong focus
-                        on usability, accessibility, and modern design principles.
-                    </p>
-
-                    <a href="/about-details.html" class="button about__button-contact">See more</a>
-                </div>
-            </div>
-        </section>
-
-        <!--=============== WORK ===============-->
-        <section class="work section" id="work">
-            <span class="section__subtitle">My Portfolio</span>
-            <h2 class="section__title">Recent Works</h2>
-
-            <div class="work__filters">
-                <span class="work__item active-work" data-filter='all'>All</span>
-                <span class="work__item" data-filter='.apps'>Apps</span>
-                <span class="work__item" data-filter='.playstore'>Playstore apps</span>
-                <span class="work__item" data-filter='.graphics'>Graphics</span>
-            </div>
-
-            <div class="work__container container grid">
-                <div class="work__card mix apps">
-                    <img src="assets/img/work1.jpg" alt="Task manager app interface" class="work__img">
-                    <span class="work__category">Apps</span>
-                    <h3 class="work__title">TaskFlow Mobile UI</h3>
-                    <p class="work__description">A productivity app interface focused on cleaner flows, quick task capture, and stronger usability.</p>
-                    <a href="projects.html" class="work__button">
-                        View Project <i class='bx bx-right-arrow work__icon'></i>
-                    </a>
-                </div>
-
-                <div class="work__card mix apps">
-                    <img src="assets/img/work2.jpg" alt="Food delivery app screens" class="work__img">
-                    <span class="work__category">Apps</span>
-                    <h3 class="work__title">Food Delivery Dashboard</h3>
-                    <p class="work__description">Mobile ordering screens designed to improve browsing, selection speed, and checkout confidence.</p>
-                    <a href="projects.html" class="work__button">
-                        View Project <i class='bx bx-right-arrow work__icon'></i>
-                    </a>
-                </div>
-
-                <div class="work__card mix playstore">
-                    <img src="assets/img/work4.jpg" alt="Play Store app launch preview" class="work__img">
-                    <span class="work__category">Playstore Apps</span>
-                    <h3 class="work__title">Store Launch Preview</h3>
-                    <p class="work__description">A Play Store screenshot set built around benefits-first messaging and stronger feature framing.</p>
-                    <a href="projects.html" class="work__button">
-                        View Project <i class='bx bx-right-arrow work__icon'></i>
-                    </a>
-                </div>
-
-                <div class="work__card mix playstore">
-                    <img src="assets/img/work5.jpg" alt="Fitness app Play Store listing design" class="work__img">
-                    <span class="work__category">Playstore Apps</span>
-                    <h3 class="work__title">Fitness App Listing</h3>
-                    <p class="work__description">Launch assets shaped for install intent, visual clarity, and more persuasive listing storytelling.</p>
-                    <a href="projects.html" class="work__button">
-                        View Project <i class='bx bx-right-arrow work__icon'></i>
-                    </a>
-                </div>
-
-                <div class="work__card mix graphics">
-                    <img src="assets/img/work3.jpg" alt="Poster and branding graphics" class="work__img">
-                    <span class="work__category">Graphics</span>
-                    <h3 class="work__title">Brand Poster Series</h3>
-                    <p class="work__description">A graphics direction with bolder composition, sharper hierarchy, and campaign-ready polish.</p>
-                    <a href="projects.html" class="work__button">
-                        View Project <i class='bx bx-right-arrow work__icon'></i>
-                    </a>
-                </div>
-
-                <div class="work__card mix graphics">
-                    <img src="assets/img/work1.jpg" alt="Social media graphics kit" class="work__img">
-                    <span class="work__category">Graphics</span>
-                    <h3 class="work__title">Social Media Kit</h3>
-                    <p class="work__description">A scalable graphic pack for promotions, launches, and branded content across multiple formats.</p>
-                    <a href="projects.html" class="work__button">
-                        View Project <i class='bx bx-right-arrow work__icon'></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="work__actions">
-                <a href="projects.html" class="button">See more</a>
-            </div>
-        </section>
-
-        <!--=============== CONTACT ===============-->
-        <section class="contact section" id="contact">
-            <sapn class="section__subtitle">Get in touch</sapn>
-            <h3 class="section__title">Contact Me</h3>
-
-            <div class="contact__container container grid">
-                <div class="contact__content">
-                    <h3 class="contact__title contact__title-info">Talk to me</h3>
-
-                    <div class="contact__info">
-                        <div class="contact__card">
-                            <i class='bx bx-mail-send contact__card-icon'></i>
-                            <h3 class="contact__card-title">Email</h3>
-                            <span class="contact__card-data">zoyaabbasi022@gmail.com</span>
-
-                            <a href="mailto:zoyaabbasi022@gmail.com" target="_blank" class="contact__button">
-                                Write Me <i class='bx bx-right-arrow contact__button-icon'></i>
-                            </a>
-                        </div>
-
-                        <div class="contact__card">
-                            <i class='bx bxl-behance contact__card-icon'></i>
-                            <h3 class="contact__card-title">Behance</h3>
-                            <span class="contact__card-data">behance.net/zoyaabbasi1</span>
-
-                            <a href="https://www.behance.net/zoyaabbasi1" target="_blank"
-                                class="contact__button">
-                                Write Me <i class='bx bx-right-arrow contact__button-icon'></i>
-                            </a>
-                        </div>
-
-                        <div class="contact__card">
-                            <i class='bx bxl-linkedin contact__card-icon'></i>
-                            <h3 class="contact__card-title">LinkedIn</h3>
-                            <span class="contact__card-data">linkedin.com/in/zoya-abbasi022</span>
-
-                            <a href="https://www.linkedin.com/in/zoya-abbasi022/" target="_blank" class="contact__button">
-                                Write Me <i class='bx bx-right-arrow contact__button-icon'></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact__content">
-                    <h3 class="contact__title contact__title-form">Write Me your Message</h3>
-
-                    <form class="contact__form" id="contact-form">
-                        <div class="contact__form-div">
-                            <label for="contact-name" class="contact__form-tag">Name</label>
-                            <input type="text" id="contact-name" name="user_name" placeholder="Enter name"
-                                class="contact__form-input" required>
-                        </div>
-
-                        <div class="contact__form-div">
-                            <label for="contact-email" class="contact__form-tag">Mail</label>
-                            <input type="email" id="contact-email" name="user_email" placeholder="Enter email"
-                                class="contact__form-input" required>
-                        </div>
-
-                        <div class="contact__form-div contact__form-area">
-                            <label for="contact-message" class="contact__form-tag">Message</label>
-                            <textarea name="message" id="contact-message" cols="30" rows="10"
-                                placeholder="Write your Message" class="contact__form-input" required></textarea>
-                        </div>
-
-                        <p class="contact__message" id="contact-message-status" aria-live="polite"></p>
-
-                        <button type="submit" class="button">
-                            Send Message
-                        </button>
-                    </form>
-
-                </div>
-
-        </section>
     </main>
 
-    <!--=============== FOOTER ===============-->
-    <footer class="footer">
-        <div class="footer__container container">
-            <h1 class="footer__title">Zoya</h1>
 
-            <ul class="footer__list">
+    <!-- ----------footer------------- -->
 
-                <li class="footer__item">
-                    <a href="#" class="footer__link">Home</a>
-                </li>
-                <li class="footer__item">
-                    <a href="#about" class="footer__link">About</a>
-                </li>
-                <li class="footer__item">
-                    <a href="#skills" class="footer__link">Skills</a>
-                </li>
-                <li class="footer__item">
-                    <a href="#work" class="footer__link">Work</a>
-                </li>
-                <li class="footer__item">
-                    <a href="#contact" class="footer__link">Contact</a>
-                </li>
-            </ul>
-
-            <ul class="footer__social">
-                <li class="footer__social-item">
-                    <a href="#" target="_blank" class="footer__social-link">
-                        <i class='bx bxl-facebook footer__social-icon'></i>
-                    </a>
-                </li>
-                <li class="footer__social-item">
-                    <a href="#" target="_blank" class="footer__social-link">
-                        <i class='bx bxl-twitter footer__social-icon'></i>
-                    </a>
-                </li>
-                <li class="footer__social-item">
-                    <a href="#" target="_blank" class="footer__social-link">
-                        <i class='bx bxl-linkedin footer__social-icon'></i>
-                    </a>
-                </li>
-                <li class="footer__social-item">
-                    <a href="#" target="_blank" class="footer__social-link">
-                        <i class='bx bxl-instagram footer__social-icon'></i>
-                    </a>
-                </li>
-            </ul>
-
-            <span class="footer__copy">
-                &#169; 2022 S44WN. All rights reserved.
-            </span>
+    <div class="copyright">
+        <p>© 2024 Ayesha Din. Built with ♥</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/ayesha-din/" class="fa fa-linkedin" title="LinkedIn" target="_blank"></a>
+            <a href="https://dribbble.com/ayesha11" class="fa fa-dribbble" title="Dribbble" target="_blank"></a>
+            <a href="https://instagram.com/ayeshaydin" class="fa fa-instagram" title="Instagram" target="_blank"></a>
         </div>
-    </footer>
+    </div>
+    </div>
 
-    <!--=============== SCROLLREVEAL ===============-->
+    <!-- ----------end of footer------------- -->
 
-    <!-- <script src="assets/js/scrollreveal.min.js"></script> -->
-    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 
-    <!--=============== SWIPER JS ===============-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!--Typewriter effect -->
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script type="text/javascript">
+        const instance = new Typewriter('#typewriter', {
+            strings: ['UX/UI Designer', 'Product Designer', 'Interaction Designer', 'Visual Designer'],
+            autoStart: true,
+            loop: true,
+        });
+    </script>
+    <!--end typewriter effect-->
 
-    <!--=============== MIXITUP FILTER ===============-->
-    <script src="assets/js/mixitup.min.js"></script>
+    <!-- Script -->
 
-    <!--=============== EMAIL JS ===============-->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-    <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>
