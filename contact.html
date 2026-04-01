@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Contact | Zoya Abbasi</title>
+
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="logo">ZOYA ABBASI</a>
+            <a href="#" onclick="openNav()" class="nav-button" aria-label="Open navigation"><span class="fa fa-bars" aria-hidden="true"></span></a>
+            <nav id="navigation">
+                <a href="javascript:void(0)" onclick="closeNav()" class="close-btn" aria-label="Close navigation"><span class="fa fa-times" aria-hidden="true"></span></a>
+                <ul class="main-menu">
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="index.html#portfolio">portfolio</a></li>
+                    <li><a href="https://drive.google.com/file/d/1fAyAOn-wsTNmZzqNzWy9yokKgyTrP8m1/view">resume</a></li>
+                    <li><a href="contact.html" class="active" aria-current="page">contact me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-page">
+        <div class="container contact-shell">
+            <section class="contact-panel contact-panel-left">
+                <div class="contact-orbit contact-orbit-one"></div>
+                <div class="contact-orbit contact-orbit-two"></div>
+                <div class="contact-intro">
+                    <p class="tag">Get In Touch</p>
+                    <h1>Let's discuss<br>something <span>bold</span><br>together.</h1>
+                    <p class="contact-copy">I’m open to UI/UX design, product design, visual systems, and freelance collaborations.</p>
+                </div>
+
+                <div class="contact-highlights">
+                    <div class="contact-highlight-card">
+                        <span class="contact-highlight-label">Availability</span>
+                        <strong>Open for freelance and remote design work</strong>
+                    </div>
+                    <div class="contact-mini-pills">
+                        <span>UI/UX</span>
+                        <span>Branding</span>
+                        <span>Product</span>
+                    </div>
+                </div>
+
+                <div class="contact-details">
+                    <a href="mailto:zoyaabbasi022@gmail.com" class="contact-detail-item">
+                        <span class="contact-detail-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        <span>zoyaabbasi022@gmail.com</span>
+                    </a>
+
+                    <a href="tel:+923433132511" class="contact-detail-item contact-detail-highlight">
+                        <span class="contact-detail-icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        <span>+92 343 3132511</span>
+                    </a>
+
+                    <div class="contact-detail-item">
+                        <span class="contact-detail-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                        <span>Based in Pakistan, available for remote work worldwide</span>
+                    </div>
+                </div>
+
+                <div class="contact-socials">
+                    <a href="mailto:zoyaabbasi022@gmail.com" class="fa fa-envelope" title="Mail"></a>
+                    <a href="https://www.linkedin.com/in/zoya-abbasi022" class="fa fa-linkedin" title="LinkedIn" target="_blank" rel="noreferrer"></a>
+                    <a href="https://www.behance.net/zoyaabbasi1" class="fa fa-behance" title="Behance" target="_blank" rel="noreferrer"></a>
+                </div>
+            </section>
+
+            <section class="contact-panel contact-panel-right">
+                <form id="contact-form" class="contact-form">
+                    <input type="hidden" name="contact_interest" id="contact-interest-input" value="UI/UX design">
+
+                    <div class="contact-form-top">
+                        <div>
+                            <p class="contact-form-kicker">Project Brief</p>
+                            <h2>Tell me what you're building</h2>
+                        </div>
+                        <div class="contact-form-badge">1-2 day reply</div>
+                    </div>
+
+                    <div class="contact-interest-block">
+                        <p class="contact-interest-label">I'm interested in...</p>
+                        <div class="contact-interest-grid">
+                            <button type="button" class="contact-chip active" data-interest="UI/UX design">UI/UX design</button>
+                            <button type="button" class="contact-chip" data-interest="Web design">Web design</button>
+                            <button type="button" class="contact-chip" data-interest="Graphic design">Graphic design</button>
+                            <button type="button" class="contact-chip" data-interest="Design system">Design system</button>
+                            <button type="button" class="contact-chip" data-interest="Other">Other</button>
+                        </div>
+                    </div>
+
+                    <label class="contact-field">
+                        <span>Your name</span>
+                        <input type="text" id="contact-name" name="user_name" required>
+                    </label>
+
+                    <label class="contact-field">
+                        <span>Your email</span>
+                        <input type="email" id="contact-email" name="user_email" required>
+                    </label>
+
+                    <label class="contact-field">
+                        <span>Your message</span>
+                        <textarea id="contact-message" name="message" rows="5" required></textarea>
+                    </label>
+
+                    <button type="submit" class="contact-submit">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                        <span>Send Message</span>
+                    </button>
+                    <p class="contact-form-status" id="contact-form-status" aria-live="polite"></p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <div class="copyright">
+        <p>© 2026 Zoya Abbasi. Built with ♥</p>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function() {
+            const EMAILJS_CONFIG = {
+                publicKey: "kMGhI-hVRSUA4w8sX",
+                serviceID: "service_jcdax7j",
+                templateID: "template_yd1mizo"
+            };
+
+            const chips = Array.from(document.querySelectorAll(".contact-chip"));
+            const form = document.getElementById("contact-form");
+            const status = document.getElementById("contact-form-status");
+            const interestInput = document.getElementById("contact-interest-input");
+            const submitButton = form.querySelector(".contact-submit");
+            let statusTimer = null;
+
+            emailjs.init({
+                publicKey: EMAILJS_CONFIG.publicKey
+            });
+
+            function showStatus(message, type) {
+                if (statusTimer) {
+                    clearTimeout(statusTimer);
+                }
+
+                status.textContent = message;
+                status.classList.remove("is-error", "is-success", "is-hidden");
+
+                if (type) {
+                    status.classList.add(type);
+                }
+
+                statusTimer = setTimeout(function() {
+                    status.classList.add("is-hidden");
+                }, 3200);
+            }
+
+            chips.forEach(function(chip) {
+                chip.addEventListener("click", function() {
+                    chips.forEach(function(item) {
+                        item.classList.remove("active");
+                    });
+                    chip.classList.add("active");
+                    interestInput.value = chip.getAttribute("data-interest") || "Project inquiry";
+                });
+            });
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const missingConfig = Object.values(EMAILJS_CONFIG).some(function(value) {
+                    return !value || value.indexOf("YOUR_") === 0;
+                });
+
+                if (missingConfig) {
+                    showStatus("Add your EmailJS public key, service ID, and template ID in contact.html first.", "is-error");
+                    return;
+                }
+
+                submitButton.disabled = true;
+                showStatus("Sending message...");
+
+                emailjs.sendForm(
+                    EMAILJS_CONFIG.serviceID,
+                    EMAILJS_CONFIG.templateID,
+                    form
+                ).then(function() {
+                    form.reset();
+                    interestInput.value = "UI/UX design";
+                    chips.forEach(function(item, index) {
+                        item.classList.toggle("active", index === 0);
+                    });
+                    showStatus("Message sent successfully.", "is-success");
+                }).catch(function(error) {
+                    console.error("EmailJS error", error);
+                    showStatus("Message failed to send. Check your EmailJS template variables and keys.", "is-error");
+                }).finally(function() {
+                    submitButton.disabled = false;
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

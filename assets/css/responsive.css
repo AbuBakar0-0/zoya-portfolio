@@ -49,6 +49,34 @@
     .hero-portfolio p {
         width: 70%;
     }
+    .admin-panel-grid {
+        grid-template-columns: 1fr;
+    }
+    .admin-list-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .admin-project-card {
+        grid-template-columns: 1fr;
+    }
+    .admin-project-card img {
+        width: 100%;
+        height: 180px;
+    }
+    .contact-shell {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .contact-panel-left {
+        min-height: auto;
+        padding-right: 0;
+    }
+    .contact-panel-left h1 {
+        font-size: 3.8em;
+    }
+    .contact-form-top {
+        flex-direction: column;
+    }
 }
 
 /* Start @media(max-width:670px) */
@@ -97,11 +125,51 @@
     .works_4-columns .works-item {
         height: 50vh;
     }
+    .contact-panel-right {
+        padding: 22px 20px 24px;
+    }
+    .contact-page {
+        display: block;
+        padding-top: 105px;
+        padding-bottom: 36px;
+    }
+    .contact-interest-grid {
+        gap: 10px;
+    }
+    .contact-chip {
+        width: 100%;
+        text-align: center;
+    }
+    .contact-highlight-card {
+        max-width: 100%;
+    }
 }
 
 /* Start @media(max-width:470px) */
 
 @media (max-width: 470px) {
+    .admin-page {
+        padding-top: 110px;
+    }
+    .admin-hero h1 {
+        font-size: 3.2em;
+    }
+    .admin-card {
+        padding: 20px;
+        border-radius: 18px;
+    }
+    .contact-panel-left h1 {
+        font-size: 3.2em;
+    }
+    .contact-form-top h2 {
+        font-size: 1.9em;
+    }
+    .contact-detail-item {
+        font-size: 14px;
+    }
+    .contact-socials {
+        margin-top: 24px;
+    }
     .hero-content h1 {
         font-size: 5em;
         padding: 0 15px;

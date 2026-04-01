@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Zoya Abbasi</title>
+
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="logo">ZOYA ABBASI</a>
+            <a href="#" onclick="openNav()" class="nav-button" aria-label="Open navigation"><span class="fa fa-bars" aria-hidden="true"></span></a>
+            <nav id="navigation">
+                <a href="javascript:void(0)" onclick="closeNav()" class="close-btn" aria-label="Close navigation"><span class="fa fa-times" aria-hidden="true"></span></a>
+                <ul class="main-menu">
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="index.html#portfolio">portfolio</a></li>
+                    <li><a href="admin.html" class="active" aria-current="page">admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-page">
+        <section class="container admin-shell">
+            <div class="admin-hero">
+                <p class="tag">Portfolio Admin</p>
+                <h1>Manage Homepage Projects</h1>
+                <p class="admin-lede">Projects added here are saved in this browser and automatically appear on the homepage portfolio grid.</p>
+                <p class="admin-status" id="admin-status">Enter the admin passcode</p>
+            </div>
+
+            <section class="admin-card" id="admin-login">
+                <h2>Unlock Admin</h2>
+                <form id="admin-login-form" class="admin-form">
+                    <label for="admin-passcode">Passcode</label>
+                    <input id="admin-passcode" name="passcode" type="password" placeholder="Enter passcode" required>
+                    <button type="submit">Unlock</button>
+                    <p id="admin-login-feedback" class="admin-feedback"></p>
+                </form>
+            </section>
+
+            <section class="admin-card" id="admin-panel" style="display: none;">
+                <div class="admin-panel-grid">
+                    <div>
+                        <h2>Add Project</h2>
+                        <form id="admin-project-form" class="admin-form">
+                            <label for="project-title">Project title</label>
+                            <input id="project-title" name="title" type="text" placeholder="New project title" required>
+
+                            <label for="project-summary">Project subtitle</label>
+                            <input id="project-summary" name="summary" type="text" placeholder="Short one-line project summary" required>
+
+                            <label for="project-category">Category</label>
+                            <input id="project-category" name="category" type="text" placeholder="UX/UI Design, Branding" required>
+
+                            <label for="project-image">Thumbnail image path</label>
+                            <input id="project-image" name="imageSrc" type="text" placeholder="media/thumbnails/new-project.png" required>
+
+                            <label for="project-alt">Thumbnail alt text</label>
+                            <input id="project-alt" name="imageAlt" type="text" placeholder="Short thumbnail description">
+
+                            <label for="project-hero-image">Hero image path</label>
+                            <input id="project-hero-image" name="heroImageSrc" type="text" placeholder="media/project/project-hero.png">
+
+                            <label for="project-role">Role</label>
+                            <input id="project-role" name="role" type="text" placeholder="UX/UI Design, Research">
+
+                            <label for="project-timeline">Timeline</label>
+                            <input id="project-timeline" name="timeline" type="text" placeholder="Jan 2026 - Mar 2026">
+
+                            <label for="project-tools">Tools used</label>
+                            <input id="project-tools" name="tools" type="text" placeholder="Figma, Photoshop">
+
+                            <label for="project-overview">Overview</label>
+                            <textarea id="project-overview" name="overview" rows="5" placeholder="Write the overview. Use blank lines between paragraphs." required></textarea>
+
+                            <label for="project-challenge">Challenge</label>
+                            <textarea id="project-challenge" name="challenge" rows="5" placeholder="Describe the problem, constraints, or challenge."></textarea>
+
+                            <label for="project-solution">Solution</label>
+                            <textarea id="project-solution" name="solution" rows="5" placeholder="Describe the final approach, direction, and outcomes."></textarea>
+
+                            <button type="submit">Add project</button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <div class="admin-list-header">
+                            <h2>Custom Projects</h2>
+                            <button type="button" id="admin-clear-projects" class="admin-secondary-button">Clear all custom projects</button>
+                        </div>
+                        <p id="admin-empty-state" class="admin-empty-state">No custom projects yet.</p>
+                        <div id="admin-project-list" class="admin-project-list"></div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <div class="copyright">
+        <p>© 2026 Zoya Abbasi. Built with ♥</p>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/portfolio-admin.js"></script>
+</body>
+
+</html>
