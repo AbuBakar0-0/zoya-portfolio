@@ -282,6 +282,10 @@ header {
     text-decoration: none;
 }
 
+.main-menu li a.active {
+    color: #f8798f;
+}
+
 .main-menu li ul {
     display: none;
     position: absolute;
