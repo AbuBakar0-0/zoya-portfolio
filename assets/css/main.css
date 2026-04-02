@@ -652,6 +652,11 @@ img.header-large {
     text-align: left;
 }
 
+.single-project-info strong {
+    font-weight: 600;
+    color: #000;
+}
+
 .single-project-info p {
     font-family: soleil, sans-serif;
     font-weight: 300;
@@ -660,6 +665,21 @@ img.header-large {
     margin: 0;
     padding: 10px 0 0 0;
     font-size: 15px;
+    text-align: left;
+}
+
+.single-project-info ul {
+    list-style: disc;
+    margin: 8px 0 12px 22px;
+    padding: 0;
+}
+
+.single-project-info li {
+    font-family: soleil, sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 2px 0;
     text-align: left;
 }
 
