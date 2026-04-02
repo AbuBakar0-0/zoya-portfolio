@@ -1111,8 +1111,8 @@ Contact Page
 
 .contact-details {
     display: grid;
-    gap: 8px;
     max-width: 520px;
+    gap: 3px;
 }
 
 .contact-detail-item {
@@ -1123,7 +1123,7 @@ Contact Page
     max-width: 100%;
     color: #3d242b;
     font-size: 15px;
-    min-height: 46px;
+    min-height: 34px;
     border-radius: 14px;
 }
 
@@ -1164,12 +1164,13 @@ Contact Page
 
 .contact-panel-right {
     background:
-        radial-gradient(circle at top right, rgba(248, 121, 143, 0.14), transparent 26%),
-        linear-gradient(135deg, #cf4a59 0%, #d85b76 52%, #c63d51 100%);
+        radial-gradient(circle at top right, rgba(248, 121, 143, 0.18), transparent 28%),
+        linear-gradient(180deg, #fff8fa 0%, #fff1f4 100%);
     padding: 22px 24px 22px;
-    box-shadow: 0 30px 70px rgba(176, 0, 15, 0.18);
+    box-shadow: 0 24px 48px rgba(99, 36, 50, 0.12);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(198, 61, 81, 0.12);
 }
 
 .contact-panel-right::before {
@@ -1223,7 +1224,7 @@ Contact Page
 
 .contact-interest-label {
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.8);
+    color: #6b4a53;
     margin-bottom: 10px;
 }
 
@@ -1234,27 +1235,29 @@ Contact Page
 }
 
 .contact-chip {
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background: rgba(255, 255, 255, 0.12);
-    color: #fff;
+    border: 1px solid rgba(198, 61, 81, 0.14);
+    background: rgba(255, 255, 255, 0.92);
+    color: #6d4350;
     padding: 10px 14px;
     border-radius: 10px;
     cursor: pointer;
     font-size: 13px;
-    transition: background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+    font-weight: 500;
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
 .contact-chip:hover {
-    background: rgba(255, 255, 255, 0.18);
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.3);
+    background: #fff6f8;
+    color: #c63d51;
+    border-color: rgba(198, 61, 81, 0.34);
 }
 
 .contact-chip.active {
-    background: #fff;
-    color: #c63d51;
-    border-color: #fff;
-    box-shadow: 0 14px 28px rgba(255, 255, 255, 0.28);
+    background: #c63d51;
+    color: #ffffff;
+    border-color: #c63d51;
+    box-shadow: 0 12px 24px rgba(198, 61, 81, 0.24);
+    transform: translateY(-1px);
 }
 
 .contact-field {
@@ -1263,20 +1266,21 @@ Contact Page
 }
 
 .contact-field span {
-    color: rgba(255, 255, 255, 0.8);
+    color: #6b4a53;
     font-size: 14px;
 }
 
 .contact-field input,
 .contact-field textarea {
-    border: 0;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.35);
-    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(198, 61, 81, 0.14);
+    border-bottom: 2px solid rgba(198, 61, 81, 0.24);
+    background: rgba(255, 255, 255, 0.96);
     font-size: 15px;
-    color: #fff;
-    padding: 0 0 10px;
+    color: #2b2024;
+    padding: 14px 16px 12px;
     outline: none;
     font-family: soleil, sans-serif;
+    border-radius: 12px;
 }
 
 .contact-field textarea {
@@ -1284,9 +1288,16 @@ Contact Page
     min-height: 88px;
 }
 
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+    color: #9f7b86;
+}
+
 .contact-field input:focus,
 .contact-field textarea:focus {
-    border-bottom-color: #ffffff;
+    border-color: rgba(198, 61, 81, 0.24);
+    border-bottom-color: #c63d51;
+    box-shadow: 0 0 0 4px rgba(248, 121, 143, 0.12);
 }
 
 .contact-submit {
