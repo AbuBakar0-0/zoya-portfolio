@@ -643,6 +643,11 @@ img.header-large {
     font-weight: 600;
     font-size: 25px;
     text-align: left;
+    margin: 0;
+}
+
+.single-project-info h2:not(:first-child) {
+    margin-top: 28px;
 }
 
 .single-project-info b {
