@@ -924,6 +924,121 @@ Proj Nav
 }
 
 /*-----------------------------------------------------
+More Projects
+------------------------------------------------------*/
+
+.project-slider-section {
+    padding: 32px 0 72px;
+}
+
+.project-slider-shell {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 28px;
+}
+
+.project-slider-intro {
+    margin-bottom: 18px;
+}
+
+.project-slider-intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2em;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.project-slider-intro p {
+    color: #737373;
+    max-width: 520px;
+}
+
+.project-slider-track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(280px, 360px);
+    gap: 18px;
+    overflow-x: auto;
+    padding: 4px 2px 12px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(176, 0, 15, 0.3) transparent;
+}
+
+.project-slider-track::-webkit-scrollbar {
+    height: 8px;
+}
+
+.project-slider-track::-webkit-scrollbar-thumb {
+    background: rgba(176, 0, 15, 0.25);
+    border-radius: 999px;
+}
+
+.project-slider-card {
+    scroll-snap-align: start;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 18px 40px rgba(23, 18, 20, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    color: #222;
+}
+
+.project-slider-card:hover {
+    color: #222;
+    transform: translateY(-4px);
+    box-shadow: 0 24px 46px rgba(23, 18, 20, 0.12);
+}
+
+.project-slider-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-slider-card-body {
+    padding: 18px 18px 20px;
+}
+
+.project-slider-card-label {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #B0000F;
+    margin-bottom: 10px;
+}
+
+.project-slider-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4em;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.project-slider-card p {
+    color: #6f6f6f;
+}
+
+@media (max-width: 768px) {
+    .project-slider-section {
+        padding: 20px 0 56px;
+    }
+
+    .project-slider-intro h2 {
+        font-size: 2.7em;
+    }
+
+    .project-slider-track {
+        grid-auto-columns: minmax(240px, 84vw);
+    }
+
+    .project-slider-card img {
+        height: 180px;
+    }
+}
+
+/*-----------------------------------------------------
 Footer
 ------------------------------------------------------*/
 
