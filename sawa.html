@@ -23,6 +23,78 @@
             margin-right: auto;
         }
 
+        .zoomable-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: width .2s ease;
+        }
+
+        .inline-zoom {
+            position: relative;
+            margin: 20px 0 26px;
+        }
+
+        .inline-zoom-stage {
+            overflow: auto;
+            border-radius: 24px;
+            background: #fff;
+            border: 1px solid rgba(176, 0, 15, 0.10);
+            box-shadow: 0 22px 44px rgba(38, 20, 26, 0.08);
+            scroll-behavior: smooth;
+        }
+
+        .inline-zoom-stage img {
+            max-width: none;
+        }
+
+        .inline-zoom-controls {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .inline-zoom-button,
+        .inline-zoom-level {
+            border-radius: 999px;
+            min-height: 38px;
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            background: rgba(35, 19, 24, 0.72);
+            color: #fff;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .inline-zoom-button {
+            min-width: 38px;
+            padding: 0;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            transition: transform .2s ease, background-color .2s ease;
+        }
+
+        .inline-zoom-button:hover,
+        .inline-zoom-button:focus-visible {
+            background: rgba(176, 0, 15, 0.82);
+            transform: translateY(-1px);
+            outline: none;
+        }
+
+        .inline-zoom-level {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 68px;
+            padding: 0 12px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
             .single-project h1 {
                 font-size: 4.2em;
@@ -49,6 +121,33 @@
 
             .single-project-info h2:not(:first-child) {
                 margin-top: 38px;
+            }
+
+            .inline-zoom {
+                margin: 18px 0 22px;
+            }
+
+            .inline-zoom-stage {
+                border-radius: 18px;
+            }
+
+            .inline-zoom-controls {
+                top: 10px;
+                right: 10px;
+                gap: 6px;
+            }
+
+            .inline-zoom-button {
+                min-width: 34px;
+                min-height: 34px;
+                font-size: 18px;
+            }
+
+            .inline-zoom-level {
+                min-width: 60px;
+                min-height: 34px;
+                padding: 0 10px;
+                font-size: 12px;
             }
         }
     </style>
@@ -95,7 +194,7 @@
 
     <main>
 
-        <img class="header-large" src="media/sawa/sawa-heroshot.png" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" alt="Community App hero preview" class="img-responsive">
+        <img class="header-large zoomable-image" src="media/sawa/sawa-heroshot.png" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" alt="Community App hero preview">
 
 
 
@@ -294,7 +393,7 @@
                         <p>The product flow was designed to minimize friction and guide users toward participation.</p>
                         <p>Onboarding → Interest Selection → Personalized Feed → Event Details → Join Event → Temporary Chat → Attend → Feedback</p>
                         <p>Key decisions included reducing unnecessary steps during onboarding, prioritizing quick access to relevant events, and limiting interaction until user intent is clear.</p>
-                        <img src="media/sawa/user-flow.png" alt="Community App user flow diagram" class="img-responsive">
+                        <img src="media/sawa/user-flow.png" alt="Community App user flow diagram" class="img-responsive zoomable-image">
                     </div>
                 </section>
 
@@ -325,16 +424,16 @@
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         <h2>Design Process</h2>
                         <p><strong>1. Design System</strong><br>I built a scalable design system with a dark theme, consistent typography and spacing, and reusable components for scalability.</p>
-                        <img src="media/sawa/design-system.png" alt="Community App design system" class="img-responsive">
+                        <img src="media/sawa/design-system.png" alt="Community App design system" class="img-responsive zoomable-image">
 
                         <p><strong>2. Wireframing</strong><br>I focused on simplifying complex flows, reducing cognitive load, structuring multi-step interactions clearly, and prioritizing key actions like Join, Book, and Host.</p>
-                        <img src="media/sawa/wireframe.png" alt="Community App wireframing" class="img-responsive">
+                        <img src="media/sawa/wireframe.png" alt="Community App wireframing" class="img-responsive zoomable-image">
 
                         <p><strong>3. High-Fidelity UI</strong><br>Key design decisions included a card-based layout for quick scanning, strong contrast for readability, and clear CTAs to reduce decision friction.</p>
-                        <img id="fidelity-design" src="media/sawa/fidelity.png" alt="Community App high-fidelity UI" class="img-responsive">
+                        <img id="fidelity-design" src="media/sawa/fidelity.png" alt="Community App high-fidelity UI" class="img-responsive zoomable-image">
 
                         <p><strong>4. Admin Dashboard</strong><br>I also designed a powerful backend system to support user moderation, event approvals, reports, safety management, payments, and analytics.</p>
-                        <img src="media/sawa/admin.png" alt="Community App admin dashboard" class="img-responsive">
+                        <img src="media/sawa/admin.png" alt="Community App admin dashboard" class="img-responsive zoomable-image">
                     </div>
                 </section>
 
@@ -461,6 +560,99 @@
     <script src="assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="pages/js/script.js"></script>
+    <script>
+        (function () {
+            const zoomableImages = document.querySelectorAll('.zoomable-image');
+
+            if (!zoomableImages.length) {
+                return;
+            }
+
+            const minScale = 1;
+            const maxScale = 3;
+            const scaleStep = 0.25;
+
+            function clampScale(value) {
+                return Math.min(maxScale, Math.max(minScale, value));
+            }
+
+            zoomableImages.forEach(function (image) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'inline-zoom';
+
+                const controls = document.createElement('div');
+                controls.className = 'inline-zoom-controls';
+
+                const zoomOutButton = document.createElement('button');
+                zoomOutButton.type = 'button';
+                zoomOutButton.className = 'inline-zoom-button';
+                zoomOutButton.setAttribute('aria-label', 'Zoom out');
+                zoomOutButton.textContent = '-';
+
+                const zoomLevel = document.createElement('span');
+                zoomLevel.className = 'inline-zoom-level';
+                zoomLevel.textContent = '100%';
+
+                const zoomInButton = document.createElement('button');
+                zoomInButton.type = 'button';
+                zoomInButton.className = 'inline-zoom-button';
+                zoomInButton.setAttribute('aria-label', 'Zoom in');
+                zoomInButton.textContent = '+';
+
+                const stage = document.createElement('div');
+                stage.className = 'inline-zoom-stage';
+
+                image.parentNode.insertBefore(wrapper, image);
+                wrapper.appendChild(stage);
+                stage.appendChild(image);
+                wrapper.appendChild(controls);
+                controls.appendChild(zoomOutButton);
+                controls.appendChild(zoomLevel);
+                controls.appendChild(zoomInButton);
+
+                let currentScale = 1;
+
+                function updateZoom() {
+                    image.style.width = (currentScale * 100) + '%';
+                    zoomLevel.textContent = Math.round(currentScale * 100) + '%';
+                    zoomOutButton.disabled = currentScale <= minScale;
+                    zoomInButton.disabled = currentScale >= maxScale;
+                }
+
+                function changeZoom(delta) {
+                    const nextScale = clampScale(currentScale + delta);
+                    if (nextScale === currentScale) {
+                        return;
+                    }
+
+                    currentScale = nextScale;
+                    updateZoom();
+                }
+
+                zoomInButton.addEventListener('click', function () {
+                    changeZoom(scaleStep);
+                });
+
+                zoomOutButton.addEventListener('click', function () {
+                    changeZoom(-scaleStep);
+                    if (currentScale === 1) {
+                        stage.scrollLeft = 0;
+                    }
+                });
+
+                stage.addEventListener('wheel', function (event) {
+                    if (!event.ctrlKey && !event.metaKey) {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    changeZoom(event.deltaY < 0 ? scaleStep : -scaleStep);
+                }, { passive: false });
+
+                updateZoom();
+            });
+        }());
+    </script>
 
     <!-- <script>AOS.init();</script> -->
 
