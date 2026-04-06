@@ -5,8 +5,8 @@
     <!-- Metas -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Fit2B | Zoya Abbasi</title>
-    <meta name="description" content="Fit2B">
+    <title>Cylo | Zoya Abbasi</title>
+    <meta name="description" content="Cylo case study">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -23,6 +23,41 @@
     <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
 
+    <style>
+        body.cylo-page .cylo-specs-row {
+            width: 96%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body.cylo-page .single-project-info h2 {
+            font-size: 34px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+
+        body.cylo-page .single-project-info p > b {
+            display: inline-block;
+            font-size: 21px;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        body.cylo-page .single-project-info p + ul {
+            margin-top: 14px;
+        }
+
+        @media (max-width: 768px) {
+            body.cylo-page .single-project-info h2 {
+                font-size: 28px;
+            }
+
+            body.cylo-page .single-project-info p > b {
+                font-size: 18px;
+            }
+        }
+    </style>
+
     <!-- Javascript -->
     <!--
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -31,7 +66,7 @@
 
 </head>
 
-<body>
+<body class="cylo-page">
 
     <!-- Header -->
 
@@ -60,7 +95,7 @@
 
     <main>
 
-        <img class="header-large" src="media/cylo/cylo.png" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" alt="Halo Product Hero-Shot" class="img-responsive">
+        <img class="header-large" src="media/cylo/cylo.png" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" alt="Cylo product hero shot" class="img-responsive">
 
         <div class="sticky">
             <nav class="section-nav">
@@ -68,27 +103,32 @@
                     <li class="scrollspy"><a href="#intro">📋</a></li>
                     <li class="scrollspy"><a href="#overview">Overview</a>
                         <ul class="scrollspy-list">
-                            <li class="scrollspy"><a href="#overview--team">The Team</a></li>
+                            <li class="scrollspy"><a href="#overview--features">Key Features</a></li>
                         </ul>
                     </li>
                     <li class="scrollspy"><a href="#problem">Problem</a>
                         <ul class="scrollspy-list">
-                            <li class="scrollspy"><a href="#problem--pain-points">Pain Points</a></li>
+                            <li class="scrollspy"><a href="#problem--challenges">Key Challenges</a></li>
+                            <li class="scrollspy"><a href="#problem--opportunity">Opportunity</a></li>
                         </ul>
                     </li>
-                    <li class="scrollspy"><a href="#brand">Brand Identity</a>
+                    <li class="scrollspy"><a href="#goal">Goal</a>
+                    </li>
+                    <li class="scrollspy"><a href="#process">Process</a>
                         <ul class="scrollspy-list">
-                            <li class="scrollspy"><a href="#brand--logo">Logo Design</a></li>
-                            <li class="scrollspy"><a href="#brand--guidelines">Brand Guidelines</a></li>
+                            <li class="scrollspy"><a href="#process--research">Research</a></li>
+                            <li class="scrollspy"><a href="#process--define">Define & Ideate</a></li>
+                            <li class="scrollspy"><a href="#process--flow">User Flow</a></li>
+                            <li class="scrollspy"><a href="#process--design">Design & Prototype</a></li>
+                            <li class="scrollspy"><a href="#process--testing">Testing</a></li>
                         </ul>
                     </li>
-                    <li class="scrollspy"><a href="#gamification">Gamification</a>
+                    <li class="scrollspy"><a href="#reflection">Reflection</a>
                         <ul class="scrollspy-list">
-                            <li class="scrollspy"><a href="#gameification--progress-bar">Progress Bar</a></li>
-                            <li class="scrollspy"><a href="#gamification--levels">Levels</a></li>
+                            <li class="scrollspy"><a href="#reflection--web">Cylo Web Platform</a></li>
                         </ul>
                     </li>
-                    <li class="scrollspy"><a href="#takeaways">Takeaways</a>
+                    <li class="scrollspy"><a href="#result">Final Result</a>
                     </li>
                 </ol>
             </nav>
@@ -99,10 +139,10 @@
             <div class="single-project">
                 <section class="new-section" id="intro">
 
-                    <h1>Fit2B</h1>
-                    <h2 class="header2" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Asthma & Weight Tracker</h2>
+                    <h1>Cylo</h1>
+                    <h2 class="header2" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">A Smart Period & Wellness Tracking Experience</h2>
 
-                    <div class="row row-tagline" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                    <div class="row row-tagline cylo-specs-row" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
 
                         <div class="col l2 offset-l1 m2">
                             <ul class="specs">
@@ -110,7 +150,7 @@
                                     <p class="specs-title">Role:</p>
                                 </li>
                                 <li>
-                                    <p class="specs-list">UX/UI Design<br>Gamification<br>Brand Identity</p>
+                                    <p class="specs-list">UX/UI Design<br>Product Strategy<br>Design System</p>
                                 </li>
                             </ul>
                         </div>
@@ -120,7 +160,7 @@
                                     <p class="specs-title">Category:</p>
                                 </li>
                                 <li>
-                                    <p class="specs-list">Internship @ UT Austin</p>
+                                    <p class="specs-list">Health & Wellness App</p>
                                 </li>
                             </ul>
                         </div>
@@ -130,7 +170,7 @@
                                     <p class="specs-title">Timeline:</p>
                                 </li>
                                 <li>
-                                    <p class="specs-list">Jan - June 2022</p>
+                                    <p class="specs-list">Case Study</p>
                                 </li>
                             </ul>
                         </div>
@@ -140,16 +180,16 @@
                                     <p class="specs-title">Tools Used:</p>
                                 </li>
                                 <li>
-                                    <p class="specs-list">Figma<br>Adobe Illustrator</p>
+                                    <p class="specs-list">Figma<br>Prototyping</p>
                                 </li>
                             </ul>
                         </div>
                         <div class="col s12">
                             <div class="specs-mobile">
-                                <p><b>Role:</b> UX/UI Design, Gamification, Brand Identity</p>
-                                <p><b>Category:</b> Internship @ UT Austin</p>
-                                <p><b>Timeline:</b> Jan 2022 - Current</p>
-                                <p><b>Tools Used:</b> Figma, Illustrator</p>
+                                <p><b>Role:</b> UX/UI Design, Product Strategy, Design System</p>
+                                <p><b>Category:</b> Health & Wellness App</p>
+                                <p><b>Timeline:</b> Case Study</p>
+                                <p><b>Tools Used:</b> Figma, Prototyping</p>
                             </div>
                         </div>
                     </div>
@@ -158,135 +198,249 @@
                 <section class="new-section" id="overview">
 
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                        <h2>Overview</h2>
-                        <p>At UT Austin I worked in the <a href="https://sites.utexas.edu/sagalab/people/" target="_blank">Simulation & Game Application Lab</a> as a UX/UI Design Intern. The project I worked on was to build an app which would be used as
-                            part of a research study for the <a href="https://nursing.utexas.edu/" target="_blank">School of Nursing</a>.
+                        <h2>Project Overview</h2>
+                        <p>Cylo is a health and wellness application designed to simplify menstrual cycle tracking while supporting daily well-being through habits, reminders, and personalized insights.</p>
+                        <p>The goal was to move beyond traditional period tracking apps by creating a holistic experience where users can manage their cycle, track symptoms, and build healthy routines all in one place.</p>
                     </div>
 
                 </section>
 
-                <section class="new-section" id="overview--team">
+                <section class="new-section" id="overview--features">
 
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                        <p><b>The Team</b></p>
-                        <img src="media/fit2b/meet-the-team.png" alt="Fit2B Student Team" class="img-responsive">
+                        <p><b>Key Features</b></p>
+                        <ul>
+                            <li>📅 Period and cycle tracking</li>
+                            <li>🧠 Mood and symptom logging</li>
+                            <li>💧 Water intake tracking</li>
+                            <li>⏰ Smart reminders for period, medication, and hydration</li>
+                            <li>📊 Health insights and reports</li>
+                            <li>🧘 Wellness content including tips, yoga, and blogs</li>
+                            <li>🎨 Customizable dashboard</li>
+                            <li>🌙 Dark and light mode</li>
+                        </ul>
                     </div>
                 </section>
 
                 <section class="new-section" id="problem">
 
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                        <h2>Problem</h2>
-                        <p>Our user personas targeted teens struggling to manage their asthma. The base and user flow of the app was designed prior to me joining, but it was bare-boned. We needed to conduct user interviews to elicit pain points with the
-                            current app flow.</p>
+                        <h2>Problem Statement</h2>
+                        <p>Managing menstrual health is often fragmented and inconsistent across existing applications.</p>
                     </div>
                 </section>
 
-                <section class="new-section" id="problem--pain-points">
+                <section class="new-section" id="problem--challenges">
 
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
 
-                        <p><b>User Pain Points</b></p>
-
-                        <p>The top three pain points that I discovered through interviews were:</p>
-                        <h2>
-                            <center><br>1. The app design was too "boring"<br><br>2. Users did not find the app very useful<br><br>3. The onboarding process was too long and unorganized</center>
-                        </h2>
-
-                    </div>
-                </section>
-
-                <section class="new-section" id="brand">
-
-                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                        <h2>Brand Identity</h2>
-                        <p>In order to increase teen engagement, we needed to make the app inviting and visually appealing. We created mood boards to zero in on the direction we needed to go. Visuals that used <strong>primary colors, geometric shapes, and black outlines</strong>                            were particularly appealing to teens. This style also emphasized youthfullness while still maintaining a reasonable level of professionalism.</p>
-
-                        <img src="media/fit2b/icon-variations.png" alt="Fit2B Icon Variations" class="img-responsive">
+                        <p><b>Key Challenges</b></p>
+                        <ul>
+                            <li>Users struggle to track multiple aspects (cycle, mood, symptoms, hydration) in one place.</li>
+                            <li>Existing solutions are either:
+                                <ul>
+                                    <li>Too clinical and overwhelming</li>
+                                    <li>Too basic with limited functionality</li>
+                                </ul>
+                            </li>
+                            <li>High effort required for daily logging</li>
+                            <li>Reminder systems lack flexibility and context.</li>
+                            <li>Overloaded interfaces reduce engagement and consistency.</li>
+                        </ul>
 
                     </div>
                 </section>
 
-                <section class="new-section" id="brand--logo">
+                <section class="new-section" id="problem--opportunity">
 
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-
-                        <p><b>Logo Design</b></p>
-
-                        <p>The logo icon is inspired by the "L" shape of an inhaler with a running motion. My goal with the icon was to create something that was universally recognized, as well as androgynous beacause the product is meant to be used by all.
-                            For the full logo, I wanted a font that worked well with the energy of the icon, so I went with something italicized, which perfectly conveyed motion.</p>
-
-                        <img src="media/fit2b/logo-variations.png" alt="Fit2B Logo Variations" class="img-responsive">
-
-                        <img src="media/fit2b/app-icon.png" alt="Fit2B App Icon" class="img-responsive">
+                        <h2>Opportunity</h2>
+                        <p>Design a calm, intuitive, and all-in-one wellness companion that:</p>
+                        <ul>
+                            <li>Reduces effort in daily tracking</li>
+                            <li>Combines health and habit tracking</li>
+                            <li>Provides meaningful and easy-to-understand insights</li>
+                            <li>Encourages consistent engagement through smart reminders</li>
+                        </ul>
                     </div>
                 </section>
 
-                <section class="new-section" id="brand--guidelines">
+                <section class="new-section" id="goal">
 
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-
-                        <p><b>Brand Guidelines</b></p>
-
-                        <img src="media/fit2b/brand-identity.png" alt="Fit2B Brand Guidelines" class="img-responsive">
-
+                        <h2>Goal</h2>
+                        <p>Design a simple, engaging, and intelligent wellness app that:</p>
+                        <ul>
+                            <li>centralizes health tracking</li>
+                            <li>improves consistency through reminders</li>
+                            <li>provides actionable insights</li>
+                            <li>creates a calm, non-intimidating user experience</li>
+                        </ul>
                     </div>
                 </section>
 
-                <section class="new-section" id="gamification">
-
+                <section class="new-section" id="process">
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                        <h2>Gamification</h2>
-
-                        <p>In order to <strong>increase the 'fun' factor</strong> for teens going through the onboarding process, I added elements of gamification to it.
-                            <br><br> While sketching the app interfaces, I was able to discern what screens and features from my initial brainstorm were valuable and what was superficious. I was also able to determine the navigation as well as figure
-                            out a basic idea of how I wanted the UI and visual aesthetics of the app to look. After several iterations, the design was polished enough that I could ask some potential users to go through the screens and flows. They were
-                            able to provide valuable feedback which I made notes of.</p>
-
+                        <h2>Design Process</h2>
                     </div>
                 </section>
 
-                <section class="new-section" id="gameification--progress-bar">
-
+                <section class="new-section" id="process--research">
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-
-                        <p><b>Progress Bar</b></p>
-
-                        <p>I added a progress bar to give a visual cue of how much is left during each level of the onboarding. Encouraging messages pushed users to continue on.</p>
-
-                        <br><br>
-
-                        <img src="media/fit2b/progress-bar.gif" alt="Fit2B Progress Bar Gif" class="img-responsive">
+                        <p><b>1. Research - Competitive Analysis</b></p>
+                        <p>Analyzed apps such as:</p>
+                        <ul>
+                            <li>Flo</li>
+                            <li>Clue</li>
+                            <li>My Calendar</li>
+                        </ul>
+                        <p><b>Insights</b></p>
+                        <ul>
+                            <li>Most apps focus only on cycle tracking.</li>
+                            <li>Habit tracking integration for water and medication is limited.</li>
+                            <li>Dashboard customization is weak.</li>
+                            <li>Many interfaces feel overloaded or outdated.</li>
+                        </ul>
                     </div>
                 </section>
 
-                <section class="new-section" id="gamification--levels">
-
+                <section class="new-section" id="process--define">
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-
-                        <p><b>Levels</b></p>
-
-                        <p>By using levels, I was able to turn the whole process of user interaction during onboarding into an exciting journey with different stages. I did this by grouping different questions and steps into three categories: setting personalized
-                            goals, medical information, and basic information. This was done tactfully, making the more tedious steps first, and the quick, easy personal questions at the end so users don't get bored.</p>
-
-                        <img src="media/fit2b/levels.png" alt="Fit2B Onboarding Levels" class="img-responsive">
+                        <p><b>2. Define &amp; Ideate - Key Ideas</b></p>
+                        <ul>
+                            <li>Create a modular dashboard.</li>
+                            <li>Reduce friction in logging through quick actions.</li>
+                            <li>Use visual indicators like colors, icons, and cycle patterns.</li>
+                            <li>Provide contextual reminders.</li>
+                            <li>Blend health and lifestyle content into one experience.</li>
+                        </ul>
                     </div>
                 </section>
 
-                <section class="new-section" id="takeaways">
+                <section class="new-section" id="process--flow">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <p><b>3. User Flow</b></p>
+                        <p><b>Main flows:</b></p>
+                        <ul>
+                            <li>Onboarding to personalization</li>
+                            <li>Daily tracking to dashboard</li>
+                            <li>Add logs to insights</li>
+                            <li>Reminders to actions</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="new-section" id="process--design">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <p><b>4. Design &amp; Prototype</b></p>
+                        <p><b>Design System</b></p>
+                        <ul>
+                            <li>Primary color: soft pink for health and warmth</li>
+                            <li>Dark mode for comfort and accessibility</li>
+                            <li>Clean typography hierarchy</li>
+                            <li>Rounded components for a friendly feel</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="new-section" id="process--design-2">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>Key Screens</h2>
+                            <p><b>Onboarding and personalization:</b></p>
+                            <ul>
+                                <li>Users enter cycle length, goals, and preferences</li>
+                                <li>Smooth step-by-step onboarding flow</li>
+                            </ul>
+                                
+                            <p><b>Dashboard experience:</b></p>
+                            <ul>
+                                <li>Central hub with cycle status, daily insights, quick actions, and customizable widgets</li>
+                            </ul>
+                            <p><b>Tracking and logging:</b></p>
+                            <ul>
+                            <li>Log symptoms, mood, and water intake</li>
+                            <li>Minimal effort input for daily use</li>
+                            </ul>
+                            <p><b>Reminders and notifications:</b></p>
+                            <ul>
+                                <li>Period alerts, water reminders, medication tracking</li>
+                                <li>Flexible and context-aware reminder system</li>
+                            </ul>
+                            <p><b>Content & Insights:</b></p>
+                            <ul>
+                                <li>Educational content, health summaries, personalized insights</li>
+                         </ul>
+                        <p><b>Prototype:</b></p>
+                            <ul>
+                                <li>Includes full navigation flows, interactive transitions, and state handling (empty, active, success)</li>
+                         </ul>
+                    </div>
+                </section>
+
+                <section class="new-section" id="process--testing">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <p><b>5. Testing</b></p>
+                        <p><b>Usability Testing Goals</b></p>
+                        <ul>
+                            <li>Can users complete onboarding easily?</li>
+                            <li>Can users log data quickly?</li>
+                            <li>Do users understand dashboard insights?</li>
+                        </ul>
+                        <p><b>Key Findings</b></p>
+                        <ul>
+                            <li>Users preferred quick logging through chips and buttons.</li>
+                            <li>Visual feedback was more effective than text-heavy data.</li>
+                        </ul>
+                        <p><b>Improvements Made</b></p>
+                        <ul>
+                            <li>Reduced steps in input flows.</li>
+                            <li>Improved CTA visibility.</li>
+                            <li>Simplified navigation.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="new-section" id="reflection">
 
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                        <h2>Takeaways</h2>
+                        <h2>Documentation &amp; Reflection</h2>
+                        <p><b>Documentation</b></p>
+                        <ul>
+                            <li>Component system created</li>
+                            <li>Reusable UI elements</li>
+                            <li>Developer handoff-ready screens</li>
+                        </ul>
+                        <p><b>Reflection</b></p>
+                        <p><b>What Worked</b></p>
+                        <ul>
+                            <li>Clean UI improved engagement.</li>
+                            <li>Modular dashboard increased flexibility.</li>
+                            <li>Reminder system supported habit building.</li>
+                        </ul>
+                        <p><b>What Could Improve</b></p>
+                        <ul>
+                            <li>More personalization using AI</li>
+                            <li>Deeper analytics</li>
+                            <li>Social and community features</li>
+                        </ul>
+                    </div>
+                </section>
 
-                        <p>I learnt a lot from this internship. Particularly, the value of teamwork and collaboration. I had to work with developers and convey my design ideas to them, to code. I also worked with end users and learned how to ask questions
-                            to get their true feedback without leading them to an answer.
-                            <br><br> Overall, the internship taught me the complex process that goes into creating a live app.</p>
+                <section class="new-section" id="reflection--web">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>Cylo Web Platform</h2>
+                        <p>Cylo extends beyond mobile to deliver a seamless experience across web platforms, allowing users to access health insights anytime, anywhere.</p>
+                        <p>The web experience maintains consistency with the mobile app while adapting to larger screens for improved readability, data visualization, and ease of navigation.</p>
+                        <p>Users can effortlessly track their cycle, monitor wellness activities, and explore personalized insights through a clean and intuitive interface.</p>
+                        <p>Designed to provide a unified health tracking experience across devices.</p>
+                    </div>
+                </section>
 
-                        <p>
-                            <a href="#intro">
-                                <p>Back to top ↑</p>
-                            </a>
-                        </p>
+                <section class="new-section" id="result">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>Final Result</h2>
+                        <p>Cylo offers a smooth, engaging, and comprehensive approach to menstrual and wellness tracking by integrating cycle data, habits, and personalized insights into one seamless experience.</p>
+                        <p><a href="#intro">Back to top ↑</a></p>
                     </div>
 
 
