@@ -64,6 +64,12 @@
             scroll-behavior: smooth;
         }
 
+        .inline-zoom-stage.is-zoomed {
+            max-height: 82vh;
+            overscroll-behavior: contain;
+            touch-action: none;
+        }
+
         .inline-zoom-stage.is-dragging {
             cursor: grabbing;
             scroll-behavior: auto;
@@ -666,9 +672,12 @@
                     zoomLevel.textContent = Math.round(currentScale * 100) + '%';
                     zoomOutButton.disabled = currentScale <= minScale;
                     zoomInButton.disabled = currentScale >= maxScale;
+                    stage.classList.toggle('is-zoomed', currentScale > minScale);
 
                     if (currentScale <= minScale) {
                         stopDragging();
+                        stage.scrollLeft = 0;
+                        stage.scrollTop = 0;
                     }
                 }
 
@@ -688,9 +697,6 @@
 
                 zoomOutButton.addEventListener('click', function () {
                     changeZoom(-scaleStep);
-                    if (currentScale === 1) {
-                        stage.scrollLeft = 0;
-                    }
                 });
 
                 stage.addEventListener('wheel', function (event) {
