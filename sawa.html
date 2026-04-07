@@ -60,11 +60,18 @@
             background: #fff;
             border: 1px solid rgba(176, 0, 15, 0.10);
             box-shadow: 0 22px 44px rgba(38, 20, 26, 0.08);
+            cursor: grab;
             scroll-behavior: smooth;
+        }
+
+        .inline-zoom-stage.is-dragging {
+            cursor: grabbing;
+            scroll-behavior: auto;
         }
 
         .inline-zoom-stage img {
             max-width: none;
+            user-select: none;
         }
 
         .inline-zoom-controls {
@@ -630,12 +637,39 @@
                 controls.appendChild(zoomInButton);
 
                 let currentScale = 1;
+                let isDragging = false;
+                let startX = 0;
+                let startY = 0;
+                let startScrollLeft = 0;
+                let startScrollTop = 0;
+
+                function canPan() {
+                    return currentScale > minScale &&
+                        (stage.scrollWidth > stage.clientWidth || stage.scrollHeight > stage.clientHeight);
+                }
+
+                function stopDragging(event) {
+                    if (!isDragging) {
+                        return;
+                    }
+
+                    isDragging = false;
+                    stage.classList.remove('is-dragging');
+
+                    if (event && stage.hasPointerCapture(event.pointerId)) {
+                        stage.releasePointerCapture(event.pointerId);
+                    }
+                }
 
                 function updateZoom() {
                     image.style.width = (currentScale * 100) + '%';
                     zoomLevel.textContent = Math.round(currentScale * 100) + '%';
                     zoomOutButton.disabled = currentScale <= minScale;
                     zoomInButton.disabled = currentScale >= maxScale;
+
+                    if (currentScale <= minScale) {
+                        stopDragging();
+                    }
                 }
 
                 function changeZoom(delta) {
@@ -667,6 +701,33 @@
                     event.preventDefault();
                     changeZoom(event.deltaY < 0 ? scaleStep : -scaleStep);
                 }, { passive: false });
+
+                stage.addEventListener('pointerdown', function (event) {
+                    if (!canPan() || event.button !== 0) {
+                        return;
+                    }
+
+                    isDragging = true;
+                    startX = event.clientX;
+                    startY = event.clientY;
+                    startScrollLeft = stage.scrollLeft;
+                    startScrollTop = stage.scrollTop;
+                    stage.classList.add('is-dragging');
+                    stage.setPointerCapture(event.pointerId);
+                });
+
+                stage.addEventListener('pointermove', function (event) {
+                    if (!isDragging) {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    stage.scrollLeft = startScrollLeft - (event.clientX - startX);
+                    stage.scrollTop = startScrollTop - (event.clientY - startY);
+                });
+
+                stage.addEventListener('pointerup', stopDragging);
+                stage.addEventListener('pointercancel', stopDragging);
 
                 updateZoom();
             });
