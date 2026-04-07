@@ -95,18 +95,24 @@
 
         body.cylo-page .cylo-screen-theme-toggle {
             display: inline-flex;
-            gap: 8px;
-            margin: 20px 0 4px;
-            padding: 4px;
+            gap: 6px;
+            margin: 20px auto 8px;
+            padding: 5px;
             border: 1px solid rgba(176, 0, 15, 0.14);
             border-radius: 999px;
-            background: #fff;
-            box-shadow: 0 12px 28px rgba(38, 20, 26, 0.08);
+            background: rgba(255, 255, 255, 0.86);
+            box-shadow: 0 14px 32px rgba(38, 20, 26, 0.10);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         body.cylo-page .cylo-screen-theme-toggle button {
-            min-width: 86px;
-            min-height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            min-width: 92px;
+            min-height: 38px;
             border: 0;
             border-radius: 999px;
             background: transparent;
@@ -115,12 +121,25 @@
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color .2s ease, color .2s ease;
+            transition: background-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+        }
+
+        body.cylo-page .cylo-screen-theme-toggle button .cylo-theme-icon {
+            display: block;
+            width: 17px;
+            height: 17px;
+        }
+
+        body.cylo-page .cylo-screen-theme-toggle button:hover {
+            color: #B0000F;
+            background: rgba(248, 121, 143, 0.12);
         }
 
         body.cylo-page .cylo-screen-theme-toggle button.is-active {
             background: #F8798F;
             color: #fff;
+            box-shadow: 0 8px 18px rgba(176, 0, 15, 0.18);
+            transform: translateY(-1px);
         }
 
         body.cylo-page .cylo-screen-theme-toggle button:focus-visible {
@@ -271,7 +290,7 @@
             }
 
             body.cylo-page .cylo-screen-theme-toggle button {
-                min-width: 78px;
+                min-width: 84px;
                 min-height: 34px;
                 font-size: 12px;
             }
@@ -602,8 +621,19 @@
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         <p><strong>Key Screens</strong></p>
                         <div class="cylo-screen-theme-toggle" role="group" aria-label="Key screen theme">
-                            <button type="button" class="is-active" data-cylo-theme="light" aria-pressed="true">Light</button>
-                            <button type="button" data-cylo-theme="dark" aria-pressed="false">Dark</button>
+                            <button type="button" class="is-active" data-cylo-theme="light" aria-label="Show light mode screens" aria-pressed="true" title="Light mode">
+                                <svg class="cylo-theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <circle cx="12" cy="12" r="4.5" fill="currentColor"></circle>
+                                    <path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.55 1.55M17.75 17.75l1.55 1.55M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.55-1.55M17.75 6.25l1.55-1.55" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                                </svg>
+                                <span>Light</span>
+                            </button>
+                            <button type="button" data-cylo-theme="dark" aria-label="Show dark mode screens" aria-pressed="false" title="Dark mode">
+                                <svg class="cylo-theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <path d="M20.2 14.2A7.7 7.7 0 0 1 9.8 3.8a8.8 8.8 0 1 0 10.4 10.4Z" fill="currentColor"></path>
+                                </svg>
+                                <span>Dark</span>
+                            </button>
                         </div>
                         <section class="key-screen" id="key--screens-onboarding">
                             <strong>Onboarding and personalization:</strong>
