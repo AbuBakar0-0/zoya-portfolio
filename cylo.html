@@ -88,15 +88,53 @@
             margin-top: 90px;
         }
 
-        body.cylo-page #key--screens .single-project-info > p + .key-screen {
+        body.cylo-page #key--screens .single-project-info > p + .key-screen,
+        body.cylo-page #key--screens .cylo-screen-theme-toggle + .key-screen {
             margin-top: 22px;
         }
 
-        body.cylo-page #key--screens .key-screen > img {
+        body.cylo-page .cylo-screen-theme-toggle {
+            display: inline-flex;
+            gap: 8px;
+            margin: 20px 0 4px;
+            padding: 4px;
+            border: 1px solid rgba(176, 0, 15, 0.14);
+            border-radius: 999px;
+            background: #fff;
+            box-shadow: 0 12px 28px rgba(38, 20, 26, 0.08);
+        }
+
+        body.cylo-page .cylo-screen-theme-toggle button {
+            min-width: 86px;
+            min-height: 36px;
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: #737373;
+            font-family: soleil, sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color .2s ease, color .2s ease;
+        }
+
+        body.cylo-page .cylo-screen-theme-toggle button.is-active {
+            background: #F8798F;
+            color: #fff;
+        }
+
+        body.cylo-page .cylo-screen-theme-toggle button:focus-visible {
+            outline: 2px solid #B0000F;
+            outline-offset: 2px;
+        }
+
+        body.cylo-page #key--screens .key-screen > img,
+        body.cylo-page #key--screens .key-screen > .inline-zoom {
             margin-bottom: 36px;
         }
 
-        body.cylo-page #key--screens .key-screen:last-child > img {
+        body.cylo-page #key--screens .key-screen:last-child > img,
+        body.cylo-page #key--screens .key-screen:last-child > .inline-zoom {
             margin-bottom: 0;
         }
 
@@ -223,11 +261,23 @@
                 margin-top: 30px;
             }
 
-            body.cylo-page #key--screens .single-project-info > p + .key-screen {
+            body.cylo-page #key--screens .single-project-info > p + .key-screen,
+            body.cylo-page #key--screens .cylo-screen-theme-toggle + .key-screen {
                 margin-top: 16px;
             }
 
-            body.cylo-page #key--screens .key-screen > img {
+            body.cylo-page .cylo-screen-theme-toggle {
+                margin-top: 16px;
+            }
+
+            body.cylo-page .cylo-screen-theme-toggle button {
+                min-width: 78px;
+                min-height: 34px;
+                font-size: 12px;
+            }
+
+            body.cylo-page #key--screens .key-screen > img,
+            body.cylo-page #key--screens .key-screen > .inline-zoom {
                 margin-bottom: 26px;
             }
 
@@ -551,33 +601,37 @@
                 <section class="new-section" id="key--screens">
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         <p><strong>Key Screens</strong></p>
+                        <div class="cylo-screen-theme-toggle" role="group" aria-label="Key screen theme">
+                            <button type="button" class="is-active" data-cylo-theme="light" aria-pressed="true">Light</button>
+                            <button type="button" data-cylo-theme="dark" aria-pressed="false">Dark</button>
+                        </div>
                         <section class="key-screen" id="key--screens-onboarding">
                             <strong>Onboarding and personalization:</strong>
-                            <img src="media/cylo/onboarding-light.png" alt="Onboarding screen with cycle tracking and habit selection in light mode" class="img-responsive zoomable-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                            <img src="media/cylo/onboarding-light.png" data-light="media/cylo/onboarding-light.png" data-dark="media/cylo/onboarding-dark.png" alt="Onboarding screen with cycle tracking and habit selection in light mode" class="img-responsive zoomable-image cylo-theme-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         </section>
                         <section class="key-screen" id="key--screens-dashboard">
                             <strong>Dashboard experience:</strong>
-                            <img src="media/cylo/dashboard-light.png" alt="Dashboard screen with cycle tracking and habit insights in light mode" class="img-responsive zoomable-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                            <img src="media/cylo/dashboard-light.png" data-light="media/cylo/dashboard-light.png" alt="Dashboard screen with cycle tracking and habit insights in light mode" class="img-responsive zoomable-image cylo-theme-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         </section>
                         <section class="key-screen" id="key--screens-calendar">
                             <strong>Calendar &amp; Reminders:</strong>
-                            <img src="media/cylo/calendar-light.png" alt="Calendar screen with cycle overview and reminder settings in light mode" class="img-responsive zoomable-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                            <img src="media/cylo/calendar-light.png" data-light="media/cylo/calendar-light.png" alt="Calendar screen with cycle overview and reminder settings in light mode" class="img-responsive zoomable-image cylo-theme-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         </section>
                         <section class="key-screen" id="key--screens-content">
                             <strong>Content &amp; Insights:</strong>
-                            <img src="media/cylo/content-light.png" alt="Content screen with educational resources and insights in light mode" class="img-responsive zoomable-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                            <img src="media/cylo/content-light.png" data-light="media/cylo/content-light.png" alt="Content screen with educational resources and insights in light mode" class="img-responsive zoomable-image cylo-theme-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         </section>
                         <section class="key-screen" id="key--screens-profile">
                             <strong>Profile &amp; Subscriptions:</strong>
-                            <img src="media/cylo/profile-light.png" alt="Profile screen with user information and subscription management in light mode" class="img-responsive zoomable-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                            <img src="media/cylo/profile-light.png" data-light="media/cylo/profile-light.png" alt="Profile screen with user information and subscription management in light mode" class="img-responsive zoomable-image cylo-theme-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         </section>
                         <section class="key-screen" id="key--screens-settings">
                             <strong>Settings:</strong>
-                            <img src="media/cylo/settings-light.png" alt="Settings screen with app preferences and account management in light mode" class="img-responsive zoomable-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                            <img src="media/cylo/settings-light.png" data-light="media/cylo/settings-light.png" alt="Settings screen with app preferences and account management in light mode" class="img-responsive zoomable-image cylo-theme-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         </section>
                         <section class="key-screen" id="key--screens-prototype">
                             <strong>Prototype:</strong>
-                            <img src="media/cylo/prototype-light.png" alt="Prototype screen showing interactive elements and user flows in light mode" class="img-responsive zoomable-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                            <img src="media/cylo/prototype-light.png" data-light="media/cylo/prototype-light.png" alt="Prototype screen showing interactive elements and user flows in light mode" class="img-responsive zoomable-image cylo-theme-image" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         </section>
                     </div>
                 </section>
@@ -869,6 +923,46 @@
 
                 updateZoom();
             });
+        }());
+    </script>
+    <script>
+        (function () {
+            const themeButtons = document.querySelectorAll('[data-cylo-theme]');
+            const themeImages = document.querySelectorAll('.cylo-theme-image');
+
+            if (!themeButtons.length || !themeImages.length) {
+                return;
+            }
+
+            function updateImageModeText(image, theme) {
+                image.alt = image.alt.replace(/light mode|dark mode/i, theme + ' mode');
+            }
+
+            function setTheme(theme) {
+                themeButtons.forEach(function (button) {
+                    const isActive = button.dataset.cyloTheme === theme;
+                    button.classList.toggle('is-active', isActive);
+                    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+
+                themeImages.forEach(function (image) {
+                    const nextSource = theme === 'dark' && image.dataset.dark ? image.dataset.dark : image.dataset.light;
+
+                    if (nextSource && image.getAttribute('src') !== nextSource) {
+                        image.setAttribute('src', nextSource);
+                    }
+
+                    updateImageModeText(image, theme === 'dark' && image.dataset.dark ? 'dark' : 'light');
+                });
+            }
+
+            themeButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    setTheme(button.dataset.cyloTheme);
+                });
+            });
+
+            setTheme('light');
         }());
     </script>
 
