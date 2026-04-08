@@ -642,6 +642,13 @@ Works
     color: inherit;
 }
 
+@media (max-width: 670px) {
+    .works_2-columns .works-item.works-item-cylo {
+        aspect-ratio: 45 / 32;
+        height: auto;
+    }
+}
+
 /*-----------------------------------------------------
 Single Project
 ------------------------------------------------------*/
