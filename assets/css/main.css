@@ -259,6 +259,58 @@ header {
     text-decoration: none;
 }
 
+/* Local fallbacks for the Font Awesome glyphs used on the site. */
+.fa-bars::before,
+.fa-times::before,
+.fa-chevron-circle-down::before,
+.fa-envelope::before,
+.fa-phone::before,
+.fa-map-marker::before,
+.fa-paper-plane::before,
+.fa-linkedin::before,
+.fa-behance::before {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1;
+}
+
+.fa-bars::before {
+    content: "\2630";
+}
+
+.fa-times::before {
+    content: "\00d7";
+}
+
+.fa-chevron-circle-down::before {
+    content: "\2304";
+}
+
+.fa-envelope::before {
+    content: "\2709";
+}
+
+.fa-phone::before {
+    content: "\260E";
+}
+
+.fa-map-marker::before {
+    content: "\25CF";
+}
+
+.fa-paper-plane::before {
+    content: "\27A4";
+}
+
+.fa-linkedin::before {
+    content: "in";
+    font-weight: 700;
+}
+
+.fa-behance::before {
+    content: "Be";
+    font-weight: 700;
+}
+
 .main-menu {
     float: right;
 }
@@ -839,6 +891,93 @@ a:hover {
     .row-tagline {
         display: none;
         /* Hides the table of contents */
+    }
+}
+
+@media (max-width: 768px) {
+    body.aurora-page .single-project,
+    body.cylo-page .single-project {
+        margin-top: 36px;
+    }
+
+    body.aurora-page .single-project h1,
+    body.cylo-page .single-project h1 {
+        font-size: 5.2em;
+        line-height: 1.05;
+        letter-spacing: 1px;
+        padding: 8px 0 16px;
+        overflow-wrap: anywhere;
+    }
+
+    body.aurora-page .header2,
+    body.cylo-page .header2 {
+        max-width: 92%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 20px;
+        font-size: 20px;
+        line-height: 1.45;
+    }
+
+    body.aurora-page .row-tagline,
+    body.cylo-page .row-tagline {
+        display: none;
+    }
+
+    html body.aurora-page .single-project-info,
+    html body.cylo-page .single-project-info {
+        width: 100%;
+        margin: 50px auto;
+    }
+
+    html body.aurora-page .single-project-info h2,
+    html body.cylo-page .single-project-info h2 {
+        font-size: 22px;
+        line-height: 1.25;
+    }
+
+    html body.aurora-page .single-project-info p,
+    html body.aurora-page .single-project-info li,
+    html body.cylo-page .single-project-info p,
+    html body.cylo-page .single-project-info li {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    html body.aurora-page .single-project-info strong,
+    html body.cylo-page .single-project-info strong {
+        font-size: 16px;
+        line-height: 1.45;
+    }
+
+    html body.cylo-page .single-project-info p > b {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body.aurora-page .single-project h1,
+    body.cylo-page .single-project h1 {
+        font-size: 3.8em;
+        letter-spacing: 0.5px;
+        padding: 6px 0 12px;
+    }
+
+    body.aurora-page .header2,
+    body.cylo-page .header2 {
+        max-width: 100%;
+        font-size: 18px;
+        line-height: 1.45;
+    }
+
+    html body.aurora-page .single-project-info,
+    html body.cylo-page .single-project-info {
+        margin: 42px auto;
+    }
+
+    html body.aurora-page .single-project-info h2,
+    html body.cylo-page .single-project-info h2 {
+        font-size: 21px;
     }
 }
 
