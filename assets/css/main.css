@@ -1422,6 +1422,10 @@ Contact Page
     font-size: 15px;
 }
 
+.contact-copy-mobile {
+    display: none;
+}
+
 .contact-orbit {
     position: absolute;
     border-radius: 999px;
@@ -1510,6 +1514,10 @@ Contact Page
     color: #6d5961;
     font-size: 14px;
     line-height: 1.7;
+}
+
+.contact-note-mobile {
+    display: none;
 }
 
 .contact-detail-item {

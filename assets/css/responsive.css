@@ -67,6 +67,18 @@
     .contact-panel-left h1 {
         font-size: 3.8em;
     }
+    .contact-copy-desktop {
+        display: none;
+    }
+    .contact-copy-mobile {
+        display: inline;
+    }
+    .contact-note-desktop {
+        display: none;
+    }
+    .contact-note-mobile {
+        display: inline;
+    }
     .contact-form-top {
         flex-direction: column;
     }
