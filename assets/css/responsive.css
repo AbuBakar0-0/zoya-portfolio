@@ -57,6 +57,13 @@
         min-height: auto;
         padding-right: 0;
     }
+    .contact-details {
+        gap: 5px;
+        margin: 20px 0 20px;
+    }
+    /* .contact-detail-item {
+        align-items: flex-start;
+    } */
     .contact-panel-left h1 {
         font-size: 3.8em;
     }
