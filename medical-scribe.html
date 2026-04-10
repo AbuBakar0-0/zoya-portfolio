@@ -110,6 +110,91 @@
             color: rgba(255, 255, 255, 0.88);
         }
 
+        body.remote-page.modal-open {
+            overflow: hidden;
+        }
+
+        body.remote-page .wip-dialog-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(8, 18, 21, 0.62);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        body.remote-page .wip-dialog {
+            width: min(100%, 560px);
+            padding: 34px 32px 28px;
+            border-radius: 28px;
+            background: #fff;
+            box-shadow: 0 30px 80px rgba(10, 24, 27, 0.24);
+            text-align: left;
+        }
+
+        body.remote-page .wip-dialog h2 {
+            margin: 0 0 12px;
+            font-size: 34px;
+            line-height: 1.1;
+            text-align: left;
+        }
+
+        body.remote-page .wip-dialog p {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #405553;
+            text-align: left;
+        }
+
+        body.remote-page .wip-dialog-actions {
+            display: flex;
+            gap: 14px;
+            margin-top: 28px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        body.remote-page .wip-dialog-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 170px;
+            min-height: 50px;
+            padding: 0 20px;
+            border-radius: 999px;
+            border: 1px solid #12343b;
+            background: #12343b;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+        }
+
+        body.remote-page .wip-dialog-button:hover,
+        body.remote-page .wip-dialog-button:focus-visible {
+            background: #0d7a72;
+            border-color: #0d7a72;
+            outline: none;
+        }
+
+        body.remote-page .wip-dialog-button.is-secondary {
+            background: transparent;
+            color: #12343b;
+        }
+
+        body.remote-page .wip-dialog-button.is-secondary:hover,
+        body.remote-page .wip-dialog-button.is-secondary:focus-visible {
+            background: rgba(18, 52, 59, 0.08);
+            color: #12343b;
+            border-color: #12343b;
+        }
+
         body.remote-page .placeholder-stack {
             display: grid;
             gap: 20px;
@@ -236,6 +321,27 @@
                 border-radius: 22px;
             }
 
+            body.remote-page .wip-dialog {
+                padding: 28px 24px 24px;
+                border-radius: 22px;
+            }
+
+            body.remote-page .wip-dialog h2 {
+                font-size: 28px;
+            }
+
+            body.remote-page .wip-dialog p {
+                font-size: 15px;
+            }
+
+            body.remote-page .wip-dialog-actions {
+                flex-direction: column-reverse;
+            }
+
+            body.remote-page .wip-dialog-button {
+                width: 100%;
+            }
+
             body.remote-page .placeholder-mini-grid {
                 grid-template-columns: 1fr;
             }
@@ -263,6 +369,17 @@
 </head>
 
 <body class="remote-page">
+
+    <div class="wip-dialog-overlay" id="wip-dialog-overlay" role="dialog" aria-modal="true" aria-labelledby="wip-dialog-title" aria-describedby="wip-dialog-description">
+        <div class="wip-dialog">
+            <h2 id="wip-dialog-title">Work in Progress!</h2>
+            <p id="wip-dialog-description">This project is currently in progress. You can explore it, but some parts may not be complete yet.</p>
+            <div class="wip-dialog-actions">
+                <button type="button" class="wip-dialog-button is-secondary" id="wip-go-back">Go Back</button>
+                <button type="button" class="wip-dialog-button" id="wip-continue">Continue Exploring</button>
+            </div>
+        </div>
+    </div>
 
     <header id="header">
         <div class="container">
@@ -584,6 +701,52 @@
     <script src="assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="pages/js/script.js"></script>
+    <script>
+        (function () {
+            const overlay = document.getElementById('wip-dialog-overlay');
+            const continueButton = document.getElementById('wip-continue');
+            const backButton = document.getElementById('wip-go-back');
+
+            if (!overlay || !continueButton || !backButton) {
+                return;
+            }
+
+            document.body.classList.add('modal-open');
+            continueButton.focus();
+
+            function closeDialog() {
+                overlay.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }
+
+            continueButton.addEventListener('click', closeDialog);
+
+            backButton.addEventListener('click', function () {
+                if (window.history.length > 1) {
+                    window.history.back();
+                    return;
+                }
+
+                window.location.href = 'index.html#portfolio';
+            });
+
+            overlay.addEventListener('click', function (event) {
+                if (event.target === overlay) {
+                    closeDialog();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (overlay.style.display === 'none') {
+                    return;
+                }
+
+                if (event.key === 'Escape') {
+                    closeDialog();
+                }
+            });
+        }());
+    </script>
 </body>
 
 </html>
