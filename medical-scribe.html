@@ -185,8 +185,8 @@
             min-height: 50px;
             padding: 0 20px;
             border-radius: 999px;
-            border: 1px solid #B0000F;
-            background: #B0000F;
+            border: 1px solid #F8798F;
+            background: #F8798F;
             color: #fff;
             font-size: 14px;
             font-weight: 600;
@@ -194,25 +194,33 @@
             transition: background-color .2s ease, color .2s ease, border-color .2s ease;
         }
 
-        body.remote-page .wip-dialog-button:hover,
-        body.remote-page .wip-dialog-button:focus-visible {
-            background: #F8798F;
-            border-color: #F8798F;
+        body.remote-page .wip-dialog-button:hover {
+            background: #B0000F;
+            border-color: #B0000F;
             color: #fff;
-            outline: none;
+            cursor: pointer;
         }
 
         body.remote-page .wip-dialog-button.is-secondary {
             background: transparent;
-            color: #B0000F;
-        }
-
-        body.remote-page .wip-dialog-button.is-secondary:hover,
-        body.remote-page .wip-dialog-button.is-secondary:focus-visible {
-            background: #fff6f8;
-            color: #B0000F;
+            color: #F8798F;
             border-color: #F8798F;
         }
+
+        body.remote-page .wip-dialog-button.is-secondary:hover {
+            background: #fff6f8;
+            color: #B0000F;
+            border-color: #B0000F;
+        }
+
+        body.remote-page .wip-dialog-button:focus {
+            outline: none;
+        }
+
+        /* body.remote-page .wip-dialog-button:focus-visible {
+            outline: 2px solid rgba(176, 0, 15, 0.28);
+            outline-offset: 2px;
+        } */
 
         body.remote-page .placeholder-stack {
             display: grid;
