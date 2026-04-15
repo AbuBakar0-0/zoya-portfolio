@@ -1,0 +1,19 @@
+{
+  "name": "Zoya Abbasi Portfolio",
+  "short_name": "Zoya Abbasi",
+  "description": "Portfolio of Zoya Abbasi — UX/UI & Product Designer specializing in mobile app and web design.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f8798f",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/media/favicon/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["portfolio", "design"],
+  "lang": "en"
+}
