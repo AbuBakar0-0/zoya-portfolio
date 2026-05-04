@@ -129,6 +129,28 @@
     .works_3-columns .works-item,
     .works_4-columns .works-item {
         height: 50vh;
+        border-radius: 14px;
+    }
+    .works_2-columns,
+    .works_3-columns,
+    .works_4-columns {
+        padding: 0 14px;
+        box-sizing: border-box;
+    }
+    .works_2-columns > a,
+    .works_3-columns > a,
+    .works_4-columns > a {
+        display: block;
+        margin-bottom: 14px;
+    }
+    .works_2-columns > a:last-of-type,
+    .works_3-columns > a:last-of-type,
+    .works_4-columns > a:last-of-type {
+        margin-bottom: 0;
+    }
+    .works-item img,
+    .works-item-overlay {
+        border-radius: inherit;
     }
     .contact-panel-right {
         padding: 22px 20px 24px;
