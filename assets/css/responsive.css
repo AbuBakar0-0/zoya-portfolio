@@ -146,7 +146,7 @@
     .works_2-columns > a:last-of-type,
     .works_3-columns > a:last-of-type,
     .works_4-columns > a:last-of-type {
-        margin-bottom: 0;
+        margin-bottom: 18px;
     }
     .works-item img,
     .works-item-overlay {
