@@ -152,6 +152,12 @@
     .works-item-overlay {
         border-radius: inherit;
     }
+    img.header-large,
+    .inline-zoom:has(img.header-large),
+    .inline-zoom:has(img.header-large) .inline-zoom-stage,
+    .inline-zoom:has(img.header-large) img {
+        border-radius: 0 !important;
+    }
     .contact-panel-right {
         padding: 22px 20px 24px;
     }
