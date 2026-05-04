@@ -269,6 +269,79 @@
     <!-- Script -->
 
     <script src="assets/js/main.js"></script>
+    <script>
+        (function () {
+            const mobileQuery = window.matchMedia('(max-width: 670px)');
+            const projectCards = Array.from(document.querySelectorAll('.works-item'));
+            let activeTouchedCard = null;
+
+            function clearTouchedCards() {
+                projectCards.forEach((card) => card.classList.remove('is-touching'));
+                activeTouchedCard = null;
+            }
+
+            function setTouchedCard(card) {
+                if (activeTouchedCard === card) {
+                    return;
+                }
+
+                clearTouchedCards();
+
+                if (card) {
+                    card.classList.add('is-touching');
+                    activeTouchedCard = card;
+                }
+            }
+
+            function updateTouchedCardFromPoint(touch) {
+                if (!mobileQuery.matches || !touch) {
+                    return;
+                }
+
+                const element = document.elementFromPoint(touch.clientX, touch.clientY);
+                const card = element ? element.closest('.works-item') : null;
+
+                setTouchedCard(projectCards.includes(card) ? card : null);
+            }
+
+            projectCards.forEach((card) => {
+                card.addEventListener('touchstart', function (event) {
+                    updateTouchedCardFromPoint(event.touches[0]);
+                }, { passive: true });
+
+                card.addEventListener('touchend', function () {
+                    card.classList.remove('is-touching');
+                }, { passive: true });
+
+                card.addEventListener('touchcancel', function () {
+                    card.classList.remove('is-touching');
+                }, { passive: true });
+            });
+
+            document.addEventListener('touchmove', function (event) {
+                updateTouchedCardFromPoint(event.touches[0]);
+            }, { passive: true });
+
+            document.addEventListener('touchend', clearTouchedCards, { passive: true });
+            document.addEventListener('touchcancel', clearTouchedCards, { passive: true });
+
+            function syncTouchOverlays() {
+                if (mobileQuery.matches) {
+                    return;
+                }
+
+                clearTouchedCards();
+            }
+
+            syncTouchOverlays();
+
+            if (mobileQuery.addEventListener) {
+                mobileQuery.addEventListener('change', syncTouchOverlays);
+            } else {
+                mobileQuery.addListener(syncTouchOverlays);
+            }
+        }());
+    </script>
 
 </body>
 
