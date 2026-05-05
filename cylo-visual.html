@@ -5,23 +5,23 @@
     <!-- Metas -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <title>Gallery App Visual Design | Zoya Abbasi</title>
-    <meta name="description" content="Gallery App visual design project by Zoya Abbasi, featuring app icon, screenshot, and feature graphic assets for a clean photo gallery experience.">
-    <link rel="canonical" href="https://zoya.tecsynth.com/gallery.html">
+    <title>Cylo Period Tracker Visual Design | Zoya Abbasi</title>
+    <meta name="description" content="Cylo Period Tracker visual design project by Zoya Abbasi, featuring app icon, Play Store screenshot, and feature graphic presentation assets for a calm cycle tracking app.">
+    <link rel="canonical" href="https://zoya.tecsynth.com/cylo-visual.html">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://zoya.tecsynth.com/gallery.html">
-    <meta property="og:title" content="Gallery App Visual Design | Zoya Abbasi">
-    <meta property="og:description" content="A clean gallery app for organizing, browsing, and revisiting favorite photos.">
-    <meta property="og:image" content="https://zoya.tecsynth.com/media/thumbnails/gallery.png">
+    <meta property="og:url" content="https://zoya.tecsynth.com/cylo-visual.html">
+    <meta property="og:title" content="Cylo Period Tracker Visual Design | Zoya Abbasi">
+    <meta property="og:description" content="Smart app for period and cycle tracking with a calm, clear Play Store presentation.">
+    <meta property="og:image" content="https://zoya.tecsynth.com/media/thumbnails/cylo.webp">
     <meta property="og:site_name" content="Zoya Abbasi Portfolio">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Gallery App Visual Design | Zoya Abbasi">
-    <meta name="twitter:description" content="A clean gallery app for organizing, browsing, and revisiting favorite photos.">
-    <meta name="twitter:image" content="https://zoya.tecsynth.com/media/thumbnails/gallery.png">
+    <meta name="twitter:title" content="Cylo Period Tracker Visual Design | Zoya Abbasi">
+    <meta name="twitter:description" content="Smart app for period and cycle tracking with a calm, clear Play Store presentation.">
+    <meta name="twitter:image" content="https://zoya.tecsynth.com/media/thumbnails/cylo.webp">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -39,156 +39,38 @@
     <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
 
     <style>
-        body.gallery-page .gallery-specs-row {
+        body.cylo-visual-page .cylo-visual-specs-row {
             width: 96%;
             margin-left: auto;
             margin-right: auto;
         }
 
-        body.gallery-page .single-project-info h2 {
+        body.cylo-visual-page .single-project-info h2 {
             font-size: 25px;
         }
 
-        body.gallery-page .single-project-info strong {
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        body.gallery-page .single-project-info p > b {
-            font-size: 15px;
-            font-weight: 700;
-        }
-
-        body.gallery-page .single-project-info p,
-        body.gallery-page .single-project-info li {
+        body.cylo-visual-page .single-project-info p,
+        body.cylo-visual-page .single-project-info li {
             font-size: 15px;
         }
 
-        body.gallery-page #overview .single-project-info {
+        body.cylo-visual-page #overview .single-project-info {
             margin-bottom: 36px;
         }
 
-        .zoomable-image {
-            display: block;
-            width: 100%;
-            height: auto;
-            transition: width .2s ease;
-        }
-
-        .inline-zoom {
-            position: relative;
-            margin: 20px 0 26px;
-        }
-
-        .inline-zoom-stage {
-            overflow: auto;
-            border-radius: 24px;
-            background: #fff;
-            border: 1px solid rgba(176, 0, 15, 0.10);
-            box-shadow: 0 22px 44px rgba(38, 20, 26, 0.08);
-            cursor: grab;
-            scroll-behavior: smooth;
-        }
-
-        .inline-zoom-stage.is-zoomed {
-            max-height: 82vh;
-            overscroll-behavior: contain;
-            touch-action: none;
-        }
-
-        .inline-zoom-stage.is-dragging {
-            cursor: grabbing;
-            scroll-behavior: auto;
-        }
-
-        .inline-zoom-stage img {
-            max-width: none;
-            user-select: none;
-        }
-
-        .inline-zoom-controls {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .inline-zoom-button,
-        .inline-zoom-level {
-            border-radius: 999px;
-            min-height: 38px;
-            border: 1px solid rgba(255, 255, 255, 0.85);
-            background: rgba(35, 19, 24, 0.72);
-            color: #fff;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .inline-zoom-button {
-            min-width: 38px;
-            padding: 0;
-            font-size: 20px;
-            line-height: 1;
-            cursor: pointer;
-            transition: transform .2s ease, background-color .2s ease;
-        }
-
-        .inline-zoom-button:hover,
-        .inline-zoom-button:focus-visible {
-            background: rgba(176, 0, 15, 0.82);
-            transform: translateY(-1px);
-            outline: none;
-        }
-
-        .inline-zoom-level {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 68px;
-            padding: 0 12px;
-            font-size: 13px;
-            font-weight: 600;
+        body.cylo-visual-page .visual-assets-section .single-project-info h2:not(:first-child) {
+            margin-top: 64px;
         }
 
         @media (max-width: 768px) {
-            body.gallery-page #overview .single-project-info {
+            body.cylo-visual-page #overview .single-project-info {
                 margin-bottom: 24px;
-            }
-
-            .inline-zoom {
-                margin: 18px 0 22px;
-            }
-
-            .inline-zoom-stage {
-                border-radius: 18px;
-            }
-
-            .inline-zoom-controls {
-                top: 10px;
-                right: 10px;
-                gap: 6px;
-            }
-
-            .inline-zoom-button {
-                min-width: 34px;
-                min-height: 34px;
-                font-size: 18px;
-            }
-
-            .inline-zoom-level {
-                min-width: 60px;
-                min-height: 34px;
-                padding: 0 10px;
-                font-size: 12px;
             }
         }
     </style>
 </head>
 
-<body class="gallery-page">
+<body class="cylo-visual-page">
 
     <!-- Header -->
 
@@ -211,15 +93,15 @@
     <!-- Main -->
 
     <main>
-        <img class="header-large img-responsive" src="media/gallery/gallery-header.webp" alt="Gallery App visual design hero image">
+        <img class="header-large img-responsive" src="media/cylo-visual/cylovisual-header.webp" alt="Cylo Period Tracker visual design hero image">
 
         <div class="container">
             <div class="single-project">
                 <section class="new-section" id="intro">
-                    <h1>Gallery App</h1>
-                    <h2 class="header2" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Fast and simple photo viewer app</h2>
+                    <h1>Cylo &ndash; Period Tracker</h1>
+                    <h2 class="header2" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Smart app for period and cycle tracking</h2>
 
-                    <div class="row row-tagline gallery-specs-row" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                    <div class="row row-tagline cylo-visual-specs-row" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         <div class="col l2 offset-l1 m3">
                             <ul class="specs">
                                 <li>
@@ -256,35 +138,33 @@
                 <section class="new-section" id="overview">
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         <h2>Project Overview</h2>
-                        <p>Gallery App is designed to provide a smooth and minimal experience for browsing, organizing, and managing photos and videos with ease and speed.</p>
+                        <p>Cylo &ndash; Period Tracker is designed to help users easily monitor their menstrual cycles, track symptoms, and gain meaningful health insights. The app focuses on simplicity, clarity, and a calm visual experience to make daily tracking effortless and informative.</p>
                     </div>
                 </section>
 
                 <section class="new-section visual-assets-section" id="visual-assets">
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                        
                         <h2>App Icon Design</h2>
-                        <img class="visual-asset-image visual-asset-image-icon" src="media/gallery/icon.webp" alt="Gallery App icon design">
+                        <img class="visual-asset-image visual-asset-image-icon" src="media/cylo-visual/icon.webp" alt="Cylo Period Tracker app icon design">
 
                         <h2>Play Store Screenshots</h2>
-                        <img class="visual-asset-image" src="media/gallery/screenshot-one.webp" alt="Gallery App screenshot design">
-                        <img class="visual-asset-image" src="media/gallery/screenshot-two.webp" alt="Gallery App screenshot design">  
+                        <img class="visual-asset-image" src="media/cylo-visual/screenshot-one.webp" alt="Cylo Period Tracker Play Store screenshot design">
+                        <img class="visual-asset-image" src="media/cylo-visual/screenshot-two.webp" alt="Cylo Period Tracker Play Store screenshot design">
 
                         <h2>Play Store Feature Graphic</h2>
-                        <img class="visual-asset-image" src="media/gallery/feature-graphic.webp" alt="Gallery App feature graphic design">
-
-                        </div>
+                        <img class="visual-asset-image" src="media/cylo-visual/feature-graphic.webp" alt="Cylo Period Tracker feature graphic design">
+                    </div>
                 </section>
 
                 <section class="new-section" id="design-approach">
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         <h2>Design Approach</h2>
                         <ul>
-                            <li>Clean &amp; minimal UI style</li>
-                            <li>Focus on visual clarity</li>
-                            <li>Smooth browsing experience</li>
-                            <li>Balanced color palette</li>
+                            <li>Clean and calming UI design</li>
+                            <li>Focus on readability and clarity</li>
+                            <li>Soft and soothing color palette</li>
                             <li>Simple and intuitive navigation</li>
+                            <li>Personalized and user-centric experience</li>
                         </ul>
                     </div>
                 </section>
@@ -292,7 +172,7 @@
                 <section class="new-section" id="final-outcome">
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         <h2>Final Outcome</h2>
-                        <p>Designed visually appealing and user-friendly Play Store assets that highlight the app’s simplicity, speed, and smooth media browsing experience.</p>
+                        <p>A user-friendly and visually balanced Play Store presentation that highlights the app&rsquo;s core value&mdash;helping users track their cycles with ease, clarity, and confidence through a calm and intuitive experience.</p>
                     </div>
                 </section>
             </div>
@@ -314,19 +194,19 @@
                         <p>A minimal note-taking app with voice notes, reminders, and smart organization.</p>
                     </div>
                 </a>
-                <a href="cylo-visual.html" class="project-slider-card">
-                    <img src="media/thumbnails/cylo-visual.webp" alt="Cylo Period Tracker visual design thumbnail">
+                <a href="gallery.html" class="project-slider-card">
+                    <img src="media/thumbnails/gallery.png" alt="Gallery App visual design thumbnail">
                     <div class="project-slider-card-body">
                         <span class="project-slider-card-label">Visual Design</span>
-                        <h3>Cylo Period Tracker</h3>
-                        <p>A calm Play Store presentation for cycle tracking, symptoms, and insights.</p>
+                        <h3>Gallery App</h3>
+                        <p>A clean photo gallery concept for albums, favorites, and smooth browsing.</p>
                     </div>
                 </a>
                 <a href="cylo.html" class="project-slider-card">
-                    <img src="media/thumbnails/cylo.webp" alt="Cylo project thumbnail">
+                    <img src="media/thumbnails/cylo.webp" alt="Cylo UX/UI case study thumbnail">
                     <div class="project-slider-card-body">
                         <span class="project-slider-card-label">Case Study, UX/UI Design</span>
-                        <h3>Cylo</h3>
+                        <h3>Cylo Case Study</h3>
                         <p>A smart period and wellness tracking experience with reminders and insights.</p>
                     </div>
                 </a>
@@ -344,22 +224,6 @@
                         <span class="project-slider-card-label">Case Study, UX/UI Design</span>
                         <h3>Aurora VPN</h3>
                         <p>A VPN experience designed around clarity, trust, and one-tap connection.</p>
-                    </div>
-                </a>
-                <a href="remote.html" class="project-slider-card">
-                    <img src="media/thumbnails/remote.webp" alt="TV Remote App thumbnail">
-                    <div class="project-slider-card-body">
-                        <span class="project-slider-card-label">Case Study, UX/UI Design</span>
-                        <h3>TV Remote App</h3>
-                        <p>A smarter way to manage TV control, casting, and media from your phone.</p>
-                    </div>
-                </a>
-                <a href="medical-scribe.html" class="project-slider-card">
-                    <img src="media/thumbnails/medical-scribe.webp" alt="AI Medical Scribe project thumbnail">
-                    <div class="project-slider-card-body">
-                        <span class="project-slider-card-label">Case Study, UX/UI Design</span>
-                        <h3>AI Medical Scribe</h3>
-                        <p>An AI healthcare workflow for turning doctor-patient conversations into structured notes.</p>
                     </div>
                 </a>
             </div>
