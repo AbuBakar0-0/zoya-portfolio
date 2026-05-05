@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Gallery App Visual Design | Zoya Abbasi</title>
+    <meta name="description" content="Gallery App visual design project by Zoya Abbasi, featuring app icon, screenshot, and feature graphic assets for a clean photo gallery experience.">
+    <link rel="canonical" href="https://zoya.tecsynth.com/gallery.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://zoya.tecsynth.com/gallery.html">
+    <meta property="og:title" content="Gallery App Visual Design | Zoya Abbasi">
+    <meta property="og:description" content="A clean gallery app for organizing, browsing, and revisiting favorite photos.">
+    <meta property="og:image" content="https://zoya.tecsynth.com/media/thumbnails/gallery.svg">
+    <meta property="og:site_name" content="Zoya Abbasi Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gallery App Visual Design | Zoya Abbasi">
+    <meta name="twitter:description" content="A clean gallery app for organizing, browsing, and revisiting favorite photos.">
+    <meta name="twitter:image" content="https://zoya.tecsynth.com/media/thumbnails/gallery.svg">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600%7CPoppins:600&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
+
+    <style>
+        body.gallery-page .gallery-specs-row {
+            width: 96%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body.gallery-page .single-project-info h2 {
+            font-size: 25px;
+        }
+
+        body.gallery-page .single-project-info strong {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        body.gallery-page .single-project-info p > b {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        body.gallery-page .single-project-info p,
+        body.gallery-page .single-project-info li {
+            font-size: 15px;
+        }
+
+        body.gallery-page #overview .single-project-info {
+            margin-bottom: 36px;
+        }
+
+        .zoomable-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: width .2s ease;
+        }
+
+        .inline-zoom {
+            position: relative;
+            margin: 20px 0 26px;
+        }
+
+        .inline-zoom-stage {
+            overflow: auto;
+            border-radius: 24px;
+            background: #fff;
+            border: 1px solid rgba(176, 0, 15, 0.10);
+            box-shadow: 0 22px 44px rgba(38, 20, 26, 0.08);
+            cursor: grab;
+            scroll-behavior: smooth;
+        }
+
+        .inline-zoom-stage.is-zoomed {
+            max-height: 82vh;
+            overscroll-behavior: contain;
+            touch-action: none;
+        }
+
+        .inline-zoom-stage.is-dragging {
+            cursor: grabbing;
+            scroll-behavior: auto;
+        }
+
+        .inline-zoom-stage img {
+            max-width: none;
+            user-select: none;
+        }
+
+        .inline-zoom-controls {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .inline-zoom-button,
+        .inline-zoom-level {
+            border-radius: 999px;
+            min-height: 38px;
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            background: rgba(35, 19, 24, 0.72);
+            color: #fff;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .inline-zoom-button {
+            min-width: 38px;
+            padding: 0;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            transition: transform .2s ease, background-color .2s ease;
+        }
+
+        .inline-zoom-button:hover,
+        .inline-zoom-button:focus-visible {
+            background: rgba(176, 0, 15, 0.82);
+            transform: translateY(-1px);
+            outline: none;
+        }
+
+        .inline-zoom-level {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 68px;
+            padding: 0 12px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            body.gallery-page #overview .single-project-info {
+                margin-bottom: 24px;
+            }
+
+            .inline-zoom {
+                margin: 18px 0 22px;
+            }
+
+            .inline-zoom-stage {
+                border-radius: 18px;
+            }
+
+            .inline-zoom-controls {
+                top: 10px;
+                right: 10px;
+                gap: 6px;
+            }
+
+            .inline-zoom-button {
+                min-width: 34px;
+                min-height: 34px;
+                font-size: 18px;
+            }
+
+            .inline-zoom-level {
+                min-width: 60px;
+                min-height: 34px;
+                padding: 0 10px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body class="gallery-page">
+
+    <!-- Header -->
+
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="logo">ZOYA ABBASI</a>
+            <a href="#" onclick="openNav()" class="nav-button" aria-label="Open navigation"><span class="fa fa-bars" aria-hidden="true"></span></a>
+            <nav id="navigation">
+                <a href="javascript:void(0)" onclick="closeNav()" class="close-btn" aria-label="Close navigation"><span class="fa fa-times" aria-hidden="true"></span></a>
+                <ul class="main-menu">
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="index.html#portfolio" class="active" aria-current="page">portfolio</a></li>
+                    <li><a href="https://drive.google.com/file/d/1QsQpP-4VwCkASo2_RceU2UK6oa8cWiMe/view" target="_blank" rel="noopener noreferrer">resume</a></li>
+                    <li><a href="contact.html">contact me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+
+    <main>
+        <img class="header-large img-responsive" src="media/thumbnails/gallery.svg" alt="Gallery App visual design hero image">
+
+        <div class="container">
+            <div class="single-project">
+                <section class="new-section" id="intro">
+                    <h1>Gallery App</h1>
+                    <h2 class="header2" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">A clean gallery app for organizing, browsing, and revisiting favorite photos.</h2>
+
+                    <div class="row row-tagline gallery-specs-row" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <div class="col l2 offset-l1 m3">
+                            <ul class="specs">
+                                <li>
+                                    <p class="specs-title">Role:</p>
+                                </li>
+                                <li>
+                                    <p class="specs-list">UI/UX Designer</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col l2 m3">
+                            <ul class="specs">
+                                <li>
+                                    <p class="specs-title">Timeline:</p>
+                                </li>
+                                <li>
+                                    <p class="specs-list">3 to 4 weeks</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col l2 m3">
+                            <ul class="specs">
+                                <li>
+                                    <p class="specs-title">Tools:</p>
+                                </li>
+                                <li>
+                                    <p class="specs-list">Figma<br>Photoshop</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="new-section" id="overview">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>Project Overview</h2>
+                        <p>Gallery App is a visual design concept focused on simple photo discovery, organized albums, quick favorites, and a polished media-browsing experience.</p>
+                    </div>
+                </section>
+
+                <section class="new-section visual-assets-section" id="visual-assets">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>Icon</h2>
+                        <img class="visual-asset-image visual-asset-image-icon" src="media/gallery/icon.svg" alt="Gallery App icon design">
+
+                        <h2>Screenshot</h2>
+                        <img class="visual-asset-image" src="media/gallery/screenshot.svg" alt="Gallery App screenshot design">
+
+                        <h2>Feature Graphic</h2>
+                        <img class="visual-asset-image" src="media/gallery/feature-graphic.svg" alt="Gallery App feature graphic design">
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+
+    <div class="copyright">
+        <p>© 2026 Zoya Abbasi. Built with ♥</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/zoya-abbasi022" class="fa fa-linkedin" title="LinkedIn" target="_blank" rel="noreferrer"></a>
+            <a href="https://www.behance.net/zoyaabbasi1" class="fa fa-behance" title="Behance" target="_blank" rel="noreferrer"></a>
+            <a href="mailto:zoyaabbasi022@gmail.com" class="fa fa-envelope" title="Mail"></a>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

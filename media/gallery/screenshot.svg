@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1800" role="img" aria-labelledby="title desc">
+  <title id="title">Gallery App screenshot</title>
+  <desc id="desc">A mobile gallery app screenshot with albums, photo grid, and navigation controls.</desc>
+  <defs>
+    <linearGradient id="screenBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="1" stop-color="#fff7f0"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="32" stdDeviation="30" flood-color="#1e2430" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="1800" fill="#f6f3f0"/>
+  <rect x="355" y="100" width="730" height="1600" rx="98" fill="#22252b" filter="url(#shadow)"/>
+  <rect x="397" y="154" width="646" height="1492" rx="72" fill="url(#screenBg)"/>
+  <rect x="620" y="196" width="200" height="20" rx="10" fill="#22252b" opacity="0.55"/>
+  <text x="461" y="315" fill="#30343b" font-family="Montserrat, Arial, sans-serif" font-size="50" font-weight="700">Gallery</text>
+  <circle cx="966" cy="294" r="38" fill="#5aa9ff"/>
+  <path d="M946 294h40M966 274v40" stroke="#ffffff" stroke-width="10" stroke-linecap="round"/>
+  <rect x="461" y="372" width="158" height="58" rx="29" fill="#30343b"/>
+  <text x="503" y="410" fill="#ffffff" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="700">All</text>
+  <rect x="645" y="372" width="170" height="58" rx="29" fill="#ffffff" stroke="#e4e8ee"/>
+  <text x="687" y="410" fill="#69706d" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="700">Albums</text>
+  <rect x="841" y="372" width="138" height="58" rx="29" fill="#ffffff" stroke="#e4e8ee"/>
+  <text x="881" y="410" fill="#69706d" font-family="Montserrat, Arial, sans-serif" font-size="22" font-weight="700">Fav</text>
+  <rect x="461" y="498" width="242" height="214" rx="34" fill="#dbeeff"/>
+  <circle cx="532" cy="566" r="30" fill="#ffbf69"/>
+  <path d="M496 676l72-90 56 62 38-42 64 70z" fill="#5aa9ff"/>
+  <rect x="737" y="498" width="242" height="214" rx="34" fill="#fff0f4"/>
+  <circle cx="810" cy="574" r="34" fill="#f8798f"/>
+  <path d="M768 676l72-92 50 58 34-38 70 72z" fill="#ffc9d4"/>
+  <rect x="461" y="746" width="242" height="214" rx="34" fill="#f1fbf8"/>
+  <circle cx="532" cy="826" r="30" fill="#26a69a"/>
+  <path d="M496 924l68-86 58 64 34-38 66 60z" fill="#9ad7ce"/>
+  <rect x="737" y="746" width="242" height="214" rx="34" fill="#fff7e8"/>
+  <circle cx="812" cy="824" r="30" fill="#ffbf69"/>
+  <path d="M768 924l76-96 56 66 36-40 68 70z" fill="#f8798f"/>
+  <rect x="461" y="994" width="242" height="214" rx="34" fill="#eef0ff"/>
+  <circle cx="532" cy="1070" r="30" fill="#8b8cff"/>
+  <path d="M496 1172l70-92 58 66 32-38 70 64z" fill="#b5b6ff"/>
+  <rect x="737" y="994" width="242" height="214" rx="34" fill="#f2f2f2"/>
+  <circle cx="810" cy="1072" r="30" fill="#acacac"/>
+  <path d="M768 1172l72-90 58 66 36-40 68 64z" fill="#cfcfcf"/>
+  <text x="461" y="1310" fill="#30343b" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="700">Recent Albums</text>
+  <rect x="461" y="1360" width="518" height="112" rx="34" fill="#ffffff" stroke="#e4e8ee"/>
+  <rect x="500" y="1394" width="70" height="52" rx="16" fill="#dbeeff"/>
+  <text x="604" y="1418" fill="#30343b" font-family="Montserrat, Arial, sans-serif" font-size="25" font-weight="700">Travel</text>
+  <text x="604" y="1450" fill="#8a9692" font-family="Montserrat, Arial, sans-serif" font-size="19">128 photos</text>
+  <rect x="461" y="1516" width="518" height="82" rx="41" fill="#30343b"/>
+  <circle cx="590" cy="1557" r="18" fill="#ffffff"/>
+  <circle cx="720" cy="1557" r="18" fill="#5aa9ff"/>
+  <circle cx="850" cy="1557" r="18" fill="#ffffff"/>
+</svg>
