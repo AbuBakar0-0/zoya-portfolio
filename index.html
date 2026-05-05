@@ -169,9 +169,17 @@
             </div> -->
 
             <div id="portfolio">
+                <div class="portfolio-filter" aria-label="Project filters">
+                    <button type="button" class="portfolio-filter-button is-active" data-filter="uiux">
+                        UI/UX Design
+                    </button>
+                    <button type="button" class="portfolio-filter-button" data-filter="visuals">
+                        Visual Design
+                    </button>
+                </div>
                 <div class="works_2-columns">
 
-                    <a href="cylo.html">
+                    <a href="cylo.html" data-project-type="uiux">
                         <div class="works-item works-item-cylo">
                             <img src="media/thumbnails/cylo.webp" alt="Cylo App UI Mockup" width="2880" height="2048" loading="lazy">
                             <div class="works-item-overlay">
@@ -183,7 +191,7 @@
                         </div>
                     </a>
 
-                    <a href="sawa.html">
+                    <a href="sawa.html" data-project-type="uiux">
                         <div class="works-item works-item-cylo">
                             <img src="media/thumbnails/sawa.webp" alt="Sawa project thumbnail" width="1440" height="1024" loading="lazy">
                             <div class="works-item-overlay">
@@ -195,7 +203,7 @@
                         </div>
                     </a>
 
-                     <a href="medical-scribe.html">
+                    <a href="medical-scribe.html" data-project-type="uiux">
                         <div class="works-item works-item-cylo">
                             <img src="media/thumbnails/medical-scribe.png" alt="AI Medical Scribe project thumbnail" width="2900" height="1524" loading="lazy">
                             <div class="works-item-overlay">
@@ -207,7 +215,7 @@
                         </div>
                     </a>
 
-                    <a href="remote.html">
+                    <a href="remote.html" data-project-type="uiux">
                         <div class="works-item works-item-cylo">
                             <img src="media/thumbnails/remote.png" alt="TV Remote UX/UI Design project thumbnail" width="2880" height="2048" loading="lazy">
                             <div class="works-item-overlay">
@@ -219,7 +227,7 @@
                         </div>
                     </a>
 
-                    <a href="aurora.html">
+                    <a href="aurora.html" data-project-type="uiux">
                         <div class="works-item works-item-cylo">
                             <img src="media/thumbnails/aurora.webp" alt="Aurora App UI Mockup" width="2880" height="2048" loading="lazy">
                             <div class="works-item-overlay">
@@ -269,6 +277,35 @@
     <!-- Script -->
 
     <script src="assets/js/main.js"></script>
+    <script>
+        (function () {
+            const filterButtons = Array.from(document.querySelectorAll('.portfolio-filter-button'));
+            const projectLinks = Array.from(document.querySelectorAll('[data-project-type]'));
+
+            if (!filterButtons.length || !projectLinks.length) {
+                return;
+            }
+
+            function applyFilter(filter) {
+                filterButtons.forEach((button) => {
+                    button.classList.toggle('is-active', button.dataset.filter === filter);
+                });
+
+                projectLinks.forEach((link) => {
+                    const isVisible = link.dataset.projectType === filter;
+                    link.hidden = !isVisible;
+                });
+            }
+
+            filterButtons.forEach((button) => {
+                button.addEventListener('click', function () {
+                    applyFilter(button.dataset.filter);
+                });
+            });
+
+            applyFilter('uiux');
+        }());
+    </script>
     <script>
         (function () {
             const mobileQuery = window.matchMedia('(max-width: 670px)');
