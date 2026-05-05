@@ -1384,7 +1384,17 @@ More Projects
     }
 
     .project-slider-track {
-        grid-auto-columns: calc(100vw - 52px);
+        grid-auto-columns: minmax(240px, 78vw);
+        padding-right: 72px;
+        scrollbar-width: auto;
+    }
+
+    .project-slider-track::-webkit-scrollbar {
+        height: 10px;
+    }
+
+    .project-slider-track::-webkit-scrollbar-thumb {
+        background: rgba(176, 0, 15, 0.42);
     }
 
     .project-slider-card {
