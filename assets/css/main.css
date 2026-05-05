@@ -710,6 +710,24 @@ Works
     }
 }
 
+.visual-assets-section .single-project-info h2:not(:first-child) {
+    margin-top: 64px;
+}
+
+.visual-asset-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 24px 0 0;
+    border-radius: 24px;
+    border: 1px solid rgba(176, 0, 15, 0.10);
+    box-shadow: 0 22px 44px rgba(38, 20, 26, 0.08);
+}
+
+.visual-asset-image-icon {
+    max-width: 280px;
+}
+
 /*-----------------------------------------------------
 Single Project
 ------------------------------------------------------*/
@@ -973,12 +991,14 @@ a:hover {
 
 @media (max-width: 768px) {
     body.aurora-page .single-project,
-    body.cylo-page .single-project {
+    body.cylo-page .single-project,
+    body.notepad-page .single-project {
         margin-top: 36px;
     }
 
     body.aurora-page .single-project h1,
-    body.cylo-page .single-project h1 {
+    body.cylo-page .single-project h1,
+    body.notepad-page .single-project h1 {
         font-size: 5.2em;
         line-height: 1.05;
         letter-spacing: 1px;
@@ -987,7 +1007,8 @@ a:hover {
     }
 
     body.aurora-page .header2,
-    body.cylo-page .header2 {
+    body.cylo-page .header2,
+    body.notepad-page .header2 {
         max-width: 92%;
         margin-left: auto;
         margin-right: auto;
@@ -997,18 +1018,27 @@ a:hover {
     }
 
     body.aurora-page .row-tagline,
-    body.cylo-page .row-tagline {
+    body.cylo-page .row-tagline,
+    body.notepad-page .row-tagline {
         display: none;
     }
 
+    body.notepad-page .specs-mobile {
+        display: block;
+        max-width: 92%;
+        margin: 0 auto 22px;
+    }
+
     html body.aurora-page .single-project-info,
-    html body.cylo-page .single-project-info {
+    html body.cylo-page .single-project-info,
+    html body.notepad-page .single-project-info {
         width: 100%;
         margin: 50px auto;
     }
 
     html body.aurora-page .single-project-info h2,
-    html body.cylo-page .single-project-info h2 {
+    html body.cylo-page .single-project-info h2,
+    html body.notepad-page .single-project-info h2 {
         font-size: 22px;
         line-height: 1.25;
     }
@@ -1016,13 +1046,16 @@ a:hover {
     html body.aurora-page .single-project-info p,
     html body.aurora-page .single-project-info li,
     html body.cylo-page .single-project-info p,
-    html body.cylo-page .single-project-info li {
+    html body.cylo-page .single-project-info li,
+    html body.notepad-page .single-project-info p,
+    html body.notepad-page .single-project-info li {
         font-size: 14px;
         line-height: 1.7;
     }
 
     html body.aurora-page .single-project-info strong,
-    html body.cylo-page .single-project-info strong {
+    html body.cylo-page .single-project-info strong,
+    html body.notepad-page .single-project-info strong {
         font-size: 16px;
         line-height: 1.45;
     }
@@ -1034,7 +1067,8 @@ a:hover {
 
 @media (max-width: 480px) {
     body.aurora-page .single-project h1,
-    body.cylo-page .single-project h1 {
+    body.cylo-page .single-project h1,
+    body.notepad-page .single-project h1 {
         font-size: 3.8em;
         letter-spacing: 0.5px;
         padding: 6px 0 12px;
@@ -1049,6 +1083,10 @@ a:hover {
 
     html body.aurora-page .single-project-info,
     html body.cylo-page .single-project-info {
+        margin: 42px auto;
+    }
+
+    html body.notepad-page .single-project-info {
         margin: 42px auto;
     }
 
