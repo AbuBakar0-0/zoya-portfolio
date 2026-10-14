@@ -17,9 +17,9 @@ h1.hello span {
     background-repeat: no-repeat;
     -webkit-transition: all .4s ease;
     transition: all .4s ease;
-    background-image: -moz-linear-gradient(180deg, transparent 10%, #B65C4A 0);
-    /*background-image:-webkit-linear-gradient(180deg, transparent 10%, #B65C4A 0);*/
-    /*background-image:linear-gradient(180deg, transparent 10%, #B65C4A 0);*/
+    background-image: -moz-linear-gradient(180deg, transparent 10%, #A23F72 0);
+    /*background-image:-webkit-linear-gradient(180deg, transparent 10%, #A23F72 0);*/
+    /*background-image:linear-gradient(180deg, transparent 10%, #A23F72 0);*/
     background-size: 130%;
     background-position: 0 33.5px
 }
@@ -49,7 +49,7 @@ h2.description a {
     font-family: soleil, sans-serif;
     font-weight: 500;
     text-decoration: none;
-    color: #B65C4A
+    color: #A23F72
 }
 
 img.portrait {
@@ -78,7 +78,7 @@ p.scroll {
     margin-bottom: 50px;
     padding: 0;
     animation: bounce 2s infinite;
-    color: #B65C4A;
+    color: #A23F72;
     font-size: 14px
 }
 

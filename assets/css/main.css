@@ -112,24 +112,12 @@ General Styles
 }
 
 :root {
-    --accent: #B65C4A;
-    --accent-rgb: 182, 92, 74;
-    --accent-strong: #B65C4A;
-    --accent-strong-rgb: 182, 92, 74;
-    --logo-hover: #B65C4A;
-    --nav-hover: #B65C4A;
-    --nav-icon-hover: #B65C4A;
-}
-
-/* Cylo projects keep the original pink accent */
-body.cylo-page,
-body.cylo-visual-page {
-    --accent: #F8798F;
-    --accent-rgb: 248, 121, 143;
-    --accent-strong: #B0000F;
-    --accent-strong-rgb: 176, 0, 15;
-    --logo-hover: #F8798F;
-    --nav-hover: #B0000F;
+    --accent: #A23F72;
+    --accent-rgb: 162, 63, 114;
+    --accent-strong: #70264F;
+    --accent-strong-rgb: 112, 38, 79;
+    --logo-hover: var(--accent);
+    --nav-hover: var(--accent);
     --nav-icon-hover: var(--accent);
 }
 
@@ -1358,7 +1346,7 @@ More Projects
     padding: 48px 0 84px;
     background:
         radial-gradient(circle at top left, rgba(var(--accent-rgb), 0.10), transparent 28%),
-        linear-gradient(180deg, #fffafb 0%, #ffffff 55%, #fff6f8 100%);
+        linear-gradient(180deg, #FBF6F9 0%, #ffffff 55%, #F6EDF2 100%);
 }
 
 .project-slider-shell {
@@ -1675,7 +1663,7 @@ Contact Page
 
 .contact-panel-left {
     background: #ffffff;
-    color: #2E211D;
+    color: #30342D;
     padding: 24px 24px 24px 24px;
     display: flex;
     flex-direction: column;
@@ -1689,17 +1677,17 @@ Contact Page
     font-family: 'Playfair Display', serif;
     font-size: 4.4em;
     line-height: 1.06;
-    color: #2E211D;
+    color: #30342D;
     margin-bottom: 14px;
     text-shadow: none;
 }
 
 .contact-panel-left h1 span {
-    color: #9E4A3A;
+    color: #70264F;
 }
 
 .contact-copy {
-    color: #5A4B46;
+    color: #5D6558;
     max-width: 360px;
     font-size: 15px;
 }
@@ -1733,7 +1721,7 @@ Contact Page
     height: 170px;
     right: 20px;
     bottom: 24px;
-    background: radial-gradient(circle, rgba(92, 42, 32, 0.18) 0%, rgba(92, 42, 32, 0.08) 45%, transparent 72%);
+    background: radial-gradient(circle, rgba(112, 38, 79, 0.18) 0%, rgba(112, 38, 79, 0.08) 45%, transparent 72%);
 }
 
 .contact-highlights {
@@ -1781,8 +1769,8 @@ Contact Page
     align-items: center;
     padding: 7px 12px;
     border-radius: 999px;
-    background: rgba(92, 42, 32, 0.16);
-    border: 1px solid rgba(92, 42, 32, 0.18);
+    background: rgba(112, 38, 79, 0.16);
+    border: 1px solid rgba(112, 38, 79, 0.18);
     color: #FDFAF8;
     font-size: 12px;
     letter-spacing: 1.2px;
@@ -1798,7 +1786,7 @@ Contact Page
 .contact-note {
     max-width: 430px;
     margin-top: 16px;
-    color: #6A5B55;
+    color: #747B70;
     font-size: 14px;
     line-height: 1.7;
 }
@@ -1813,7 +1801,7 @@ Contact Page
     gap: 14px;
     width: 100%;
     max-width: 100%;
-    color: #2E211D;
+    color: #30342D;
     font-size: 15px;
     min-height: 34px;
     border-radius: 14px;
@@ -1834,7 +1822,7 @@ Contact Page
     height: 20px;
     flex: 0 0 36px;
     display: block;
-    color: #3D2B25;
+    color: #454B41;
 }
     
 .contact-detail-item.contact-detail-highlight > svg:first-child {
@@ -1857,9 +1845,9 @@ Contact Page
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #2E211D;
+    color: #30342D;
     background: rgba(var(--accent-rgb), 0.12);
-    border: 1px solid rgba(182, 92, 74, 0.18);
+    border: 1px solid rgba(162, 63, 114, 0.18);
 }
 
 .contact-socials a:hover {
@@ -1871,12 +1859,12 @@ Contact Page
 .contact-panel-right {
     background:
         radial-gradient(circle at top right, rgba(var(--accent-rgb), 0.18), transparent 28%),
-        linear-gradient(180deg, #FCF7F5 0%, #F7ECE8 100%);
+        linear-gradient(180deg, #FBF6F9 0%, #F1E5EC 100%);
     padding: 22px 24px 22px;
     box-shadow: 0 24px 48px rgba(85, 40, 32, 0.12);
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(182, 92, 74, 0.12);
+    border: 1px solid rgba(162, 63, 114, 0.12);
 }
 
 .contact-panel-right::before {
@@ -1930,7 +1918,7 @@ Contact Page
 
 .contact-interest-label {
     font-size: 15px;
-    color: #5E4D47;
+    color: #5D6558;
     margin-bottom: 10px;
 }
 
@@ -1941,9 +1929,9 @@ Contact Page
 }
 
 .contact-chip {
-    border: 1px solid rgba(182, 92, 74, 0.14);
+    border: 1px solid rgba(162, 63, 114, 0.14);
     background: rgba(255, 255, 255, 0.92);
-    color: #8A4E40;
+    color: #9B5145;
     padding: 10px 14px;
     border-radius: 10px;
     cursor: pointer;
@@ -1953,16 +1941,16 @@ Contact Page
 }
 
 .contact-chip:hover {
-    background: #F9EFEB;
+    background: #F6EDF2;
     color: var(--accent);
     border-color: rgba(var(--accent-rgb), 0.34);
 }
 
 .contact-chip.active {
-    background: #9E4A3A;
+    background: #70264F;
     color: #ffffff;
-    border-color: #9E4A3A;
-    box-shadow: 0 12px 24px rgba(182, 92, 74, 0.24);
+    border-color: #70264F;
+    box-shadow: 0 12px 24px rgba(162, 63, 114, 0.24);
     transform: translateY(-1px);
 }
 
@@ -1972,17 +1960,17 @@ Contact Page
 }
 
 .contact-field span {
-    color: #5E4D47;
+    color: #5D6558;
     font-size: 14px;
 }
 
 .contact-field input,
 .contact-field textarea {
-    border: 1px solid rgba(182, 92, 74, 0.14);
-    border-bottom: 2px solid rgba(182, 92, 74, 0.24);
+    border: 1px solid rgba(162, 63, 114, 0.14);
+    border-bottom: 2px solid rgba(162, 63, 114, 0.24);
     background: rgba(255, 255, 255, 0.96);
     font-size: 15px;
-    color: #2A1F1B;
+    color: #353B32;
     padding: 14px 16px 12px;
     outline: none;
     font-family: soleil, sans-serif;
@@ -1996,13 +1984,13 @@ Contact Page
 
 .contact-field input::placeholder,
 .contact-field textarea::placeholder {
-    color: #A08D86;
+    color: #899083;
 }
 
 .contact-field input:focus,
 .contact-field textarea:focus {
-    border-color: rgba(182, 92, 74, 0.24);
-    border-bottom-color: #9E4A3A;
+    border-color: rgba(162, 63, 114, 0.24);
+    border-bottom-color: #70264F;
     box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.12);
 }
 
