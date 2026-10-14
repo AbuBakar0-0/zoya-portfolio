@@ -373,7 +373,7 @@ body.cylo-visual-page .nav-button .fa:hover {
 
 .main-menu li a.active {
     color: var(--accent);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .main-menu li ul {
