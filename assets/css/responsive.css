@@ -229,6 +229,15 @@
     .contact-socials {
         order: 7;
     }
+    .about-desktop {
+        display: none;
+    }
+    h1 .about-mobile {
+        display: inline;
+    }
+    p.about-mobile {
+        display: block;
+    }
     .contact-interest-grid {
         gap: 10px;
     }

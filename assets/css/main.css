@@ -1708,6 +1708,11 @@ Contact Page
     display: none;
 }
 
+/* About page: mobile-only intro text (desktop text stays as is) */
+.about-mobile {
+    display: none;
+}
+
 .contact-orbit {
     position: absolute;
     border-radius: 999px;
