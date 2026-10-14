@@ -247,7 +247,7 @@
     }
     .hero-homepage {
         height: auto;
-        padding: calc(85px + 32px) 0 32px;
+        padding: calc(85px + 48px) 0 32px;
     }
     .hero-homepage .hero-content {
         position: static;
