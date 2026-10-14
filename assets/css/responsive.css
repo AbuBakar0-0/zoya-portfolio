@@ -196,6 +196,39 @@
         padding-left: 0;
         padding-right: 0;
     }
+    /* Mobile: heading, then the form card, then the intro line, details and socials */
+    .contact-shell {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding-top: 24px;
+    }
+    .contact-panel-left,
+    .contact-intro {
+        display: contents;
+    }
+    .contact-panel-left .tag {
+        order: 1;
+    }
+    .contact-panel-left h1 {
+        order: 2;
+    }
+    .contact-panel-right {
+        order: 3;
+        margin: 10px 0 24px;
+    }
+    .contact-copy {
+        order: 4;
+    }
+    .contact-details {
+        order: 5;
+    }
+    .contact-note {
+        order: 6;
+    }
+    .contact-socials {
+        order: 7;
+    }
     .contact-interest-grid {
         gap: 10px;
     }
