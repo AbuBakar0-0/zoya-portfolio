@@ -131,7 +131,7 @@
     .main-menu li a {
         font-size: 1.4em;
         font-weight: 300;
-        letter-spacing: 3.2px;
+        letter-spacing: 1px;
         margin-left: 0;
     }
     .main-menu li a.active {
