@@ -110,6 +110,18 @@
     .close-btn {
         display: block;
     }
+    .close-btn .fa {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        right: 26px;
+        top: 26px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, .15);
+    }
     .main-menu>li {
         float: none;
         line-height: normal;
