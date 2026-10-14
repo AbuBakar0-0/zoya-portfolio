@@ -112,11 +112,13 @@ General Styles
 }
 
 :root {
-    --accent: #5C73F6;
-    --accent-rgb: 92, 115, 246;
-    --accent-strong: #5C73F6;
-    --accent-strong-rgb: 92, 115, 246;
-    --accent-dark: #3A4FCF;
+    --accent: #B65C4A;
+    --accent-rgb: 182, 92, 74;
+    --accent-strong: #B65C4A;
+    --accent-strong-rgb: 182, 92, 74;
+    --logo-hover: #B65C4A;
+    --nav-hover: #B65C4A;
+    --nav-icon-hover: #B65C4A;
 }
 
 /* Cylo projects keep the original pink accent */
@@ -126,7 +128,9 @@ body.cylo-visual-page {
     --accent-rgb: 248, 121, 143;
     --accent-strong: #B0000F;
     --accent-strong-rgb: 176, 0, 15;
-    --accent-dark: #B0000F;
+    --logo-hover: #F8798F;
+    --nav-hover: #B0000F;
+    --nav-icon-hover: var(--accent);
 }
 
 html {
@@ -240,15 +244,10 @@ header {
 }
 
 .logo:hover {
-    color: var(--accent-dark);
+    color: var(--logo-hover);
     text-decoration: none;
 }
 
-/* Cylo projects keep their original logo hover */
-body.cylo-page .logo:hover,
-body.cylo-visual-page .logo:hover {
-    color: var(--accent);
-}
 
 .nav-button {
     display: none;
@@ -262,8 +261,13 @@ body.cylo-visual-page .logo:hover {
 }
 
 .nav-button .fa:hover {
-    color: #121212;
+    color: var(--nav-icon-hover);
     text-decoration: none;
+}
+
+body.cylo-page .nav-button .fa:hover,
+body.cylo-visual-page .nav-button .fa:hover {
+    color: #121212;
 }
 
 .close-btn {
@@ -279,7 +283,7 @@ body.cylo-visual-page .logo:hover {
 }
 
 .close-btn .fa:hover {
-    color: var(--accent);
+    color: var(--nav-icon-hover);
     text-decoration: none;
 }
 
@@ -363,7 +367,7 @@ body.cylo-visual-page .logo:hover {
 }
 
 .main-menu li a:hover {
-    color: var(--accent-dark);
+    color: var(--nav-hover);
     text-decoration: none;
 }
 
@@ -1670,7 +1674,7 @@ Contact Page
 
 .contact-panel-left {
     background: #ffffff;
-    color: #1F2340;
+    color: #2E211D;
     padding: 24px 24px 24px 24px;
     display: flex;
     flex-direction: column;
@@ -1684,17 +1688,17 @@ Contact Page
     font-family: 'Playfair Display', serif;
     font-size: 4.4em;
     line-height: 1.06;
-    color: #1F2340;
+    color: #2E211D;
     margin-bottom: 14px;
     text-shadow: none;
 }
 
 .contact-panel-left h1 span {
-    color: #3F55D9;
+    color: #9E4A3A;
 }
 
 .contact-copy {
-    color: #4A5068;
+    color: #5A4B46;
     max-width: 360px;
     font-size: 15px;
 }
@@ -1723,7 +1727,7 @@ Contact Page
     height: 170px;
     right: 20px;
     bottom: 24px;
-    background: radial-gradient(circle, rgba(31, 44, 138, 0.18) 0%, rgba(31, 44, 138, 0.08) 45%, transparent 72%);
+    background: radial-gradient(circle, rgba(92, 42, 32, 0.18) 0%, rgba(92, 42, 32, 0.08) 45%, transparent 72%);
 }
 
 .contact-highlights {
@@ -1739,9 +1743,9 @@ Contact Page
     gap: 6px;
     padding: 14px 16px;
     border-radius: 16px;
-    background: rgba(250, 251, 255, 0.16);
+    background: rgba(253, 250, 248, 0.16);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 20px 36px rgba(31, 44, 110, 0.12);
+    box-shadow: 0 20px 36px rgba(80, 38, 30, 0.12);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
@@ -1750,13 +1754,13 @@ Contact Page
     font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(248, 249, 255, 0.74);
+    color: rgba(252, 249, 247, 0.74);
 }
 
 .contact-highlight-card strong {
     font-size: 16px;
     line-height: 1.45;
-    color: #FDFDFF;
+    color: #FEFCFB;
     font-weight: 500;
 }
 
@@ -1771,9 +1775,9 @@ Contact Page
     align-items: center;
     padding: 7px 12px;
     border-radius: 999px;
-    background: rgba(31, 44, 138, 0.16);
-    border: 1px solid rgba(31, 44, 138, 0.18);
-    color: #FAFBFF;
+    background: rgba(92, 42, 32, 0.16);
+    border: 1px solid rgba(92, 42, 32, 0.18);
+    color: #FDFAF8;
     font-size: 12px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -1788,7 +1792,7 @@ Contact Page
 .contact-note {
     max-width: 430px;
     margin-top: 16px;
-    color: #5A6078;
+    color: #6A5B55;
     font-size: 14px;
     line-height: 1.7;
 }
@@ -1803,7 +1807,7 @@ Contact Page
     gap: 14px;
     width: 100%;
     max-width: 100%;
-    color: #1F2340;
+    color: #2E211D;
     font-size: 15px;
     min-height: 34px;
     border-radius: 14px;
@@ -1824,7 +1828,7 @@ Contact Page
     height: 20px;
     flex: 0 0 36px;
     display: block;
-    color: #2C3254;
+    color: #3D2B25;
 }
     
 .contact-detail-item.contact-detail-highlight > svg:first-child {
@@ -1847,9 +1851,9 @@ Contact Page
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #1F2340;
+    color: #2E211D;
     background: rgba(var(--accent-rgb), 0.12);
-    border: 1px solid rgba(63, 85, 217, 0.18);
+    border: 1px solid rgba(182, 92, 74, 0.18);
 }
 
 .contact-socials a:hover {
@@ -1861,12 +1865,12 @@ Contact Page
 .contact-panel-right {
     background:
         radial-gradient(circle at top right, rgba(var(--accent-rgb), 0.18), transparent 28%),
-        linear-gradient(180deg, #F7F8FF 0%, #EEF1FF 100%);
+        linear-gradient(180deg, #FCF7F5 0%, #F7ECE8 100%);
     padding: 22px 24px 22px;
-    box-shadow: 0 24px 48px rgba(40, 50, 110, 0.12);
+    box-shadow: 0 24px 48px rgba(85, 40, 32, 0.12);
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(63, 85, 217, 0.12);
+    border: 1px solid rgba(182, 92, 74, 0.12);
 }
 
 .contact-panel-right::before {
@@ -1920,7 +1924,7 @@ Contact Page
 
 .contact-interest-label {
     font-size: 15px;
-    color: #4E5573;
+    color: #5E4D47;
     margin-bottom: 10px;
 }
 
@@ -1931,9 +1935,9 @@ Contact Page
 }
 
 .contact-chip {
-    border: 1px solid rgba(63, 85, 217, 0.14);
+    border: 1px solid rgba(182, 92, 74, 0.14);
     background: rgba(255, 255, 255, 0.92);
-    color: #444C78;
+    color: #8A4E40;
     padding: 10px 14px;
     border-radius: 10px;
     cursor: pointer;
@@ -1943,16 +1947,16 @@ Contact Page
 }
 
 .contact-chip:hover {
-    background: #F0F2FF;
+    background: #F9EFEB;
     color: var(--accent);
     border-color: rgba(var(--accent-rgb), 0.34);
 }
 
 .contact-chip.active {
-    background: #3F55D9;
+    background: #9E4A3A;
     color: #ffffff;
-    border-color: #3F55D9;
-    box-shadow: 0 12px 24px rgba(63, 85, 217, 0.24);
+    border-color: #9E4A3A;
+    box-shadow: 0 12px 24px rgba(182, 92, 74, 0.24);
     transform: translateY(-1px);
 }
 
@@ -1962,17 +1966,17 @@ Contact Page
 }
 
 .contact-field span {
-    color: #4E5573;
+    color: #5E4D47;
     font-size: 14px;
 }
 
 .contact-field input,
 .contact-field textarea {
-    border: 1px solid rgba(63, 85, 217, 0.14);
-    border-bottom: 2px solid rgba(63, 85, 217, 0.24);
+    border: 1px solid rgba(182, 92, 74, 0.14);
+    border-bottom: 2px solid rgba(182, 92, 74, 0.24);
     background: rgba(255, 255, 255, 0.96);
     font-size: 15px;
-    color: #1E2233;
+    color: #2A1F1B;
     padding: 14px 16px 12px;
     outline: none;
     font-family: soleil, sans-serif;
@@ -1986,13 +1990,13 @@ Contact Page
 
 .contact-field input::placeholder,
 .contact-field textarea::placeholder {
-    color: #8A90AA;
+    color: #A08D86;
 }
 
 .contact-field input:focus,
 .contact-field textarea:focus {
-    border-color: rgba(63, 85, 217, 0.24);
-    border-bottom-color: #3F55D9;
+    border-color: rgba(182, 92, 74, 0.24);
+    border-bottom-color: #9E4A3A;
     box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.12);
 }
 
@@ -2034,11 +2038,11 @@ Contact Page
 }
 
 .contact-form-status.is-success {
-    color: #2E3FB8;
+    color: #843D30;
 }
 
 .contact-form-status.is-error {
-    color: #1F2C8A;
+    color: #5C2A20;
 }
 
 .contact-form-status.is-hidden {
