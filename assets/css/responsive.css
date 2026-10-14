@@ -208,6 +208,14 @@
     .hero-content h2 {
         font-size: 22px;
     }
+    .hero-homepage {
+        height: auto;
+        padding: calc(85px + 32px) 0 32px;
+    }
+    .hero-homepage .hero-content {
+        position: static;
+        transform: none;
+    }
 }
 
 /* Start @media(max-width:470px) */
