@@ -192,6 +192,10 @@
         padding-top: 105px;
         padding-bottom: 36px;
     }
+    .contact-panel-left {
+        padding-left: 0;
+        padding-right: 0;
+    }
     .contact-interest-grid {
         gap: 10px;
     }
