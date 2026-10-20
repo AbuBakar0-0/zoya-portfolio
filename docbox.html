@@ -115,11 +115,15 @@
             padding: 11px 20px;
             border: 0;
             border-radius: 10px;
-            background: #1b3358;
+            background: var(--accent);
             color: #fff;
             font: inherit;
             font-weight: 600;
             cursor: pointer;
+        }
+
+        body.docbox-page .working-dialog button:hover {
+            background: var(--accent-strong);
         }
 
         body.docbox-page .working-dialog-actions {
@@ -823,12 +827,13 @@
 
     <dialog class="working-dialog" id="working-dialog" aria-labelledby="working-dialog-title">
         <h2 id="working-dialog-title">Working on it</h2>
-        <p>This DocBox case study is still being updated. Thanks for your patience.</p>
+        <p>The DocBox case study is still taking shape. Thanks for stopping by—feel free to explore.</p>
         <div class="working-dialog-actions">
+            
+            <a class="home-button" href="index.html">Back to homepage</a>
             <form method="dialog">
                 <button type="submit">Continue</button>
             </form>
-            <a class="home-button" href="index.html">Back to homepage</a>
         </div>
     </dialog>
 
