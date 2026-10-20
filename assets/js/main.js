@@ -33,7 +33,7 @@ window.addEventListener('scroll', function() {
 /*------------------------------------*/
 
 (function () {
-    const visualProjectPages = ['gallery-page', 'notepad-page', 'cylo-visual-page'];
+    const visualProjectPages = ['gallery-page', 'notepad-page', 'cylo-visual-page', 'docbox-page'];
     const isVisualProjectPage = visualProjectPages.some(function (pageClass) {
         return document.body.classList.contains(pageClass);
     });
@@ -42,7 +42,7 @@ window.addEventListener('scroll', function() {
         return;
     }
 
-    const zoomableImages = document.querySelectorAll('.zoomable-image');
+    const zoomableImages = document.querySelectorAll('.zoomable-image, .docbox-page .docbox-cover, .docbox-page .docbox-visual img');
 
     if (!zoomableImages.length) {
         return;
