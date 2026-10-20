@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>DocBox Case Study | Zoya Abbasi</title>
+    <meta name="description" content="DocBox UX/UI case study by Zoya Abbasi — an Android document app for Word, Excel, PowerPoint, PDF and more, with a full design system and dark/light themes.">
+    <link rel="canonical" href="https://zoya.tecsynth.com/docbox.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://zoya.tecsynth.com/docbox.html">
+    <meta property="og:title" content="DocBox Case Study | Zoya Abbasi">
+    <meta property="og:description" content="One app for every document. A complete Android UX/UI design with 50+ screens, two themes, and a reusable design system.">
+    <meta property="og:image" content="https://zoya.tecsynth.com/media/thumbnails/docbox.svg">
+    <meta property="og:site_name" content="Zoya Abbasi Portfolio">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DocBox Case Study | Zoya Abbasi">
+    <meta name="twitter:description" content="An Android document app designed for opening, editing and organising every file format in one calm experience.">
+    <meta name="twitter:image" content="https://zoya.tecsynth.com/media/thumbnails/docbox.svg">
+
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/main.css?v=13">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=18">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600%7CPoppins:600" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
+
+    <style>
+        body.docbox-page .remote-specs-row {
+            width: 96%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        body.docbox-page .single-project-info h2 {
+            font-size: 25px;
+        }
+
+        body.docbox-page .single-project-info strong {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        body.docbox-page .single-project-info p + strong,
+        body.docbox-page .single-project-info ul + strong {
+            margin-top: 16px;
+        }
+
+        body.docbox-page .single-project-info p,
+        body.docbox-page .single-project-info li {
+            font-size: 15px;
+        }
+
+        body.docbox-page .single-project-info blockquote {
+            margin: 24px 0;
+            padding: 18px 22px;
+            border-left: 4px solid #A23F72;
+            background: #fff6f8;
+            color: #3a2327;
+            font-size: 20px;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+
+        body.docbox-page .project-hero-placeholder {
+            width: 100%;
+            min-height: 480px;
+            padding: 72px 7vw;
+            display: flex;
+            align-items: flex-end;
+            background:
+                radial-gradient(circle at top right, rgba(76, 141, 255, 0.34), transparent 32%),
+                linear-gradient(135deg, #132038 0%, #1B3358 48%, #A23F72 100%);
+            color: #fff;
+        }
+
+        body.docbox-page .project-hero-copy {
+            max-width: 760px;
+        }
+
+        body.docbox-page .project-hero-kicker {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        body.docbox-page .project-hero-copy h1 {
+            margin: 0 0 14px;
+            font-size: clamp(50px, 8vw, 82px);
+            line-height: 0.96;
+            color: #fff;
+        }
+
+        body.docbox-page .project-hero-copy p {
+            margin: 0;
+            max-width: 620px;
+            font-size: 21px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        body.docbox-page .placeholder-stack {
+            display: grid;
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        body.docbox-page .docbox-visual {
+            margin: 28px 0 0;
+            overflow: hidden;
+            border: 1px solid rgba(27, 51, 88, 0.12);
+            border-radius: 22px;
+            background: #eaf6fb;
+            box-shadow: 0 18px 40px rgba(19, 32, 56, 0.08);
+        }
+
+        body.docbox-page .docbox-visual img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        body.docbox-page .docbox-visual figcaption {
+            padding: 12px 18px;
+            color: #445266;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        body.docbox-page .image-placeholder {
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            padding: 28px;
+            border-radius: 28px;
+            border: 1px solid rgba(27, 51, 88, 0.14);
+            background:
+                radial-gradient(circle at top right, rgba(76, 141, 255, 0.16), transparent 28%),
+                linear-gradient(180deg, #ffffff 0%, #f4f7fc 100%);
+            box-shadow: 0 20px 44px rgba(19, 32, 56, 0.08);
+        }
+
+        body.docbox-page .image-placeholder.dark {
+            border-color: rgba(76, 141, 255, 0.22);
+            background:
+                radial-gradient(circle at top right, rgba(162, 63, 114, 0.22), transparent 30%),
+                linear-gradient(180deg, #15253F 0%, #1B3358 100%);
+            color: #fff;
+        }
+
+        body.docbox-page .image-placeholder::after {
+            content: "";
+            position: absolute;
+            inset: auto -60px -90px auto;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(162, 63, 114, 0.08);
+        }
+
+        body.docbox-page .image-placeholder.dark::after {
+            background: rgba(76, 141, 255, 0.16);
+        }
+
+        body.docbox-page .image-placeholder strong {
+            display: block;
+            margin-bottom: 12px;
+            color: #132038;
+            font-size: 22px;
+        }
+
+        body.docbox-page .image-placeholder.dark strong {
+            color: #fff;
+        }
+
+        body.docbox-page .image-placeholder p {
+            max-width: 620px;
+            margin: 0;
+            color: #445266;
+        }
+
+        body.docbox-page .image-placeholder.dark p {
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        body.docbox-page .placeholder-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 22px;
+        }
+
+        body.docbox-page .placeholder-mini-card {
+            padding: 18px;
+            border-radius: 20px;
+            background: rgba(27, 51, 88, 0.06);
+            border: 1px solid rgba(27, 51, 88, 0.10);
+        }
+
+        body.docbox-page .image-placeholder.dark .placeholder-mini-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        body.docbox-page .placeholder-mini-card span {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #A23F72;
+        }
+
+        body.docbox-page .image-placeholder.dark .placeholder-mini-card span {
+            color: #9ec0ff;
+        }
+
+        body.docbox-page .placeholder-mini-card p {
+            margin: 0;
+        }
+
+        body.docbox-page .flow-block {
+            margin-top: 42px;
+        }
+
+        body.docbox-page .flow-block:first-of-type {
+            margin-top: 18px;
+        }
+
+        body.docbox-page .figma-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            padding: 12px 18px;
+            border-radius: 999px;
+            background: #A23F72;
+            color: #fff !important;
+            text-decoration: none !important;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        body.docbox-page .figma-link:hover {
+            background: #70264F;
+        }
+
+        body.docbox-page .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        body.docbox-page .goal-card {
+            padding: 18px 20px;
+            border-radius: 20px;
+            background: #fff6f8;
+            border: 1px solid rgba(162, 63, 114, 0.12);
+        }
+
+        body.docbox-page .goal-card strong {
+            margin-bottom: 8px;
+            color: #A23F72;
+            font-size: 16px;
+        }
+
+        body.docbox-page .goal-card p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            body.docbox-page .single-project {
+                margin-top: 36px;
+            }
+
+            body.docbox-page .single-project h1 {
+                font-size: 4.4em;
+                line-height: 1.06;
+                letter-spacing: 0.8px;
+                padding: 8px 0 16px;
+            }
+
+            body.docbox-page .header2 {
+                max-width: 92%;
+                margin-left: auto;
+                margin-right: auto;
+                padding-bottom: 20px;
+                font-size: 20px;
+                line-height: 1.45;
+            }
+
+            body.docbox-page .row-tagline {
+                display: none;
+            }
+
+            html body.docbox-page .single-project-info {
+                width: 100%;
+                margin: 50px auto;
+            }
+
+            html body.docbox-page .single-project-info h2 {
+                font-size: 22px;
+                line-height: 1.25;
+            }
+
+            html body.docbox-page .single-project-info p,
+            html body.docbox-page .single-project-info li {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            body.docbox-page .project-hero-placeholder {
+                min-height: 360px;
+                padding: 52px 24px 44px;
+            }
+
+            body.docbox-page .project-hero-copy h1 {
+                font-size: 5.2em;
+                line-height: 1.05;
+                letter-spacing: 1px;
+            }
+
+            body.docbox-page .project-hero-copy p {
+                font-size: 18px;
+            }
+
+            body.docbox-page .image-placeholder {
+                min-height: 220px;
+                padding: 22px;
+                border-radius: 22px;
+            }
+
+            body.docbox-page .placeholder-mini-grid,
+            body.docbox-page .goals-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body.docbox-page .single-project h1 {
+                font-size: 3.1em;
+                letter-spacing: 0.35px;
+                line-height: 1.08;
+                padding: 6px 0 12px;
+            }
+
+            body.docbox-page .header2 {
+                max-width: 100%;
+                font-size: 18px;
+            }
+
+            html body.docbox-page .single-project-info {
+                margin: 42px auto;
+            }
+
+            body.docbox-page .project-hero-kicker {
+                margin-bottom: 14px;
+                font-size: 11px;
+            }
+
+            body.docbox-page .project-hero-copy p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body class="docbox-page">
+
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="logo">ZOYA ABBASI</a>
+            <a href="#" onclick="openNav()" class="nav-button" aria-label="Open navigation"><span class="fa fa-bars" aria-hidden="true"></span></a>
+            <nav id="navigation">
+                <a href="javascript:void(0)" onclick="closeNav()" class="close-btn" aria-label="Close navigation"><span class="fa fa-times" aria-hidden="true"></span></a>
+                <ul class="main-menu">
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="index.html#portfolio" class="active" aria-current="page">portfolio</a></li>
+                    <li><a href="https://drive.google.com/file/d/1QsQpP-4VwCkASo2_RceU2UK6oa8cWiMe/view" target="_blank" rel="noopener noreferrer">resume</a></li>
+                    <li><a href="contact.html">contact me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="project-hero-placeholder" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+            <div class="project-hero-copy">
+                <span class="project-hero-kicker">Android · Mobile App Design · Design System</span>
+                <h1>DocBox</h1>
+                <p>One app for every document. Home, Word, Excel and Presentation — designed for a calm dark-theme experience.</p>
+            </div>
+        </div>
+
+        <div class="sticky">
+            <nav class="section-nav">
+                <ol class="scrollspy-order">
+                    <li class="scrollspy"><a href="#intro">📋</a></li>
+                    <li class="scrollspy"><a href="#overview">Overview</a></li>
+                    <li class="scrollspy"><a href="#challenge">Challenge</a></li>
+                    <li class="scrollspy"><a href="#goals">Goals</a></li>
+                    <li class="scrollspy"><a href="#design-system">Design System</a></li>
+                    <li class="scrollspy"><a href="#key-flows">Key Flows</a></li>
+                    <li class="scrollspy"><a href="#themes">Themes</a></li>
+                    <li class="scrollspy"><a href="#outcome">Outcome</a></li>
+                    <li class="scrollspy"><a href="#learned">What I Learned</a></li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="container">
+            <div class="single-project">
+                <section class="new-section" id="intro">
+                    <h1>DocBox</h1>
+                    <h2 class="header2" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">One app for every document</h2>
+
+                    <div class="row row-tagline remote-specs-row" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <div class="col l2 offset-l1 m2">
+                            <ul class="specs">
+                                <li><p class="specs-title">Role:</p></li>
+                                <li><p class="specs-list">UX/UI Design</p></li>
+                            </ul>
+                        </div>
+                        <div class="col l2 m2">
+                            <ul class="specs">
+                                <li><p class="specs-title">Platform:</p></li>
+                                <li><p class="specs-list">Android</p></li>
+                            </ul>
+                        </div>
+                        <div class="col l2 m2">
+                            <ul class="specs">
+                                <li><p class="specs-title">Duration:</p></li>
+                                <li><p class="specs-list">Case Study</p></li>
+                            </ul>
+                        </div>
+                        <div class="col l2 m3">
+                            <ul class="specs">
+                                <li><p class="specs-title">Tools:</p></li>
+                                <li><p class="specs-list">Figma</p></li>
+                            </ul>
+                        </div>
+                        <div class="col s12">
+                            <div class="specs-mobile">
+                                <p><b>Role:</b> UX/UI Design</p>
+                                <p><b>Platform:</b> Android</p>
+                                <p><b>Duration:</b> Case Study</p>
+                                <p><b>Tools:</b> Figma</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="new-section" id="overview">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>Overview</h2>
+                        <p>DocBox is an Android app for opening, editing and organising Word, Excel, PowerPoint, PDF, TXT and CSV files in one place. I designed the full experience: 12 flows, 50+ screens, dark and light themes, and the design system behind them.</p>
+                        <p><a href="#key-flows">Click here to jump to the flows! ↓</a></p>
+
+                        <figure class="docbox-visual">
+                            <img src="media/docbox/light-dark.webp" alt="DocBox color tokens for dark and light themes" loading="lazy" width="2880" height="2171">
+                            <figcaption>One semantic color system, mapped to both dark and light themes.</figcaption>
+                        </figure>
+                    </div>
+                </section>
+
+                <section class="new-section" id="challenge">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>The Challenge</h2>
+                        <p>People switch between separate apps for documents, spreadsheets, slides and PDFs, and most of them feel heavy on a phone. The goal was one calm app that handles every format, works offline, and stays out of the way.</p>
+                        <blockquote>One calm app that handles every format — and stays out of the way.</blockquote>
+                    </div>
+                </section>
+
+                <section class="new-section" id="goals">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>Goals</h2>
+                        <div class="goals-grid">
+                            <div class="goal-card">
+                                <strong>One app, every format</strong>
+                                <p>A consistent editing experience across DOCX, XLSX, PPTX and PDF.</p>
+                            </div>
+                            <div class="goal-card">
+                                <strong>Fast to start</strong>
+                                <p>Open, search or create in a tap or two.</p>
+                            </div>
+                            <div class="goal-card">
+                                <strong>Private by default</strong>
+                                <p>Files stay on the device unless the user connects a cloud account.</p>
+                            </div>
+                            <div class="goal-card">
+                                <strong>Comfortable in any light</strong>
+                                <p>First-class dark and light themes from day one.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="new-section" id="design-system">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>Design System</h2>
+                        <p>I built the system first so every screen stays consistent.</p>
+
+                        <strong>Colour</strong>
+                        <p>Semantic tokens (surface, primary, error, success) mapped across both themes. A blue gradient is reserved for primary actions, while the portfolio accent keeps case-study chrome aligned with the rest of the site.</p>
+
+                        <figure class="docbox-visual">
+                            <img src="media/docbox/light-dark.webp" alt="Dark and light DocBox color palettes and semantic tokens" loading="lazy" width="2880" height="2171">
+                            <figcaption>Semantic color tokens keep actions, surfaces and status colors consistent across themes.</figcaption>
+                        </figure>
+
+                        <strong>Typography, Radius &amp; Spacing</strong>
+                        <p>Inter in a 7-step scale, from 30 px display to 12 px label. Four corner radii and a 4-based spacing scale with a 20 px screen margin.</p>
+
+                        <figure class="docbox-visual">
+                            <img src="media/docbox/inter.webp" alt="Inter type scale and typography samples from the DocBox design system" loading="lazy" width="2880" height="1086">
+                            <figcaption>Inter typography scale and in-product examples.</figcaption>
+                        </figure>
+                        <figure class="docbox-visual">
+                            <img src="media/docbox/radius.webp" alt="DocBox corner radius and spacing scale" loading="lazy" width="2880" height="1402">
+                            <figcaption>Reusable corner radii and a 4-based spacing scale.</figcaption>
+                        </figure>
+
+                        <strong>Icons</strong>
+                        <p>141 Phosphor icons in regular and fill styles, plus custom colour-coded file-type icons for each format.</p>
+
+                        <figure class="docbox-visual">
+                            <img src="media/docbox/file-icons.webp" alt="Color-coded file icons for Word, Excel, PowerPoint, PDF, TXT and CSV" loading="lazy" width="2880" height="1034">
+                            <figcaption>Distinct file-type icons make formats easy to scan.</figcaption>
+                        </figure>
+                        <figure class="docbox-visual">
+                            <img src="media/docbox/icons.webp" alt="DocBox Phosphor icon library in regular and fill styles" loading="lazy" width="2880" height="4631">
+                            <figcaption>Regular and filled icon styles used throughout the interface.</figcaption>
+                        </figure>
+
+                        <strong>Components</strong>
+                        <p>Buttons, chips, tabs, segmented controls, file and folder cards, bottom sheets, dialogs, toasts and navigation — each designed for both themes.</p>
+
+                        <div class="placeholder-stack">
+                            <div class="image-placeholder dark">
+                                <strong>Components · Dark</strong>
+                                <p>Core component set on dark surfaces: buttons, chips, cards, sheets and dialogs.</p>
+                            </div>
+                            <div class="image-placeholder">
+                                <strong>Components · Light</strong>
+                                <p>The same component library mapped to light theme tokens.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="new-section" id="key-flows">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>Key Flows</h2>
+                        <p>The app is organised into 12 flows that follow how people actually use a document app: get started, find a file, create or edit it, then share it or manage settings. Each flow reuses the same components, so moving between Word, Excel, Slides and PDF feels familiar.</p>
+
+                        <div class="flow-block">
+                            <strong>Onboarding</strong>
+                            <p>Three short screens explain the app, followed by a clear file-access request.</p>
+                            <div class="placeholder-stack">
+                                <div class="image-placeholder dark">
+                                    <strong>Splash · Welcome · Formats · File access</strong>
+                                    <p>Onboarding sequence introducing DocBox and requesting storage access.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-block">
+                            <strong>Home &amp; Search</strong>
+                            <p>Quick-access tiles by file type, recent files, and search across names and content.</p>
+                            <div class="placeholder-stack">
+                                <div class="image-placeholder dark">
+                                    <strong>Home · Search</strong>
+                                    <p>Home with type tiles and recent files, plus search across file names and content.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-block">
+                            <strong>Files &amp; Folders</strong>
+                            <p>List and grid views, sorting, move, rename, details and delete — all handled through bottom sheets and dialogs.</p>
+                            <div class="placeholder-stack">
+                                <div class="image-placeholder">
+                                    <strong>Files · Grid · Actions · Sort</strong>
+                                    <p>File management patterns using sheets and dialogs for common actions.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-block">
+                            <strong>Create New</strong>
+                            <p>A create sheet with templates for documents, sheets and slides.</p>
+                            <div class="placeholder-stack">
+                                <div class="image-placeholder">
+                                    <strong>Create sheet · Templates</strong>
+                                    <p>Quick create entry points and starter templates for each format.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-block">
+                            <strong>Word Editor</strong>
+                            <p>A focused writing space with a text-format panel and an insert menu.</p>
+                            <div class="placeholder-stack">
+                                <div class="image-placeholder dark">
+                                    <strong>Document · Text format · Insert</strong>
+                                    <p>Writing surface with compact formatting and insert controls.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-block">
+                            <strong>Excel Editor</strong>
+                            <p>A formula bar, a custom formula keypad and quick chart insertion.</p>
+                            <div class="placeholder-stack">
+                                <div class="image-placeholder">
+                                    <strong>Spreadsheet · Formula entry · Insert chart</strong>
+                                    <p>Mobile spreadsheet patterns for formulas and charts without feeling cramped.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-block">
+                            <strong>Presentation Editor</strong>
+                            <p>Slide editing, a slide sorter, and a presenter view with speaker notes.</p>
+                            <div class="placeholder-stack">
+                                <div class="image-placeholder dark">
+                                    <strong>Slide editor · Sorter · Presenter view</strong>
+                                    <p>Create, rearrange and present slides with notes on a phone screen.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-block">
+                            <strong>PDF</strong>
+                            <p>Read, annotate and sign documents on the go.</p>
+                            <div class="placeholder-stack">
+                                <div class="image-placeholder">
+                                    <strong>PDF viewer · Annotate · Sign</strong>
+                                    <p>Reading, markup and signature tools for documents on the go.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-block">
+                            <strong>Share &amp; Export</strong>
+                            <p>Share with permissions, or export to PDF, DOCX, TXT or images with quality options.</p>
+                            <div class="placeholder-stack">
+                                <div class="image-placeholder">
+                                    <strong>Share · Export</strong>
+                                    <p>Permission-aware sharing and export options with quality controls.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flow-block">
+                            <strong>Settings &amp; Premium</strong>
+                            <p>Theme, default font, spell check and cloud accounts, plus a simple premium upgrade flow.</p>
+                            <div class="placeholder-stack">
+                                <div class="image-placeholder dark">
+                                    <strong>Settings · Theme · DocBox Pro</strong>
+                                    <p>Preferences, theme switching and a clear premium upgrade path.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="new-section" id="themes">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>Dark &amp; Light Themes</h2>
+                        <p>Every screen was designed in both themes from the start, using the same tokens so the experience stays consistent.</p>
+                        <figure class="docbox-visual">
+                            <img src="media/docbox/light-dark.webp" alt="DocBox dark and light theme color tokens shown side by side" loading="lazy" width="2880" height="2171">
+                            <figcaption>Shared semantic tokens preserve the same visual hierarchy in both themes.</figcaption>
+                        </figure>
+                    </div>
+                </section>
+
+                <section class="new-section" id="outcome">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>Outcome</h2>
+                        <p>A complete design of 50+ screens in two themes, built on a reusable system that makes new screens faster to design and easier to hand off.</p>
+                        <div class="placeholder-stack">
+                            <div class="image-placeholder dark">
+                                <strong>Full screen overview</strong>
+                                <p>Zoomed-out board of the complete DocBox experience across flows and themes.</p>
+                            </div>
+                        </div>
+                        <a class="figma-link" href="#" aria-label="View full flow in Figma">View full flow in Figma →</a>
+                    </div>
+                </section>
+
+                <section class="new-section" id="learned">
+                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                        <h2>What I Learned</h2>
+                        <p>Designing DocBox taught me that a strong system is what keeps a large app consistent. Setting colour, type and spacing first, and designing dark and light themes together, kept 50+ screens aligned with very little rework.</p>
+                        <p>I also learned that dense tools like Word and Excel work best on mobile with simple patterns such as bottom sheets and compact toolbars, and that small details like empty states and confirmations are what make an app feel complete.</p>
+                        <p><a href="#intro">Back to top ↑</a></p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <section class="project-slider-section">
+        <div class="container project-slider-shell">
+            <div class="project-slider-intro">
+                <h2>More Projects</h2>
+                <p>Keep exploring a few other case studies and visual design projects.</p>
+            </div>
+            <div class="project-slider-track">
+                <a href="medical-scribe.html" class="project-slider-card">
+                    <img src="media/thumbnails/medical-scribe.webp" alt="AI Medical Scribe project thumbnail">
+                    <div class="project-slider-card-body">
+                        <span class="project-slider-card-label">Case Study, UX/UI Design</span>
+                        <h3>AI Medical Scribe</h3>
+                        <p>A healthcare AI workflow designed around ambient clinical documentation.</p>
+                    </div>
+                </a>
+                <a href="cylo.html" class="project-slider-card">
+                    <img src="media/thumbnails/cylo.webp" alt="Cylo project thumbnail">
+                    <div class="project-slider-card-body">
+                        <span class="project-slider-card-label">Case Study, UX/UI Design</span>
+                        <h3>Cylo</h3>
+                        <p>A period and wellness tracker designed around calm routines and clear insights.</p>
+                    </div>
+                </a>
+                <a href="remote.html" class="project-slider-card">
+                    <img src="media/thumbnails/remote.webp" alt="TV Remote project thumbnail">
+                    <div class="project-slider-card-body">
+                        <span class="project-slider-card-label">Case Study, UX/UI Design</span>
+                        <h3>TV Remote App</h3>
+                        <p>A mobile remote experience focused on control, casting, and quick access.</p>
+                    </div>
+                </a>
+                <a href="aurora.html" class="project-slider-card">
+                    <img src="media/thumbnails/aurora.webp" alt="Aurora project thumbnail">
+                    <div class="project-slider-card-body">
+                        <span class="project-slider-card-label">Case Study, UX/UI Design</span>
+                        <h3>Aurora VPN</h3>
+                        <p>A VPN experience designed around clarity, trust, and one-tap connection.</p>
+                    </div>
+                </a>
+                <a href="sawa.html" class="project-slider-card">
+                    <img src="media/thumbnails/sawa.webp" alt="Sawa project thumbnail">
+                    <div class="project-slider-card-body">
+                        <span class="project-slider-card-label">Case Study, UX/UI Design</span>
+                        <h3>Community App</h3>
+                        <p>A social product designed around trust, events, and shared experiences.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">
+        <p>© 2026 Zoya Abbasi. Built with ♥</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/zoya-abbasi022" class="fa fa-linkedin" title="LinkedIn" target="_blank" rel="noreferrer"></a>
+            <a href="https://www.behance.net/zoyaabbasi1" class="fa fa-behance" title="Behance" target="_blank" rel="noreferrer"></a>
+            <a href="mailto:zoyaabbasi022@gmail.com" class="fa fa-envelope" title="Mail"></a>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="pages/js/script.js"></script>
+</body>
+
+</html>
