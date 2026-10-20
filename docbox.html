@@ -326,28 +326,10 @@
             background: #70264F;
         }
 
-        body.docbox-page .goals-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
-            margin-top: 18px;
-        }
-
-        body.docbox-page .goal-card {
-            padding: 18px 20px;
-            border-radius: 20px;
-            background: #fff6f8;
-            border: 1px solid rgba(162, 63, 114, 0.12);
-        }
-
-        body.docbox-page .goal-card strong {
-            margin-bottom: 8px;
+        body.docbox-page .goals-list strong {
+            display: inline;
             color: #A23F72;
-            font-size: 16px;
-        }
-
-        body.docbox-page .goal-card p {
-            margin: 0;
+            font-size: inherit;
         }
 
         @media (max-width: 768px) {
@@ -412,8 +394,7 @@
                 border-radius: 22px;
             }
 
-            body.docbox-page .placeholder-mini-grid,
-            body.docbox-page .goals-grid {
+            body.docbox-page .placeholder-mini-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -549,24 +530,12 @@
                 <section class="new-section" id="goals">
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         <h2>Goals</h2>
-                        <div class="goals-grid">
-                            <div class="goal-card">
-                                <strong>One app, every format</strong>
-                                <p>A consistent editing experience across DOCX, XLSX, PPTX and PDF.</p>
-                            </div>
-                            <div class="goal-card">
-                                <strong>Fast to start</strong>
-                                <p>Open, search or create in a tap or two.</p>
-                            </div>
-                            <div class="goal-card">
-                                <strong>Private by default</strong>
-                                <p>Files stay on the device unless the user connects a cloud account.</p>
-                            </div>
-                            <div class="goal-card">
-                                <strong>Comfortable in any light</strong>
-                                <p>First-class dark and light themes from day one.</p>
-                            </div>
-                        </div>
+                        <ul class="goals-list">
+                            <li><strong>One app, every format:</strong> Provide a consistent editing experience across DOCX, XLSX, PPTX and PDF.</li>
+                            <li><strong>Fast to start:</strong> Let people open, search or create a file in a tap or two.</li>
+                            <li><strong>Private by default:</strong> Keep files on the device unless the user connects a cloud account.</li>
+                            <li><strong>Comfortable in any light:</strong> Support focused work with dark and light themes.</li>
+                        </ul>
                     </div>
                 </section>
 
