@@ -79,6 +79,12 @@
             color: #fff;
         }
 
+        body.docbox-page .docbox-cover {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         body.docbox-page .project-hero-copy {
             max-width: 760px;
         }
@@ -398,13 +404,7 @@
     </header>
 
     <main>
-        <div class="project-hero-placeholder" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-            <div class="project-hero-copy">
-                <span class="project-hero-kicker">Android · Mobile App Design · Design System</span>
-                <h1>DocBox</h1>
-                <p>One app for every document. Home, Word, Excel and Presentation — designed for a calm dark-theme experience.</p>
-            </div>
-        </div>
+        <img class="docbox-cover" src="media/docbox/cover.webp" alt="DocBox project cover" fetchpriority="high" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
 
         <div class="sticky">
             <nav class="section-nav">
