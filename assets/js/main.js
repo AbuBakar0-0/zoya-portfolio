@@ -165,6 +165,7 @@ window.addEventListener('scroll', function() {
             changeZoom(event.deltaY < 0 ? scaleStep : -scaleStep);
         }, { passive: false });
 
+
         stage.addEventListener('pointerdown', function (event) {
             if (!canPan() || (event.pointerType === 'mouse' && event.button !== 0)) {
                 return;
@@ -194,5 +195,50 @@ window.addEventListener('scroll', function() {
         stage.addEventListener('pointercancel', stopDragging);
 
         updateZoom();
+    });
+}());
+
+// Some older project pages initialize their zoom controls inline. Delegate
+// pinch gestures here as well, using their buttons so the displayed zoom stays synced.
+(function () {
+    let pinchDistance = 0;
+    let pinchRemainder = 0;
+    const threshold = 1.12;
+
+    function distance(touches) {
+        return Math.hypot(
+            touches[0].clientX - touches[1].clientX,
+            touches[0].clientY - touches[1].clientY
+        );
+    }
+
+    document.addEventListener('touchstart', function (event) {
+        if (!event.target.closest('.inline-zoom-stage') || event.touches.length !== 2) return;
+        pinchDistance = distance(event.touches);
+        pinchRemainder = 1;
+    }, { passive: true });
+
+    document.addEventListener('touchmove', function (event) {
+        const stage = event.target.closest('.inline-zoom-stage');
+        if (!stage || event.touches.length !== 2 || !pinchDistance) return;
+        event.preventDefault();
+
+        const nextDistance = distance(event.touches);
+        const ratio = nextDistance / pinchDistance;
+        pinchRemainder *= ratio;
+        pinchDistance = nextDistance;
+
+        while (pinchRemainder >= threshold) {
+            stage.parentElement.querySelector('.inline-zoom-controls button[aria-label="Zoom in"]').click();
+            pinchRemainder /= threshold;
+        }
+        while (pinchRemainder <= 1 / threshold) {
+            stage.parentElement.querySelector('.inline-zoom-controls button[aria-label="Zoom out"]').click();
+            pinchRemainder *= threshold;
+        }
+    }, { passive: false });
+
+    document.addEventListener('touchend', function (event) {
+        if (event.touches.length < 2) pinchDistance = 0;
     });
 }());
