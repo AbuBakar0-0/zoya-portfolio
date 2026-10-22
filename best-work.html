@@ -119,25 +119,11 @@
                     </h2>
                 </div>
             </div>
-            <div class="action-down">
-                <a class="arrow" href="#portfolio">
-                    <p class="scroll">View my work!</p>
-                    <div class="bounce"><i class="fa fa-chevron-circle-down"></i></div>
-                </a>
-            </div>
         </div>
 
         <main>
             <div class="container-full">
                 <div id="portfolio">
-                    <div class="portfolio-filter" aria-label="Project filters">
-                        <button type="button" class="portfolio-filter-button is-active" data-filter="uiux">
-                            UX/UI Design
-                        </button>
-                        <button type="button" class="portfolio-filter-button" data-filter="visuals">
-                            Visual Design
-                        </button>
-                    </div>
                     <div class="works_2-columns">
                         <a href="ubl.html" data-project-type="uiux">
                             <div class="works-item works-item-cylo">
@@ -212,34 +198,6 @@
                 error.hidden = false;
                 input.select();
             });
-        }());
-    </script>
-    <script>
-        (function () {
-            const filterButtons = Array.from(document.querySelectorAll('.portfolio-filter-button'));
-            const projectLinks = Array.from(document.querySelectorAll('[data-project-type]'));
-
-            if (!filterButtons.length || !projectLinks.length) {
-                return;
-            }
-
-            function applyFilter(filter) {
-                filterButtons.forEach((button) => {
-                    button.classList.toggle('is-active', button.dataset.filter === filter);
-                });
-
-                projectLinks.forEach((link) => {
-                    link.hidden = link.dataset.projectType !== filter;
-                });
-            }
-
-            filterButtons.forEach((button) => {
-                button.addEventListener('click', function () {
-                    applyFilter(button.dataset.filter);
-                });
-            });
-
-            applyFilter('uiux');
         }());
     </script>
     <script>
