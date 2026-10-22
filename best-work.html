@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Best Work | Zoya Abbasi</title>
+
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/main.css?v=13">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=18">
+    <link rel="stylesheet" href="home.css?v=9">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600%7CPoppins:600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
+
+    <style>
+        #best-work[hidden],
+        #password-gate[hidden] {
+            display: none;
+        }
+
+        #password-dialog {
+            width: min(380px, calc(100% - 32px));
+            padding: 28px;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.24);
+        }
+
+        #password-dialog::backdrop {
+            background: rgba(0, 0, 0, 0.58);
+            backdrop-filter: blur(3px);
+        }
+
+        #password-form {
+            display: grid;
+            gap: 12px;
+        }
+
+        #password-form h1 {
+            margin: 0;
+            color: #222;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            line-height: 1.2;
+        }
+
+        #password-form label {
+            color: #222;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        #password-form input,
+        #password-form button {
+            min-height: 46px;
+            padding: 10px 14px;
+            border: 1px solid #c8c8c8;
+            border-radius: 6px;
+            font: inherit;
+        }
+
+        #password-form button {
+            border-color: #222;
+            background: #222;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #password-error {
+            margin: 0;
+            color: #a00020;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <dialog id="password-dialog" aria-labelledby="password-title">
+        <form id="password-form">
+            <h1 id="password-title">Best Work</h1>
+            <label for="project-password">Enter password to view this project</label>
+            <input id="project-password" name="password" type="password" autocomplete="current-password" required>
+            <button type="submit">View Best Work</button>
+            <p id="password-error" role="status" aria-live="polite" hidden>Incorrect password. Please try again.</p>
+        </form>
+    </dialog>
+
+    <div id="best-work" hidden>
+        <header id="header">
+            <div class="container">
+                <a href="index.html" class="logo">ZOYA ABBASI</a>
+                <a href="#" onclick="openNav()" class="nav-button" aria-label="Open navigation"><span class="fa fa-bars" aria-hidden="true"></span></a>
+                <nav id="navigation">
+                    <a href="javascript:void(0)" onclick="closeNav()" class="close-btn" aria-label="Close navigation"><span class="fa fa-times" aria-hidden="true"></span></a>
+                    <ul class="main-menu">
+                        <li><a href="about.html">about</a></li>
+                        <li><a href="index.html#portfolio">portfolio</a></li>
+                        <li><a href="best-work.html" class="active" aria-current="page">best work</a></li>
+                        <li><a href="https://drive.google.com/file/d/1QsQpP-4VwCkASo2_RceU2UK6oa8cWiMe/view" target="_blank" rel="noopener noreferrer">resume</a></li>
+                        <li><a href="contact.html">Contact me</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="hero-homepage">
+                <div class="hero-content">
+                    <h1>Hi, I'm <span><a href="about.html" title="About">Zoya Abbasi!</a></span> 👋🏽</h1>
+                    <h2>I'm a <span style="color: #A23F72" id="typewriter"></span>
+                        <div class="description">passionate about creating well-rounded experiences.</div>
+                    </h2>
+                </div>
+            </div>
+            <div class="action-down">
+                <a class="arrow" href="#portfolio">
+                    <p class="scroll">View my work!</p>
+                    <div class="bounce"><i class="fa fa-chevron-circle-down"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <main>
+            <div class="container-full">
+                <div id="portfolio">
+                    <div class="portfolio-filter" aria-label="Project filters">
+                        <button type="button" class="portfolio-filter-button is-active" data-filter="uiux">
+                            UX/UI Design
+                        </button>
+                        <button type="button" class="portfolio-filter-button" data-filter="visuals">
+                            Visual Design
+                        </button>
+                    </div>
+                    <div class="works_2-columns">
+                        <a href="ubl.html" data-project-type="uiux">
+                            <div class="works-item works-item-cylo">
+                                <img src="media/ubl/hero.webp" alt="UBL Best Work project preview" width="5760" height="3584" loading="lazy">
+                                <div class="works-item-overlay">
+                                    <div class="works-item-info">
+                                        <h3 class="works-info-title">UBL</h3>
+                                        <p class="works-info-category">Best Work · UX/UI Design</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="copyright">
+            <p>© 2026 Zoya Abbasi. Built with ♥</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/zoya-abbasi022" class="fa fa-linkedin" title="LinkedIn" target="_blank" rel="noreferrer"></a>
+                <a href="https://www.behance.net/zoyaabbasi1" class="fa fa-behance" title="Behance" target="_blank" rel="noreferrer"></a>
+                <a href="mailto:zoyaabbasi022@gmail.com" class="fa fa-envelope" title="Mail"></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script>
+        const instance = new Typewriter('#typewriter', {
+            strings: ['UX/UI Designer', 'Product Designer', 'Interaction Designer', 'Visual Designer'],
+            autoStart: true,
+            loop: true,
+        });
+    </script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        (function () {
+            const passwordHash = 'c1733b647cba95cbd8cc26b6f7e484b1e5ca8b93e5ecde5bf5ec7c0555742702';
+            const sessionKey = 'ubl-best-work-unlocked';
+            const dialog = document.getElementById('password-dialog');
+            const gallery = document.getElementById('best-work');
+            const form = document.getElementById('password-form');
+            const input = document.getElementById('project-password');
+            const error = document.getElementById('password-error');
+
+            function unlock(closeDialog) {
+                gallery.hidden = false;
+                sessionStorage.setItem(sessionKey, 'true');
+                if (closeDialog && dialog.open) dialog.close();
+            }
+
+            if (sessionStorage.getItem(sessionKey) === 'true') {
+                unlock(false);
+            } else {
+                dialog.showModal();
+            }
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.value));
+                const candidate = Array.from(new Uint8Array(digest), function (byte) {
+                    return byte.toString(16).padStart(2, '0');
+                }).join('');
+
+                if (candidate === passwordHash) {
+                    unlock(true);
+                    return;
+                }
+
+                error.hidden = false;
+                input.select();
+            });
+        }());
+    </script>
+    <script>
+        (function () {
+            const filterButtons = Array.from(document.querySelectorAll('.portfolio-filter-button'));
+            const projectLinks = Array.from(document.querySelectorAll('[data-project-type]'));
+
+            if (!filterButtons.length || !projectLinks.length) {
+                return;
+            }
+
+            function applyFilter(filter) {
+                filterButtons.forEach((button) => {
+                    button.classList.toggle('is-active', button.dataset.filter === filter);
+                });
+
+                projectLinks.forEach((link) => {
+                    link.hidden = link.dataset.projectType !== filter;
+                });
+            }
+
+            filterButtons.forEach((button) => {
+                button.addEventListener('click', function () {
+                    applyFilter(button.dataset.filter);
+                });
+            });
+
+            applyFilter('uiux');
+        }());
+    </script>
+    <script>
+        (function () {
+            const mobileQuery = window.matchMedia('(max-width: 670px)');
+            const projectCards = Array.from(document.querySelectorAll('.works-item'));
+            let activeTouchedCard = null;
+
+            function clearTouchedCards() {
+                projectCards.forEach((card) => card.classList.remove('is-touching'));
+                activeTouchedCard = null;
+            }
+
+            function setTouchedCard(card) {
+                if (activeTouchedCard === card) {
+                    return;
+                }
+
+                clearTouchedCards();
+
+                if (card) {
+                    card.classList.add('is-touching');
+                    activeTouchedCard = card;
+                }
+            }
+
+            function updateTouchedCardFromPoint(touch) {
+                if (!mobileQuery.matches || !touch) {
+                    return;
+                }
+
+                const element = document.elementFromPoint(touch.clientX, touch.clientY);
+                const card = element ? element.closest('.works-item') : null;
+                setTouchedCard(projectCards.includes(card) ? card : null);
+            }
+
+            projectCards.forEach((card) => {
+                card.addEventListener('touchstart', function (event) {
+                    updateTouchedCardFromPoint(event.touches[0]);
+                }, { passive: true });
+
+                card.addEventListener('touchend', function () {
+                    card.classList.remove('is-touching');
+                }, { passive: true });
+
+                card.addEventListener('touchcancel', function () {
+                    card.classList.remove('is-touching');
+                }, { passive: true });
+            });
+
+            document.addEventListener('touchmove', function (event) {
+                updateTouchedCardFromPoint(event.touches[0]);
+            }, { passive: true });
+
+            document.addEventListener('touchend', clearTouchedCards, { passive: true });
+            document.addEventListener('touchcancel', clearTouchedCards, { passive: true });
+
+            function syncTouchOverlays() {
+                if (!mobileQuery.matches) {
+                    clearTouchedCards();
+                }
+            }
+
+            syncTouchOverlays();
+
+            if (mobileQuery.addEventListener) {
+                mobileQuery.addEventListener('change', syncTouchOverlays);
+            } else {
+                mobileQuery.addListener(syncTouchOverlays);
+            }
+        }());
+    </script>
+</body>
+
+</html>
