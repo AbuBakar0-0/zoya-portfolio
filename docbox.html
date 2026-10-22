@@ -325,6 +325,14 @@
             margin-top: 22px;
         }
 
+        body.docbox-page #key-flows .flow-block.compact-gap {
+            margin-top: 48px;
+        }
+
+        body.docbox-page #design-system .design-system-spaced-heading {
+            margin-top: 40px;
+        }
+
         body.docbox-page .docbox-screen-theme-toggle {
             display: inline-flex;
             gap: 6px;
@@ -341,7 +349,7 @@
             align-items: center;
             justify-content: center;
             gap: 7px;
-            min-width: 92px;
+            min-width: 120px;
             min-height: 38px;
             border: 0;
             border-radius: 999px;
@@ -361,18 +369,18 @@
         }
 
         body.docbox-page .docbox-screen-theme-toggle button:hover {
-            color: #1b3358;
-            background: rgba(76, 141, 255, 0.1);
+            color: var(--accent);
+            background: rgba(var(--accent-rgb), 0.1);
         }
 
         body.docbox-page .docbox-screen-theme-toggle button.is-active {
-            background: #1b3358;
+            background: var(--accent);
             color: #fff;
-            box-shadow: 0 8px 18px rgba(19, 32, 56, 0.18);
+            box-shadow: 0 8px 18px rgba(var(--accent-rgb), 0.28);
         }
 
         body.docbox-page .docbox-screen-theme-toggle button:focus-visible {
-            outline: 2px solid #4c8dff;
+            outline: 2px solid var(--accent);
             outline-offset: 2px;
         }
 
@@ -526,7 +534,6 @@
                     <li class="scrollspy"><a href="#goals">Goals</a></li>
                     <li class="scrollspy"><a href="#design-system">Design System</a></li>
                     <li class="scrollspy"><a href="#key-flows">Key Flows</a></li>
-                    <li class="scrollspy"><a href="#themes">Themes</a></li>
                     <li class="scrollspy"><a href="#outcome">Outcome</a></li>
                     <li class="scrollspy"><a href="#learned">What I Learned</a></li>
                 </ol>
@@ -619,7 +626,7 @@
                             <img src="media/docbox/light-dark.webp" alt="Dark and light DocBox color palettes and semantic tokens" loading="lazy" width="2880" height="2171">
                         </figure>
 
-                        <strong>Typography</strong>
+                        <strong class="design-system-spaced-heading">Typography</strong>
                         <p>Inter keeps interface text clear, with seven sizes ranging from 30 px display text to 12 px labels.</p>
 
                         <figure class="docbox-visual">
@@ -627,7 +634,7 @@
                         </figure>
                         
 
-                        <strong>Radius &amp; Spacing</strong>
+                        <strong class="design-system-spaced-heading">Radius &amp; Spacing</strong>
                         <p>Four corner treatments give cards, controls and sheets a consistent shape. A 4 px spacing scale creates a steady rhythm, with 20 px margins framing each screen.</p>
                         <figure class="docbox-visual">
                             <img src="media/docbox/radius.webp" alt="DocBox corner radius and spacing scale" loading="lazy" width="2880" height="1402">
@@ -680,7 +687,7 @@
                             </figure>
                         </div>
 
-                        <div class="flow-block">
+                        <div class="flow-block compact-gap">
                             <strong>Home &amp; Search</strong>
                             <p>Quick-access tiles by file type, recent files, and search across names and content.</p>
                             <figure class="docbox-visual">
@@ -688,7 +695,7 @@
                             </figure>
                         </div>
 
-                        <div class="flow-block">
+                        <div class="flow-block compact-gap">
                             <strong>Files &amp; Folders</strong>
                             <p>Browse documents in list or grid view, sort them, and organise them into folders. Move, rename or delete items through clear menus and dialogs.</p>
                             <figure class="docbox-visual">
@@ -727,16 +734,6 @@
                                 <img src="media/docbox/pro-light.webp" data-light="media/docbox/pro-light.webp" data-dark="media/docbox/pro.webp" alt="DocBox Pro premium upgrade screen in light mode" loading="lazy">
                             </figure>
                         </div>
-                    </div>
-                </section>
-
-                <section class="new-section" id="themes">
-                    <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                        <h2>Dark &amp; Light Themes</h2>
-                        <p>Every screen was designed in both themes from the start, using the same tokens so the experience stays consistent.</p>
-                        <figure class="docbox-visual">
-                            <img src="media/docbox/light-dark.webp" alt="DocBox dark and light theme color tokens shown side by side" loading="lazy" width="2880" height="2171">
-                        </figure>
                     </div>
                 </section>
 
