@@ -309,6 +309,57 @@
             margin-top: 42px;
         }
 
+        body.docbox-page .docbox-screen-theme-toggle {
+            display: inline-flex;
+            gap: 6px;
+            margin: 20px 0 8px;
+            padding: 5px;
+            border: 1px solid rgba(27, 51, 88, 0.14);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 14px 32px rgba(19, 32, 56, 0.1);
+        }
+
+        body.docbox-page .docbox-screen-theme-toggle button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            min-width: 92px;
+            min-height: 38px;
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: #64748b;
+            font: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color .2s ease, color .2s ease;
+        }
+
+        body.docbox-page .docbox-screen-theme-toggle .docbox-theme-icon {
+            display: block;
+            width: 17px;
+            height: 17px;
+        }
+
+        body.docbox-page .docbox-screen-theme-toggle button:hover {
+            color: #1b3358;
+            background: rgba(76, 141, 255, 0.1);
+        }
+
+        body.docbox-page .docbox-screen-theme-toggle button.is-active {
+            background: #1b3358;
+            color: #fff;
+            box-shadow: 0 8px 18px rgba(19, 32, 56, 0.18);
+        }
+
+        body.docbox-page .docbox-screen-theme-toggle button:focus-visible {
+            outline: 2px solid #4c8dff;
+            outline-offset: 2px;
+        }
+
         body.docbox-page .flow-block:first-of-type {
             margin-top: 18px;
         }
@@ -593,12 +644,27 @@
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         <h2>Key Flows</h2>
                         <p>The app is organised into 12 flows that follow how people actually use a document app: get started, find a file, create or edit it, then share it or manage settings. Each flow reuses the same components, so moving between Word, Excel, Slides and PDF feels familiar.</p>
+                        <div class="docbox-screen-theme-toggle" role="group" aria-label="Key screen theme">
+                            <button type="button" class="is-active" data-docbox-theme="light" aria-label="Show light mode screens" aria-pressed="true" title="Light mode">
+                                <svg class="docbox-theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <circle cx="12" cy="12" r="4.5" fill="currentColor"></circle>
+                                    <path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.55 1.55M17.75 17.75l1.55 1.55M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.55-1.55M17.75 6.25l1.55-1.55" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                                </svg>
+                                <span>Light</span>
+                            </button>
+                            <button type="button" data-docbox-theme="dark" aria-label="Show dark mode screens" aria-pressed="false" title="Dark mode">
+                                <svg class="docbox-theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <path d="M20.2 14.2A7.7 7.7 0 0 1 9.8 3.8a8.8 8.8 0 1 0 10.4 10.4Z" fill="currentColor"></path>
+                                </svg>
+                                <span>Dark</span>
+                            </button>
+                        </div>
 
                         <div class="flow-block">
                             <strong>Onboarding</strong>
                             <p>Three short screens explain the app, followed by a clear file-access request.</p>
                             <figure class="docbox-visual">
-                                <img src="media/docbox/splash.webp" alt="DocBox splash and onboarding screens" loading="lazy">
+                                <img src="media/docbox/splash-light.webp" data-light="media/docbox/splash-light.webp" data-dark="media/docbox/splash.webp" alt="DocBox splash and onboarding screens in light mode" loading="lazy">
                             </figure>
                         </div>
 
@@ -606,7 +672,7 @@
                             <strong>Home &amp; Search</strong>
                             <p>Quick-access tiles by file type, recent files, and search across names and content.</p>
                             <figure class="docbox-visual">
-                                <img src="media/docbox/home.webp" alt="DocBox home screen and document search" loading="lazy">
+                                <img src="media/docbox/home-light.webp" data-light="media/docbox/home-light.webp" data-dark="media/docbox/home.webp" alt="DocBox home screen and document search in light mode" loading="lazy">
                             </figure>
                         </div>
 
@@ -614,7 +680,7 @@
                             <strong>Files &amp; Folders</strong>
                             <p>Browse documents in list or grid view, sort them, and organise them into folders. Move, rename or delete items through clear menus and dialogs.</p>
                             <figure class="docbox-visual">
-                                <img src="media/docbox/files and folders.webp" alt="DocBox file and folder views with file management actions" loading="lazy">
+                                <img src="media/docbox/files and folders-light.webp" data-light="media/docbox/files and folders-light.webp" data-dark="media/docbox/files and folders.webp" alt="DocBox file and folder views with file management actions in light mode" loading="lazy">
                             </figure>
                         </div>
 
@@ -622,7 +688,7 @@
                             <strong>Favourites</strong>
                             <p>Keep important documents close at hand by marking them as favourites.</p>
                             <figure class="docbox-visual">
-                                <img src="media/docbox/favourite.webp" alt="DocBox favourites screen with saved documents" loading="lazy" width="2880" height="2001">
+                                <img src="media/docbox/favourite-light.webp" data-light="media/docbox/favourite-light.webp" data-dark="media/docbox/favourite.webp" alt="DocBox favourites screen with saved documents in light mode" loading="lazy" width="2880" height="2001">
                             </figure>
                         </div>
 
@@ -630,7 +696,7 @@
                             <strong>Create New</strong>
                             <p>A create sheet with templates for documents, sheets and slides.</p>
                             <figure class="docbox-visual">
-                                <img src="media/docbox/create.webp" alt="DocBox create screen with document, spreadsheet and presentation templates" loading="lazy">
+                                <img src="media/docbox/create-new-light.webp" data-light="media/docbox/create-new-light.webp" data-dark="media/docbox/create.webp" alt="DocBox create screen with document, spreadsheet and presentation templates in light mode" loading="lazy">
                             </figure>
                         </div>
 
@@ -638,7 +704,7 @@
                             <strong>Word Editor</strong>
                             <p>A focused writing space with a text-format panel and an insert menu.</p>
                             <figure class="docbox-visual">
-                                <img src="media/docbox/word-editor.webp" alt="DocBox Word editor with formatting and insert controls" loading="lazy">
+                                <img src="media/docbox/word-editor-light.webp" data-light="media/docbox/word-editor-light.webp" data-dark="media/docbox/word-editor.webp" alt="DocBox Word editor with formatting and insert controls in light mode" loading="lazy">
                             </figure>
                         </div>
 
@@ -646,7 +712,7 @@
                             <strong>Settings &amp; Premium</strong>
                             <p>Theme, default font, spell check and cloud accounts, plus a simple premium upgrade flow.</p>
                             <figure class="docbox-visual">
-                                <img src="media/docbox/pro.webp" alt="DocBox Pro premium upgrade screen" loading="lazy">
+                                <img src="media/docbox/pro-light.webp" data-light="media/docbox/pro-light.webp" data-dark="media/docbox/pro.webp" alt="DocBox Pro premium upgrade screen in light mode" loading="lazy">
                             </figure>
                         </div>
                     </div>
@@ -763,6 +829,36 @@
     <script src="assets/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="pages/js/script.js"></script>
+    <script>
+        (function () {
+            const buttons = document.querySelectorAll('[data-docbox-theme]');
+            const images = document.querySelectorAll('#key-flows img[data-light]');
+
+            if (!buttons.length || !images.length) return;
+
+            function setTheme(theme) {
+                buttons.forEach(function (button) {
+                    const isActive = button.dataset.docboxTheme === theme;
+                    button.classList.toggle('is-active', isActive);
+                    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+                });
+
+                images.forEach(function (image) {
+                    const source = theme === 'dark' ? image.dataset.dark : image.dataset.light;
+                    if (source && image.getAttribute('src') !== source) image.setAttribute('src', source);
+                    image.alt = image.alt.replace(/light mode|dark mode/i, theme + ' mode');
+                });
+            }
+
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    setTheme(button.dataset.docboxTheme);
+                });
+            });
+
+            setTheme('light');
+        }());
+    </script>
     <script>
         document.getElementById('working-dialog').showModal();
     </script>
