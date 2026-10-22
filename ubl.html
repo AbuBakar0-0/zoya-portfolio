@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Best Work | Zoya Abbasi</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+        }
+
+        #ubl-gallery[hidden],
+        #password-gate[hidden] {
+            display: none;
+        }
+
+        #ubl-gallery {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #ubl-gallery img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+
+        #password-gate {
+            display: grid;
+            min-height: 100vh;
+            place-items: center;
+            padding: 24px;
+        }
+
+        #password-form {
+            display: grid;
+            width: min(360px, 100%);
+            gap: 12px;
+        }
+
+        #password-form label {
+            color: #222;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        #password-form input,
+        #password-form button {
+            min-height: 46px;
+            padding: 10px 14px;
+            border: 1px solid #c8c8c8;
+            border-radius: 6px;
+            font: inherit;
+        }
+
+        #password-form button {
+            border-color: #222;
+            background: #222;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #password-error {
+            margin: 0;
+            color: #a00020;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <section id="password-gate" aria-label="Password protected project">
+        <form id="password-form">
+            <label for="project-password">Enter password to view this project</label>
+            <input id="project-password" name="password" type="password" autocomplete="current-password" required>
+            <button type="submit">View Best Work</button>
+            <p id="password-error" role="status" aria-live="polite" hidden>Incorrect password. Please try again.</p>
+        </form>
+    </section>
+
+    <main id="ubl-gallery" hidden>
+        <img src="media/ubl/hero.webp" alt="UBL project — hero" width="5760" height="3584" fetchpriority="high">
+        <img src="media/ubl/fresh.webp" alt="UBL project — Fresh" width="5760" height="3816" loading="lazy" decoding="async">
+        <img src="media/ubl/design-process.webp" alt="UBL project — design process" width="5760" height="3600" loading="lazy" decoding="async">
+        <img src="media/ubl/my-role.webp" alt="UBL project — my role" width="5760" height="4168" loading="lazy" decoding="async">
+        <img src="media/ubl/visual-language.webp" alt="UBL project — visual language" width="5760" height="4980" loading="lazy" decoding="async">
+        <img src="media/ubl/color-logic.webp" alt="UBL project — color logic" width="5760" height="5892" loading="lazy" decoding="async">
+        <img src="media/ubl/foundation.webp" alt="UBL project — foundation" width="5760" height="4060" loading="lazy" decoding="async">
+        <img src="media/ubl/custom-icons.webp" alt="UBL project — custom icons" width="5760" height="4628" loading="lazy" decoding="async">
+    </main>
+
+    <script>
+        (function () {
+            const passwordHash = 'c1733b647cba95cbd8cc26b6f7e484b1e5ca8b93e5ecde5bf5ec7c0555742702';
+            const sessionKey = 'ubl-best-work-unlocked';
+            const gate = document.getElementById('password-gate');
+            const gallery = document.getElementById('ubl-gallery');
+            const form = document.getElementById('password-form');
+            const input = document.getElementById('project-password');
+            const error = document.getElementById('password-error');
+
+            function unlock() {
+                gate.hidden = true;
+                gallery.hidden = false;
+                sessionStorage.setItem(sessionKey, 'true');
+            }
+
+            if (sessionStorage.getItem(sessionKey) === 'true') unlock();
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.value));
+                const candidate = Array.from(new Uint8Array(digest), function (byte) {
+                    return byte.toString(16).padStart(2, '0');
+                }).join('');
+
+                if (candidate === passwordHash) {
+                    unlock();
+                    return;
+                }
+
+                error.hidden = false;
+                input.select();
+            });
+        }());
+    </script>
+</body>
+</html>
