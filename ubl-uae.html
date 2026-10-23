@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>UBL Corporate App UAE | Zoya Abbasi</title>
+
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/main.css?v=13">
+    <link rel="stylesheet" href="assets/css/responsive.css?v=18">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600%7CPoppins:600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
+
+    <style>
+        #ubl-gallery[hidden],
+        #password-gate[hidden] {
+            display: none;
+        }
+
+        #ubl-gallery {
+            width: 100%;
+            margin: 0;
+            padding: 85px 0 0;
+        }
+
+        #ubl-hero,
+        #ubl-image-sequence {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #ubl-gallery img {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+
+        #password-dialog {
+            width: min(380px, calc(100% - 32px));
+            padding: 28px;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.24);
+        }
+
+        #password-dialog::backdrop {
+            background: rgba(0, 0, 0, 0.58);
+            backdrop-filter: blur(3px);
+        }
+
+        #password-form {
+            display: grid;
+            gap: 12px;
+        }
+
+        #password-form h1 {
+            margin: 0;
+            color: #222;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            line-height: 1.2;
+        }
+
+        #password-form label {
+            color: #222;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        #password-form input,
+        #password-form button {
+            min-height: 46px;
+            padding: 10px 14px;
+            border: 1px solid #c8c8c8;
+            border-radius: 6px;
+            font: inherit;
+        }
+
+        #password-form button {
+            border-color: #222;
+            background: #222;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #password-error {
+            margin: 0;
+            color: #a00020;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <dialog id="password-dialog" aria-labelledby="password-title">
+        <form id="password-form">
+            <h1 id="password-title">Best Work</h1>
+            <label for="project-password">Enter password to view this project</label>
+            <input id="project-password" name="password" type="password" autocomplete="current-password" required>
+            <button type="submit">View Best Work</button>
+            <p id="password-error" role="status" aria-live="polite" hidden>Incorrect password. Please try again.</p>
+        </form>
+    </dialog>
+
+    <div id="ubl-gallery" hidden>
+        <header id="header">
+            <div class="container">
+                <a href="index.html" class="logo">ZOYA ABBASI</a>
+                <a href="#" onclick="openNav()" class="nav-button" aria-label="Open navigation"><span class="fa fa-bars" aria-hidden="true"></span></a>
+                <nav id="navigation">
+                    <a href="javascript:void(0)" onclick="closeNav()" class="close-btn" aria-label="Close navigation"><span class="fa fa-times" aria-hidden="true"></span></a>
+                    <ul class="main-menu">
+                        <li><a href="about.html">about</a></li>
+                        <li><a href="index.html#portfolio">portfolio</a></li>
+                        <li><a href="best-work.html" class="active" aria-current="page">best work</a></li>
+                        <li><a href="https://drive.google.com/file/d/1QsQpP-4VwCkASo2_RceU2UK6oa8cWiMe/view" target="_blank" rel="noopener noreferrer">resume</a></li>
+                        <li><a href="contact.html">Contact me</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+        <section id="ubl-hero" aria-label="UBL Corporate App UAE hero">
+            <img src="media/ubl-uae/hero.webp" alt="UBL Corporate App UAE hero" width="2880" height="1800" fetchpriority="high">
+        </section>
+        <section id="ubl-image-sequence" aria-label="UBL Corporate App UAE images">
+            <img src="media/ubl-uae/business-banking.webp" alt="UBL Corporate App UAE — business banking" width="2880" height="1867" loading="lazy" decoding="async">
+            <img src="media/ubl-uae/design-end.webp" alt="UBL Corporate App UAE — designing end to end" width="2880" height="1550" loading="lazy" decoding="async">
+            <img src="media/ubl-uae/one-role.webp" alt="UBL Corporate App UAE — one role per person" width="2880" height="2935" loading="lazy" decoding="async">
+            <img src="media/ubl-uae/solves-problem.webp" alt="UBL Corporate App UAE — how it solves the problem" width="2880" height="6035" loading="lazy" decoding="async">
+            <img src="media/ubl-uae/foundation.webp" alt="UBL Corporate App UAE — design system foundation" width="2880" height="2503" loading="lazy" decoding="async">
+            <img src="media/ubl-uae/end.webp" alt="UBL Corporate App UAE — outcome" width="2880" height="2048" loading="lazy" decoding="async">
+        </section>
+        </main>
+
+        <div class="copyright">
+            <p>© 2026 Zoya Abbasi. Built with ♥</p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/zoya-abbasi022" class="fa fa-linkedin" title="LinkedIn" target="_blank" rel="noreferrer"></a>
+                <a href="https://www.behance.net/zoyaabbasi1" class="fa fa-behance" title="Behance" target="_blank" rel="noreferrer"></a>
+                <a href="mailto:zoyaabbasi022@gmail.com" class="fa fa-envelope" title="Mail"></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        (function () {
+            const passwordHash = 'c1733b647cba95cbd8cc26b6f7e484b1e5ca8b93e5ecde5bf5ec7c0555742702';
+            const sessionKey = 'ubl-best-work-unlocked';
+            const dialog = document.getElementById('password-dialog');
+            const gallery = document.getElementById('ubl-gallery');
+            const form = document.getElementById('password-form');
+            const input = document.getElementById('project-password');
+            const error = document.getElementById('password-error');
+
+            function unlock(closeDialog) {
+                gallery.hidden = false;
+                sessionStorage.setItem(sessionKey, 'true');
+                if (closeDialog && dialog.open) dialog.close();
+            }
+
+            if (sessionStorage.getItem(sessionKey) === 'true') {
+                unlock(false);
+            } else {
+                dialog.showModal();
+            }
+
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input.value));
+                const candidate = Array.from(new Uint8Array(digest), function (byte) {
+                    return byte.toString(16).padStart(2, '0');
+                }).join('');
+
+                if (candidate === passwordHash) {
+                    unlock(true);
+                    return;
+                }
+
+                error.hidden = false;
+                input.select();
+            });
+        }());
+    </script>
+</body>
+</html>
