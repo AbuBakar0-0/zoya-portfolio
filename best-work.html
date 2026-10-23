@@ -57,7 +57,7 @@
         }
 
         #password-dialog {
-            width: min(380px, calc(100% - 32px));
+            width: min(440px, calc(100% - 32px));
             padding: 28px;
             border: 0;
             border-radius: 10px;
@@ -88,8 +88,7 @@
             font-weight: 600;
         }
 
-        #password-form input,
-        #password-form button {
+        #password-form input {
             min-height: 46px;
             padding: 10px 14px;
             border: 1px solid #c8c8c8;
@@ -97,11 +96,39 @@
             font: inherit;
         }
 
-        #password-form button {
-            border-color: #222;
+        #password-actions {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 10px;
+        }
+
+        #password-actions a,
+        #password-actions button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        #password-actions a {
+            border: 1px solid #c8c8c8;
+            background: #fff;
+            color: #222;
+        }
+
+        #password-actions button {
+            border: 1px solid #222;
             background: #222;
             color: #fff;
-            cursor: pointer;
         }
 
         #password-error {
@@ -118,7 +145,10 @@
             <h1 id="password-title">Best Work</h1>
             <label for="project-password">Enter password to view this project</label>
             <input id="project-password" name="password" type="password" autocomplete="current-password" required>
-            <button type="submit">View Best Work</button>
+            <div id="password-actions">
+                <a href="index.html">Back to home page</a>
+                <button type="submit">Continue</button>
+            </div>
             <p id="password-error" role="status" aria-live="polite" hidden>Incorrect password. Please try again.</p>
         </form>
     </dialog>
