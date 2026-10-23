@@ -56,6 +56,12 @@
             margin-top: auto;
         }
 
+        #best-work .works-item picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         #password-dialog {
             width: min(440px, calc(100% - 32px));
             padding: 28px;
@@ -203,7 +209,10 @@
                     <div class="works_2-columns">
                         <a href="ubl.html" data-project-type="uiux">
                             <div class="works-item works-item-cylo">
-                                <img src="media/thumbnails/ubl.webp" alt="UBL app thumbnail" loading="lazy">
+                                <picture>
+                                    <source media="(max-width: 670px)" srcset="media/thumbnails/mobile-ubl.webp">
+                                    <img src="media/thumbnails/web-ubl.webp" alt="UBL app thumbnail" loading="lazy">
+                                </picture>
                                 <div class="works-item-overlay">
                                     <div class="works-item-info">
                                         <h3 class="works-info-title">UBL</h3>
