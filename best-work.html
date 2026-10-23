@@ -29,6 +29,23 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            width: 100%;
+        }
+
+        #best-work > header,
+        #best-work > main,
+        #best-work > .copyright {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        #best-work > .container {
+            width: 100%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            flex-shrink: 0;
+            box-sizing: border-box;
         }
 
         #best-work main {
@@ -37,7 +54,6 @@
 
         #best-work .copyright {
             margin-top: auto;
-            flex-shrink: 0;
         }
 
         #password-dialog {
@@ -168,13 +184,6 @@
     </div>
 
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <script>
-        const instance = new Typewriter('#typewriter', {
-            strings: ['UX/UI Designer', 'Product Designer', 'Interaction Designer', 'Visual Designer'],
-            autoStart: true,
-            loop: true,
-        });
-    </script>
     <script src="assets/js/main.js"></script>
     <script>
         (function () {
@@ -185,11 +194,26 @@
             const form = document.getElementById('password-form');
             const input = document.getElementById('project-password');
             const error = document.getElementById('password-error');
+            let typewriterStarted = false;
+
+            function startTypewriter() {
+                if (typewriterStarted || typeof Typewriter === 'undefined') {
+                    return;
+                }
+
+                typewriterStarted = true;
+                new Typewriter('#typewriter', {
+                    strings: ['UX/UI Designer', 'Product Designer', 'Interaction Designer', 'Visual Designer'],
+                    autoStart: true,
+                    loop: true,
+                });
+            }
 
             function unlock(closeDialog) {
                 gallery.hidden = false;
                 sessionStorage.setItem(sessionKey, 'true');
                 if (closeDialog && dialog.open) dialog.close();
+                requestAnimationFrame(startTypewriter);
             }
 
             if (sessionStorage.getItem(sessionKey) === 'true') {
