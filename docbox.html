@@ -586,19 +586,20 @@
                     <div class="single-project-info" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         <h2>Key Flows</h2>
                         <p>The app is organised into multiple flows that follow how people actually use a document app: get started, find a file, create or edit it, then share it or manage settings. Each flow reuses the same components, so moving between Word, Excel, Slides and PDF feels familiar.</p>
+                        
                         <div class="docbox-screen-theme-toggle" role="group" aria-label="Key screen theme">
-                            <button type="button" class="is-active" data-docbox-theme="light" aria-label="Show light mode screens" aria-pressed="true" title="Light mode">
+                            <button type="button"  class="is-active" data-docbox-theme="dark" aria-label="Show dark mode screens" aria-pressed="false" title="Dark mode">
+                                <svg class="docbox-theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <path d="M20.2 14.2A7.7 7.7 0 0 1 9.8 3.8a8.8 8.8 0 1 0 10.4 10.4Z" fill="currentColor"></path>
+                                </svg>
+                                <span>Dark</span>
+                            </button>
+                            <button type="button" data-docbox-theme="light" aria-label="Show light mode screens" aria-pressed="true" title="Light mode">
                                 <svg class="docbox-theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <circle cx="12" cy="12" r="4.5" fill="currentColor"></circle>
                                     <path d="M12 2.5v2.2M12 19.3v2.2M4.7 4.7l1.55 1.55M17.75 17.75l1.55 1.55M2.5 12h2.2M19.3 12h2.2M4.7 19.3l1.55-1.55M17.75 6.25l1.55-1.55" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
                                 </svg>
                                 <span>Light</span>
-                            </button>
-                            <button type="button" data-docbox-theme="dark" aria-label="Show dark mode screens" aria-pressed="false" title="Dark mode">
-                                <svg class="docbox-theme-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M20.2 14.2A7.7 7.7 0 0 1 9.8 3.8a8.8 8.8 0 1 0 10.4 10.4Z" fill="currentColor"></path>
-                                </svg>
-                                <span>Dark</span>
                             </button>
                         </div>
 
@@ -772,7 +773,7 @@
                 });
             });
 
-            setTheme('light');
+            setTheme('dark');
         }());
     </script>
 </body>
