@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>GetOTP | Zoya Abbasi</title>
+<link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&family=Inter:wght@400;600&family=Roboto:wght@400;500;700&display=swap">
+<style>
+/* Layout: centred 1200px column; sections alternate white / tint / navy; devices sit on soft blue "stages". */
+:root{
+  --bg:#ffffff; --tint:#ffffff; --surface:#ffffff; --ink:#0d1424; --muted:#5b6579; --faint:#97a0b3; --line:#e3e8f1;
+  --blue:#1d6ffc; --blue-2:#5a9bfa; --blue-soft:#e8f0ff; --glow:rgba(29,111,252,.16);
+  --navy:#ffffff; --navy-2:#ffffff; --navy-line:#e3e8f1; --navy-ink:#0d1424; --navy-muted:#5b6579;
+  --green:#12b981; --green-pill:#3faf93; --violet:#7661f3; --gold:#f5b82e;
+  --device:#0c0e13; --device-edge:#2a2e37; --alu-1:#e6e8ec; --alu-2:#b7bbc4; --alu-3:#8b9099;
+  --shadow:0 30px 60px -20px rgba(13,20,36,.28),0 12px 24px -12px rgba(13,20,36,.18);
+  --display:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --max:1200px;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.025em;line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:calc(var(--max) + 32px);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(72px,10vw,140px)}
+.tint{background:var(--tint)}
+.navy{background:var(--navy);color:var(--navy-ink)}
+.accent{color:var(--blue)}
+.navy .accent{color:var(--blue)}
+em.serif{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+
+/* section header: number — label / headline / side caption */
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.02em}
+.eyebrow b{color:var(--blue);font-weight:500}
+.eyebrow i{width:36px;height:1px;background:var(--line)}
+.navy .eyebrow{color:var(--navy-muted)} .navy .eyebrow b{color:var(--blue)} .navy .eyebrow i{background:var(--navy-line)}
+.head{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+.head h2{font-size:clamp(32px,4.6vw,56px);margin-top:18px}
+.head .cap{font-size:14px;color:var(--muted);max-width:34ch;justify-self:end}
+.navy .head .cap{color:var(--navy-muted)}
+.head.center{grid-template-columns:1fr;text-align:center;justify-items:center}
+.head.center .cap{justify-self:center;max-width:52ch}
+@media (max-width:760px){.head{grid-template-columns:1fr}.head .cap{justify-self:start}}
+
+/* ---------- devices ---------- */
+.iphone{--w:260px;position:relative;width:var(--w);max-width:100%;padding:calc(var(--w)*.034);border-radius:calc(var(--w)*.165);background:var(--device);
+  box-shadow:inset 0 0 0 1.5px var(--device-edge),var(--shadow);flex:none}
+.iphone::before{content:"";position:absolute;left:-2px;top:22%;width:3px;height:9%;border-radius:2px;background:var(--device-edge);box-shadow:0 calc(var(--w)*.2) 0 var(--device-edge)}
+.iphone::after{content:"";position:absolute;right:-2px;top:28%;width:3px;height:13%;border-radius:2px;background:var(--device-edge)}
+.iphone .screen{position:relative;overflow:hidden;border-radius:calc(var(--w)*.13);background:#fff}
+.iphone .screen img{width:100%;height:auto}
+.iphone .screen::after{content:"";position:absolute;top:calc(var(--w)*.03);left:50%;transform:translateX(-50%);width:28%;height:calc(var(--w)*.075);border-radius:99px;background:#000}
+
+.mac{--mw:860px;width:var(--mw);max-width:100%;position:relative;padding-inline:calc(var(--mw)*.07)}
+.mac .lid{position:relative;background:var(--device);border-radius:calc(var(--mw)*.028) calc(var(--mw)*.028) calc(var(--mw)*.006) calc(var(--mw)*.006);
+  padding:calc(var(--mw)*.02) calc(var(--mw)*.02) calc(var(--mw)*.03);box-shadow:inset 0 0 0 1.5px var(--device-edge)}
+.mac .lid::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:11%;height:calc(var(--mw)*.018);background:var(--device);border-radius:0 0 8px 8px;z-index:2}
+.mac .scr{position:relative;aspect-ratio:16/10;overflow:hidden;background:#fff;border-radius:3px}
+.mac .scr img{width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.mac .base{position:relative;height:calc(var(--mw)*.026);margin-inline:calc(var(--mw)*-.07);border-radius:2px 2px calc(var(--mw)*.05) calc(var(--mw)*.05) / 2px 2px calc(var(--mw)*.022) calc(var(--mw)*.022);
+  background:linear-gradient(180deg,var(--alu-1) 0%,var(--alu-2) 55%,var(--alu-3) 100%)}
+.mac .base::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:15%;height:45%;border-radius:0 0 10px 10px;background:linear-gradient(180deg,var(--alu-3),var(--alu-2))}
+.mac .floor{position:absolute;left:4%;right:4%;bottom:calc(var(--mw)*-.03);height:calc(var(--mw)*.04);background:radial-gradient(50% 50% at 50% 50%,rgba(13,20,36,.35),transparent 70%);filter:blur(6px);z-index:-1}
+
+.browser{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 20px 40px -24px rgba(13,20,36,.3)}
+.browser .bar{display:flex;align-items:center;gap:6px;height:32px;padding-inline:12px;border-bottom:1px solid var(--line)}
+.browser .bar span{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.browser .bar em{margin-left:12px;font-style:normal;font-family:var(--mono);font-size:11px;color:var(--faint)}
+.browser img{width:100%}
+
+/* stage: soft glow ground behind devices */
+.stage{position:relative;width:100%;container-type:inline-size;border-radius:28px;border:1px solid var(--line);overflow:hidden;
+  background:radial-gradient(60% 70% at 50% 100%,var(--glow),transparent 70%),linear-gradient(180deg,var(--tint),var(--bg))}
+.stage.blue{background:radial-gradient(55% 60% at 50% 90%,rgba(255,255,255,.35),transparent 70%),linear-gradient(160deg,#4f8ff9 0%,#1d6ffc 55%,#1556d6 100%)}
+
+/* ---------- nav + hero ---------- */
+.nav{display:flex;justify-content:space-between;align-items:center;padding-block:22px}
+.nav .logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:17px;letter-spacing:-.02em}
+.nav .logo .mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(150deg,var(--blue-2),var(--blue));display:grid;grid-template-columns:repeat(3,4px);gap:3px;place-content:center}
+.nav .logo .mark i{width:4px;height:4px;border-radius:50%;background:#fff}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:12px;padding:6px 12px;border:1px solid var(--line);border-radius:99px;color:var(--muted);background:var(--surface)}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue)}
+
+.hero{padding-block:clamp(32px,5vw,64px) 0;text-align:center}
+.hero h1{font-size:clamp(40px,7.2vw,92px);margin:22px auto 0;max-width:13ch;letter-spacing:-.035em}
+.hero h1 em{color:var(--blue)}
+.hero .lede{max-width:56ch;margin:22px auto 0;color:var(--muted);font-size:clamp(15px,1.4vw,18px)}
+.hero-stage{margin-top:clamp(40px,6vw,72px);aspect-ratio:16/9.2;min-height:300px}
+.hero-stage .mac{--mw:72cqw;position:absolute;right:4cqw;bottom:7cqw;padding-inline:calc(var(--mw)*.07)}
+.hero-stage .iphone{--w:21cqw;position:absolute;left:9cqw;bottom:-14cqw;transform:rotate(-4deg)}
+.corner{position:absolute;font-size:11px;line-height:1.45;color:var(--muted);text-align:left;z-index:3}
+.corner small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.corner.tl{top:4cqw;left:4cqw}.corner.tr{top:4cqw;right:4cqw;text-align:right}
+@media (max-width:640px){.corner{display:none}}
+
+/* ---------- overview ---------- */
+.ov{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 80px}
+.ov h2{font-size:clamp(30px,3.8vw,46px);margin-top:18px}
+.ov h2 .lead{color:var(--blue)}
+.ov p{color:var(--muted);max-width:60ch}
+.ov p+p{margin-top:14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.tags span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:6px 11px;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
+.tags span::before{content:"•";color:var(--blue);margin-right:6px}
+.meta{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--line)}
+.meta div{padding:16px 16px 0 0;font-size:14px;font-weight:500}
+.meta small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:400;margin-bottom:4px}
+.ph{color:var(--faint);border-bottom:1px dashed var(--faint);font-weight:400}
+@media (max-width:820px){.ov{grid-template-columns:1fr}.meta{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- challenge cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.card{background:var(--surface);border-radius:20px;padding:26px 24px 28px;display:flex;flex-direction:column;gap:12px;min-height:250px}
+.card .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.card .tag::before{content:"•";color:var(--blue);margin-right:6px}
+.card h3{font-size:21px;margin-top:auto}
+.card p{font-size:14px;color:var(--muted)}
+.card.solid{background:var(--blue);color:#fff}
+.card.solid .tag{color:rgba(255,255,255,.7)} .card.solid .tag::before{color:#fff}
+.card.solid p{color:rgba(255,255,255,.85)}
+@media (max-width:980px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.cards{grid-template-columns:1fr}.card{min-height:0}}
+
+/* ---------- flow + IA (navy) ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:clamp(56px,8vw,96px)}
+.step{border:1px solid var(--navy-line);border-radius:16px;padding:20px;background:var(--navy-2)}
+.step .n{font-family:var(--mono);font-size:12px;color:var(--blue)}
+.step h3{font-size:18px;margin:10px 0 8px}
+.step p{font-size:13px;color:var(--navy-muted)}
+.step .where{display:flex;flex-direction:column;gap:2px;margin-top:14px;padding-top:12px;border-top:1px solid var(--navy-line);font-size:12px;color:var(--navy-muted)}
+.step .where b{font-weight:500;color:var(--navy-ink)}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+.ia-scroll{overflow-x:auto}
+.ia{position:relative;display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr 1.15fr;align-items:center;gap:0 28px;min-width:880px;padding-block:10px}
+.ia svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.ia svg path{fill:none;stroke:#c7d3ea;stroke-width:1.25;stroke-linecap:round}
+.col{display:flex;flex-direction:column;gap:30px;position:relative;z-index:1}
+.col.leaves{gap:8px}
+.grp{display:flex;flex-direction:column;gap:6px}
+.chip{display:inline-flex;justify-content:center;align-self:stretch;font-size:11.5px;padding:7px 12px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--muted);white-space:nowrap;box-shadow:0 1px 2px rgba(13,20,36,.04)}
+.chip.b{background:var(--blue-soft);color:var(--blue);font-weight:600;border-color:#cfdfff;box-shadow:none}
+.leaves.r .chip,.leaves.l .chip{justify-content:center}
+.hub{justify-self:center;width:128px;height:128px;border-radius:50%;display:grid;place-content:center;text-align:center;background:radial-gradient(circle at 35% 30%,#7fb0ff,#1d6ffc 70%);color:#fff;box-shadow:0 0 0 8px rgba(29,111,252,.08),0 14px 30px -8px rgba(29,111,252,.45);position:relative;z-index:1}
+.hub b{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.hub small{font-size:10.5px;opacity:.8}
+.ia-labels{display:flex;justify-content:space-between;min-width:880px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-muted);margin-bottom:22px}
+
+/* ---------- showcase blocks ---------- */
+.opener{aspect-ratio:16/8.4;min-height:320px}
+.opener .label{position:absolute;left:4cqw;top:4cqw;color:#fff;z-index:3}
+.opener .label small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.opener .label b{font-size:clamp(20px,3cqw,34px);font-weight:500;letter-spacing:-.02em}
+.fan .iphone{position:absolute;--w:22cqw;bottom:-18cqw}
+.fan .p1{left:20cqw;transform:rotate(-9deg)}
+.fan .p2{left:39cqw;bottom:-9cqw;z-index:2}
+.fan .p3{left:58cqw;transform:rotate(9deg)}
+
+.feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:40px clamp(40px,7vw,96px);align-items:center}
+.feature.flip{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+.feature.flip .copy{order:2}
+.copy h3{font-size:clamp(26px,3vw,38px);margin-top:16px}
+.copy>p{color:var(--muted);margin-top:16px;max-width:46ch}
+.notes{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.notes li{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
+.notes li b{color:var(--ink);font-weight:500}
+.notes li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue);margin-top:8px}
+.duo{display:flex;justify-content:center;align-items:flex-end;gap:clamp(14px,3vw,36px);padding:clamp(32px,5vw,56px) clamp(16px,3vw,40px) 0;overflow:hidden;border-radius:28px;border:1px solid var(--line)}
+.duo .iphone{--w:min(240px,38vw);margin-bottom:-14%}
+.duo .iphone.up{margin-bottom:-4%}
+.duo figcaption{display:none}
+.capline{display:flex;justify-content:center;gap:clamp(14px,3vw,36px);margin-top:14px;font-family:var(--mono);font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
+.capline span{width:min(240px,38vw);text-align:center}
+.block+.block{margin-top:clamp(80px,11vw,150px)}
+@media (max-width:860px){.feature,.feature.flip{grid-template-columns:1fr}.feature.flip .copy{order:0}}
+
+.rewards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:clamp(48px,6vw,72px)}
+.rewards figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px}
+.rewards img{border-radius:12px}
+.rewards figcaption{font-size:12.5px;color:var(--muted);margin-top:10px;padding-inline:4px}
+.rewards figcaption b{color:var(--ink);font-weight:500}
+@media (max-width:760px){.rewards{grid-template-columns:1fr}}
+
+/* ---------- numbers + chart ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.stat{background:var(--surface);border-radius:20px;padding:24px}
+.stat .v{font-family:var(--display);font-size:clamp(40px,4.4vw,56px);font-weight:500;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:.42em;letter-spacing:-.01em;color:var(--muted);margin-left:4px}
+.stat p{font-size:13.5px;color:var(--muted);margin-top:12px}
+.stat .src{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+@media (max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.stats{grid-template-columns:1fr}}
+
+.chart{margin-top:14px;background:var(--surface);border-radius:20px;padding:clamp(20px,3vw,36px)}
+.chart-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:flex-end;margin-bottom:28px}
+.chart-head h3{font-size:22px}
+.chart-head p{font-size:13.5px;color:var(--muted);margin-top:6px;max-width:52ch}
+.legend{display:flex;gap:18px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:10px;height:10px;border-radius:3px;background:var(--blue)}
+.legend i.x{background:var(--green-pill)}
+.bars{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px 16px;align-items:center}
+.bars .lbl{font-size:13.5px;font-weight:500;white-space:nowrap}
+.bars .lbl small{display:block;font-family:var(--mono);font-size:11px;color:var(--faint);font-weight:400}
+.track{position:relative;height:30px;border-radius:8px;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px 25%);background-size:100% 100%;display:flex}
+.track .base{background:var(--blue);border-radius:7px 0 0 7px;height:100%}
+.track .extra{background:var(--green-pill);border-radius:0 7px 7px 0;height:100%}
+.track .base:only-child{border-radius:7px}
+.bars .tot{font-family:var(--mono);font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap}
+.bars .tot small{color:var(--green-pill)}
+.axis{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;margin-top:10px}
+.axis .ticks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--faint)}
+.axis .ph1,.axis .ph2{visibility:hidden;font-size:13.5px}
+.chart .foot{font-size:12px;color:var(--faint);margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
+
+/* ---------- web ---------- */
+.web-open{aspect-ratio:16/9;min-height:300px}
+.web-open .mac{--mw:68cqw;position:absolute;left:50%;transform:translateX(-50%);bottom:6cqw}
+.scroll-shot img{object-fit:cover;object-position:50% 0;animation:pan 22s ease-in-out infinite alternate}
+@keyframes pan{0%,10%{object-position:50% 0}90%,100%{object-position:50% 100%}}
+@media (prefers-reduced-motion:reduce){.scroll-shot img{animation:none}}
+.solo{padding:clamp(28px,5vw,56px) clamp(8px,3vw,40px) clamp(36px,5vw,64px);display:flex;justify-content:center}
+.solo .mac{--mw:min(720px,88vw)}
+.flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,32px) 20px}
+.flow figure{margin:0}
+.flow figcaption{display:flex;align-items:baseline;gap:12px;margin-top:14px;font-size:14px;font-weight:500}
+.flow figcaption b{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--blue)}
+.flow figcaption span{color:var(--muted);font-weight:400;font-size:13px}
+@media (max-width:760px){.flow{grid-template-columns:1fr}}
+
+/* ---------- design system ---------- */
+.swatches{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sw{border-radius:18px;min-height:150px;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--mono);font-size:12.5px;color:#fff}
+.sw small{font-family:var(--body);font-size:12px;opacity:.8;margin-bottom:2px}
+.sw.wide{grid-column:span 2}
+.sw.lt{color:#0d1424;box-shadow:inset 0 0 0 1px rgba(13,20,36,.1)}
+@media (max-width:760px){.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.type{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+.spec{position:relative;overflow:hidden;background:var(--surface);border-radius:20px;padding:28px}
+.spec .aa{position:absolute;right:-6px;bottom:-34px;font-size:180px;line-height:1;color:var(--blue-soft);letter-spacing:-.04em;pointer-events:none}
+.spec .nm{font-size:clamp(34px,4vw,52px);letter-spacing:-.02em;position:relative}
+.spec .use{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.spec .wts{display:flex;gap:18px;margin-top:16px;font-size:14px;color:var(--muted);position:relative}
+.spec .chars{margin-top:18px;font-size:13px;color:var(--muted);line-height:1.7;position:relative;word-break:break-all}
+.roboto{font-family:Roboto,system-ui,sans-serif}.inter{font-family:Inter,system-ui,sans-serif}
+@media (max-width:760px){.type{grid-template-columns:1fr}}
+
+/* ---------- learnings ---------- */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,3vw,32px)}
+.panel h3{font-size:22px}
+.panel ol,.panel ul{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px}
+.panel li{display:grid;grid-template-columns:28px 1fr;gap:8px;font-size:14.5px;color:var(--muted)}
+.panel li b{display:block;color:var(--ink);font-weight:500;margin-bottom:2px}
+.panel li .k{font-family:var(--mono);font-size:12px;color:var(--blue);padding-top:2px}
+.panel.solid{background:var(--navy);border-color:var(--navy);color:var(--navy-ink)}
+.panel.solid li{color:var(--navy-muted)} .panel.solid li b{color:var(--navy-ink)} .panel.solid li .k{color:var(--blue)}
+.panel .note{font-size:12.5px;color:var(--navy-muted);margin-top:22px;padding-top:16px;border-top:1px solid var(--navy-line)}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+
+/* ---------- outro ---------- */
+.outro{padding-block:clamp(72px,10vw,120px) 0;overflow:hidden;text-align:center}
+.outro .word{font-family:var(--display);font-weight:600;font-size:clamp(84px,21vw,300px);letter-spacing:-.06em;line-height:.85;
+  background:linear-gradient(180deg,var(--ink) 10%,transparent 92%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.outro .word span{background:linear-gradient(180deg,var(--blue) 10%,transparent 92%);-webkit-background-clip:text;background-clip:text}
+.outro-stage{container-type:inline-size;position:relative;height:clamp(200px,34vw,420px);margin-top:-3vw}
+.outro-stage .mac{--mw:66cqw;position:absolute;left:50%;transform:translateX(-50%);top:0}
+.outro-stage .iphone{--w:17cqw;position:absolute;right:10cqw;top:6cqw;transform:rotate(6deg);z-index:2}
+footer{border-top:1px solid var(--line);padding-block:26px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+</style>
+<style>
+/* Site header, matching the other portfolio pages. Scoped so it does not touch the case study styles. */
+#getotp-page{padding-top:85px}
+#header{height:85px;line-height:85px;position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;color:#fff;transition:top .3s;font-family:soleil,sans-serif;font-size:10px}
+#header .container{max-width:1000px;margin:auto}
+#header ul{margin:0;padding:0;list-style:none}
+#header a{text-decoration:none;transition:all .2s linear}
+#header .logo{font-family:Playfair-Display,serif;font-weight:400;font-size:25px;color:#000;float:left}
+#header .logo:hover{color:#A23F72}
+#header .nav-button{display:none;float:right}
+#header .nav-button .fa{color:#121212;font-size:2.5em;line-height:85px}
+#header .close-btn{display:none}
+#header .close-btn .fa{color:#121212;position:absolute;right:37px;top:37px;font-size:2.6em}
+#header .fa-bars::before,#header .fa-times::before{font-family:Arial,Helvetica,sans-serif;line-height:1}
+#header .fa-bars::before{content:"\2630"}
+#header .fa-times::before{content:"\00d7"}
+#header .main-menu{float:right}
+#header .main-menu>li{font-size:14px;font-weight:300;text-transform:uppercase;position:relative;float:left;margin-left:60px}
+#header .main-menu li a{color:#222}
+#header .main-menu li a:hover{color:#A23F72}
+#header .main-menu li a.active{color:#A23F72;font-weight:500}
+@media (max-width:1200px){#header .container{padding-left:30px;padding-right:30px}}
+@media (max-width:670px){
+  #header .nav-button{display:block}
+  #navigation{display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:1;background:#fff}
+  #header .main-menu{position:absolute;transform:translate(-50%,-50%);top:50%;left:50%;text-align:center}
+  #header .close-btn{display:block}
+  #header .close-btn .fa{display:flex;align-items:center;justify-content:center;width:48px;height:48px;right:26px;top:26px;border-radius:50%;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+  #header .main-menu>li{float:none;line-height:normal;margin-left:0;padding:15px 0}
+  #header .main-menu li a{font-size:1.4em;font-weight:300;letter-spacing:1px;margin-left:0}
+  #header .main-menu li a.active{font-weight:600}
+}
+</style>
+</head>
+<body>
+
+<div id="getotp-page">
+<header id="header">
+  <div class="container">
+    <a href="index.html" class="logo">ZOYA ABBASI</a>
+    <a href="#" onclick="openNav()" class="nav-button" aria-label="Open navigation"><span class="fa fa-bars" aria-hidden="true"></span></a>
+    <nav id="navigation">
+      <a href="javascript:void(0)" onclick="closeNav()" class="close-btn" aria-label="Close navigation"><span class="fa fa-times" aria-hidden="true"></span></a>
+      <ul class="main-menu">
+        <li><a href="about.html">about</a></li>
+        <li><a href="index.html#portfolio" class="active" aria-current="page">portfolio</a></li>
+        <li><a href="best-work.html">best work</a></li>
+        <li><a href="https://drive.google.com/file/d/1QsQpP-4VwCkASo2_RceU2UK6oa8cWiMe/view" target="_blank" rel="noopener noreferrer">resume</a></li>
+        <li><a href="contact.html">Contact me</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<header class="wrap nav">
+  <div class="logo"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>GetOTP</div>
+  <span class="pill">Zoya Abbasi · UX/UI case study</span>
+</header>
+
+<!-- HERO -->
+<div class="wrap hero">
+  <span class="pill">Mobile app · Web app</span>
+  <h1>Verification codes, <em class="serif">on demand.</em></h1>
+  <p class="lede">GetOTP gives people a temporary phone number to receive SMS verification codes for apps like WhatsApp and Telegram. I designed the mobile app, the marketing site and the web portal.</p>
+  <div class="stage hero-stage">
+    <div class="corner tl"><small>Product</small>Virtual numbers for<br>SMS verification</div>
+    <div class="corner tr"><small>Scope</small>Mobile app · Landing page<br>Web portal</div>
+    <div class="mac"><div class="lid"><div class="scr"><img src="media/getotp/dash.webp" alt="GetOTP web portal dashboard with balance, numbers used and an active Telegram number with its OTP"></div></div><div class="base"></div><div class="floor"></div></div>
+    <div class="iphone"><div class="screen"><img src="media/getotp/home-active.webp" alt="GetOTP mobile home screen showing an active WhatsApp number, OTP 458921 and a 1:52 countdown"></div></div>
+  </div>
+</div>
+
+<!-- 01 OVERVIEW -->
+<section>
+  <div class="wrap">
+    <div class="ov">
+      <div>
+        <div class="eyebrow"><b>01</b><i></i>Overview</div>
+        <h2><span class="lead">GetOTP.</span> One job: get a working code before it expires.</h2>
+      </div>
+      <div>
+        <p>People often need a phone number to sign up for a service but don't want to share their own. GetOTP sells short-term virtual numbers. You pick a service and a country, get a number, and the SMS code appears in the app.</p>
+        <p>The mobile app runs on coins, which you can buy in packs or earn through small tasks. The web side has a landing page that explains the service and a portal where you top up a balance, buy numbers and track active codes.</p>
+        <div class="tags"><span>Product design</span><span>Mobile app</span><span>Web app</span><span>Landing page</span><span>Light &amp; dark mode</span></div>
+      </div>
+    </div>
+    <div class="meta">
+      <div><small>Project</small>GetOTP</div>
+      <div><small>Category</small>Utility · Verification</div>
+      <div><small>Platforms</small>Mobile · Web</div>
+      <div><small>Role</small>UX/UI Designer</div>
+      <div><small>Year</small>2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 CHALLENGE -->
+<section class="tint">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow"><b>02</b><i></i>The challenge</div>
+      <h2>Three things the design <span class="accent">had to get right.</span></h2></div>
+      <p class="cap">Each one shaped a specific part of the interface you'll see further down.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><span class="tag">Time</span><h3>Codes expire</h3><p>A code is only useful for a few minutes. The number, the code and the time left need to be readable at a glance and copyable in one tap.</p></div>
+      <div class="card"><span class="tag">Trust</span><h3>People pay up front</h3><p>Users pay before anything arrives. The price, the country and what happens if no code comes need to be clear before payment.</p></div>
+      <div class="card"><span class="tag">Consistency</span><h3>Two surfaces, one model</h3><p>Mobile uses coins and the web uses a wallet balance. Both had to follow the same order: service, country, number, code.</p></div>
+      <div class="card solid"><span class="tag">Approach</span><h3>Built around “My Numbers”</h3><p>A home screen centred on active numbers, a three-step purchase flow on both platforms, and clear states for expired codes and missing SMS.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 FLOW + IA -->
+<section class="navy">
+  <div class="wrap">
+    <div class="head center">
+      <div class="eyebrow"><b>03</b><i></i>Flow &amp; structure</div>
+      <h2>One flow, <span class="accent">two surfaces.</span></h2>
+      <p class="cap">The core task is the same on every screen. Only the payment method changes between mobile and web.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><h3>Choose a service</h3><p>WhatsApp, Telegram, Instagram and more.</p><div class="where"><span><b>Mobile</b> Get New Number</span><span><b>Web</b> Buy Number · step 1</span></div></div>
+      <div class="step"><span class="n">02</span><h3>Choose a country</h3><p>Each country shows its price before you commit.</p><div class="where"><span><b>Mobile</b> Country &amp; service</span><span><b>Web</b> Buy Number · step 2</span></div></div>
+      <div class="step"><span class="n">03</span><h3>Get the number</h3><p>Paid with coins on mobile or the wallet balance on web.</p><div class="where"><span><b>Mobile</b> Coins balance</span><span><b>Web</b> Payment · step 3</span></div></div>
+      <div class="step"><span class="n">04</span><h3>Receive the OTP</h3><p>The code appears on the number's card with a countdown.</p><div class="where"><span><b>Mobile</b> Home · My Numbers</span><span><b>Web</b> Dashboard · Active</span></div></div>
+    </div>
+
+    <div class="ia-scroll">
+      <div class="ia-labels"><span>Mobile app</span><span>Web portal</span></div>
+      <div class="ia" id="ia">
+        <svg id="ia-lines" aria-hidden="true"></svg>
+        <div class="col leaves l">
+          <div class="grp"><span class="chip" id="m-n1">My Numbers</span><span class="chip" id="m-n2">Get New Number</span><span class="chip" id="m-n3">Daily reward</span><span class="chip" id="m-n4">How it works</span></div>
+          <div class="grp"><span class="chip" id="m-c1">Earn free coins</span><span class="chip" id="m-c2">Buy coin packs</span></div>
+          <div class="grp"><span class="chip" id="m-s1">Transaction history</span><span class="chip" id="m-s2">Language</span><span class="chip" id="m-s3">Rate · Share</span><span class="chip" id="m-s4">Privacy · Terms</span></div>
+        </div>
+        <div class="col">
+          <span class="chip b" id="m-home">Home</span>
+          <span class="chip b" id="m-svc">Services</span>
+          <span class="chip b" id="m-coins">More Coins</span>
+          <span class="chip b" id="m-set">Settings</span>
+        </div>
+        <div class="hub" id="hub"><b>GetOTP</b><small>Number → Code</small></div>
+        <div class="col">
+          <span class="chip b" id="w-dash">Dashboard</span>
+          <span class="chip b" id="w-buy">Buy Number</span>
+          <span class="chip b" id="w-wal">Wallet</span>
+          <span class="chip b" id="w-set">Settings</span>
+          <span class="chip b" id="w-help">Help &amp; Support</span>
+        </div>
+        <div class="col leaves r">
+          <div class="grp"><span class="chip" id="w-d1">Account balance</span><span class="chip" id="w-d2">Numbers used</span><span class="chip" id="w-d3">Active · History</span></div>
+          <div class="grp"><span class="chip" id="w-b1">Select service</span><span class="chip" id="w-b2">Choose country</span><span class="chip" id="w-b3">Payment</span><span class="chip" id="w-b4">Purchase success</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 MOBILE -->
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow"><b>04</b><i></i>Mobile app</div>
+      <h2>Everything starts <span class="accent">on the home screen.</span></h2></div>
+      <p class="cap">Balance at the top, active numbers in the middle, and one primary action at the bottom: Get New Number.</p>
+    </div>
+
+    <div class="stage blue opener fan">
+      <div class="label"><small>GetOTP · Mobile</small><b>Home, OTP, Settings</b></div>
+      <div class="iphone p1"><div class="screen"><img src="media/getotp/home-a.webp" alt="Home screen with zero balance, a daily reward banner and the How it works steps"></div></div>
+      <div class="iphone p2"><div class="screen"><img src="media/getotp/home-active.webp" alt="Home screen with an active number and live OTP"></div></div>
+      <div class="iphone p3"><div class="screen"><img src="media/getotp/settings.webp" alt="Settings screen with balance card, transaction history, language and legal links"></div></div>
+    </div>
+
+    <div class="block" style="margin-top:clamp(80px,11vw,150px)">
+      <div class="feature">
+        <div class="copy">
+          <div class="eyebrow"><b>4.1</b><i></i>The OTP card</div>
+          <h3>A code you can read and copy at a glance.</h3>
+          <p>The number card carries the whole job. When a code arrives it takes over the card. When the timer runs out, the card switches to a recovery state instead of disappearing.</p>
+          <ul class="notes">
+            <li><span><b>Live.</b> Number, service and the code in large blue digits, each with its own copy button.</span></li>
+            <li><span><b>Countdown.</b> Time left sits in a warm red row under the code, so urgency is visible without an alert.</span></li>
+            <li><span><b>Expired.</b> The card shows when the last code expired and offers a single “Generate New OTP” action.</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="duo tint">
+            <div class="iphone up"><div class="screen"><img src="media/getotp/home-active.webp" alt="Active OTP state"></div></div>
+            <div class="iphone"><div class="screen"><img src="media/getotp/home-expired.webp" alt="Expired OTP state with Generate New OTP button"></div></div>
+          </div>
+          <div class="capline"><span>Code received</span><span>Code expired</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="feature flip">
+        <div class="copy">
+          <div class="eyebrow"><b>4.2</b><i></i>Coins</div>
+          <h3>Buy coins or earn them, in light and dark mode.</h3>
+          <p>The More Coins screen splits into two groups: free coins at the top, paid packs below. Bigger packs show their bonus as a green pill so the value is visible without any maths.</p>
+          <ul class="notes">
+            <li><span><b>Earn for free.</b> Daily gift, share the app and rate us. Each is worth 5 coins, and the daily gift shows a cooldown timer once claimed.</span></li>
+            <li><span><b>Buy more.</b> Packs list the coin count, the bonus and the price in rupees.</span></li>
+            <li><span><b>Both themes.</b> The same layout ships in light and dark, with the gold coin art carrying across both.</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="duo tint">
+            <div class="iphone up"><div class="screen"><img src="media/getotp/coins-light.webp" alt="More Coins screen in light mode"></div></div>
+            <div class="iphone"><div class="screen"><img src="media/getotp/coins-dark.webp" alt="More Coins screen in dark mode"></div></div>
+          </div>
+          <div class="capline"><span>Light</span><span>Dark</span></div>
+        </div>
+      </div>
+      <div class="rewards">
+        <figure><img src="media/getotp/reward-1.webp" alt="Daily Reward banner: claim 5 free coins today"><figcaption><b>Daily reward.</b> Shown on the home screen for new and returning users.</figcaption></figure>
+        <figure><img src="media/getotp/reward-2.webp" alt="Rate Us banner: get 5 free coins"><figcaption><b>Rate us.</b> The same slot, with a different prompt.</figcaption></figure>
+        <figure><img src="media/getotp/reward-3.webp" alt="Share App banner: get 5 free coins"><figcaption><b>Share app.</b> One dismissible banner, three prompts, one “Claim” action.</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="feature">
+        <div class="copy">
+          <div class="eyebrow"><b>4.3</b><i></i>Guidance</div>
+          <h3>Help in the place people get stuck.</h3>
+          <p>Getting a number is easy. The tricky part is using it in another app. The guide walks through that hand-off and answers the three questions most likely to come up.</p>
+          <ul class="notes">
+            <li><span><b>Four steps.</b> Open WhatsApp, enter the number, request the code, come back to GetOTP.</span></li>
+            <li><span><b>Copy inline.</b> The purchased number sits inside step 2 with its own copy button.</span></li>
+            <li><span><b>Need help?</b> Didn't receive a code, entered the wrong number, timer expired.</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="duo tint">
+            <div class="iphone up"><div class="screen"><img src="media/getotp/guide.webp" alt="How to receive your code: four-step guide with FAQ"></div></div>
+            <div class="iphone"><div class="screen"><img src="media/getotp/settings.webp" alt="Settings screen"></div></div>
+          </div>
+          <div class="capline"><span>How it works</span><span>Settings</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 NUMBERS -->
+<section class="tint">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow"><b>05</b><i></i>By the numbers</div>
+      <h2>What the design <span class="accent">commits to.</span></h2></div>
+      <p class="cap">Every figure here comes from the screens or the product copy. None of them are usage or business results.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="v">3<small>steps</small></div><p>From the home screen to a code: tap Get New Number, choose country and service, receive the SMS.</p><span class="src">Source · Home, How it works</span></div>
+      <div class="stat"><div class="v">4<small>steps</small></div><p>In the receive-your-code guide, from opening WhatsApp to returning to GetOTP, plus three help answers.</p><span class="src">Source · How to receive your code</span></div>
+      <div class="stat"><div class="v">15<small>coins</small></div><p>Free coins available from three tasks (daily gift, share, rate), 5 coins each.</p><span class="src">Source · More Coins screen</span></div>
+      <div class="stat"><div class="v">2<small>themes</small></div><p>Light and dark mode on mobile, sharing one layout and one set of components.</p><span class="src">Source · Coins screens</span></div>
+    </div>
+
+    <div class="chart">
+      <div class="chart-head">
+        <div><h3>Coins per pack</h3><p>Base coins and bonus coins for each paid pack, as listed on the More Coins screen. Every pack above the entry tier includes a bonus.</p></div>
+        <div class="legend"><span><i></i>Base coins</span><span><i class="x"></i>Bonus coins</span></div>
+      </div>
+      <div class="bars" id="bars"></div>
+      <div class="axis"><span class="ph1">800 coins</span><div class="ticks"><span>0</span><span>250</span><span>500</span><span>750</span><span>1,000</span></div><span class="ph2">923 total</span></div>
+      <p class="foot">Prices in PKR as shown in the design. A 1,600-coin pack appears at the bottom of the list but is cut off in the screen, so it's left out.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 WEB -->
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow"><b>06</b><i></i>Web app</div>
+      <h2>A landing page that explains, <span class="accent">a portal that delivers.</span></h2></div>
+      <p class="cap">The landing page puts the service picker at the top, so visitors can start buying straight away. The portal is where they come back to manage numbers.</p>
+    </div>
+
+    <div class="stage web-open">
+      <div class="corner tl"><small>Landing page</small>Service picker, supported<br>services, how it works, FAQ</div>
+      <div class="mac"><div class="lid"><div class="scr scroll-shot"><img src="media/getotp/landing.webp" alt="GetOTP landing page: choose a service and country, supported services, how it works, FAQ and footer"></div></div><div class="base"></div><div class="floor"></div></div>
+    </div>
+
+    <div class="block" style="margin-top:clamp(80px,11vw,150px)">
+      <div class="feature flip">
+        <div class="copy">
+          <div class="eyebrow"><b>6.1</b><i></i>Dashboard</div>
+          <h3>Balance, usage and live codes on one screen.</h3>
+          <p>The dashboard mirrors the mobile home screen: money at the top, one clear call to action, and active numbers below.</p>
+          <ul class="notes">
+            <li><span><b>Two summary cards.</b> Account balance and total numbers used, each with a short trend line.</span></li>
+            <li><span><b>Need a Number?</b> The main action gets its own banner instead of hiding in the sidebar.</span></li>
+            <li><span><b>Active and History tabs.</b> Each active number shows its service, country, OTP and expiry time.</span></li>
+          </ul>
+        </div>
+        <div class="stage solo"><div class="mac"><div class="lid"><div class="scr"><img src="media/getotp/dash.webp" alt="Web portal dashboard"></div></div><div class="base"></div><div class="floor"></div></div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="head" style="margin-bottom:40px">
+        <div><div class="eyebrow"><b>6.2</b><i></i>Buy Number</div>
+        <h2 style="font-size:clamp(26px,3vw,38px)">Three steps, and no surprises at checkout.</h2></div>
+        <p class="cap">The order summary, price and refund note sit next to the payment form, so nothing new shows up after you pay.</p>
+      </div>
+      <div class="flow">
+        <figure><div class="browser"><div class="bar"><span></span><span></span><span></span><em>getotp / buy-number</em></div><img src="media/getotp/buy-service.webp" alt="Buy Number step 1: popular and all services"></div><figcaption><b>01</b>Select service<span>Popular services first, then search.</span></figcaption></figure>
+        <figure><div class="browser"><div class="bar"><span></span><span></span><span></span><em>getotp / buy-number</em></div><img src="media/getotp/buy-country.webp" alt="Buy Number step 2: available countries with prices"></div><figcaption><b>02</b>Choose country<span>Every country shows its price.</span></figcaption></figure>
+        <figure><div class="browser"><div class="bar"><span></span><span></span><span></span><em>getotp / buy-number</em></div><img src="media/getotp/payment.webp" alt="Complete your payment with summary and refund note"></div><figcaption><b>03</b>Payment<span>Summary, price and refund note.</span></figcaption></figure>
+        <figure><div class="browser"><div class="bar"><span></span><span></span><span></span><em>getotp / dashboard</em></div><img src="media/getotp/success.webp" alt="Number purchased successfully modal with next steps"></div><figcaption><b>✓</b>Success<span>The number, a copy button and next steps.</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 DESIGN SYSTEM -->
+<section class="tint">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow"><b>07</b><i></i>Visual language</div>
+      <h2>Bright blue, <span class="accent">calm surfaces.</span></h2></div>
+      <p class="cap">Colours sampled from the screens. Blue marks anything you can act on, green marks success, gold is reserved for coins.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw wide" style="background:linear-gradient(135deg,#3d8fff,#1d6ffc)"><small>Primary · mobile</small>#1D6FFC</div>
+      <div class="sw" style="background:#3083ff"><small>Primary · web</small>#3083FF</div>
+      <div class="sw" style="background:#7661f3"><small>Brand mark · web</small>#7661F3</div>
+      <div class="sw" style="background:#12b981"><small>Success · OTP</small>#12B981</div>
+      <div class="sw lt" style="background:#f5b82e"><small>Coins</small>#F5B82E</div>
+      <div class="sw lt" style="background:#f8f8f8"><small>Surface</small>#F8F8F8</div>
+      <div class="sw" style="background:#0d1424"><small>Ink</small>#0D1424</div>
+    </div>
+    <div class="type">
+      <div class="spec roboto"><span class="aa" aria-hidden="true">Aa</span><span class="use">Mobile app</span><div class="nm">Roboto</div><div class="wts"><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span><span style="font-weight:700">Bold</span></div><div class="chars">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 · 458921</div></div>
+      <div class="spec inter"><span class="aa" aria-hidden="true">Aa</span><span class="use">Web app</span><div class="nm">Inter</div><div class="wts"><span style="font-weight:400">Regular</span><span style="font-weight:600">Semibold</span></div><div class="chars">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 · $4.00</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 LEARNINGS -->
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow"><b>08</b><i></i>Decisions &amp; next steps</div>
+      <h2>What I'd stand behind, <span class="accent">and what I'd measure.</span></h2></div>
+      <p class="cap">The product doesn't have live data yet, so this section lists the signals I'd track after launch instead of results.</p>
+    </div>
+    <div class="two">
+      <div class="panel">
+        <h3>Key decisions</h3>
+        <ol>
+          <li><span class="k">01</span><span><b>One card per number</b>The number, code, timer and recovery action all live on the same card, so there is no separate code screen.</span></li>
+          <li><span class="k">02</span><span><b>Same order on both platforms</b>Service, then country, then payment, so people who use both don't have to relearn anything.</span></li>
+          <li><span class="k">03</span><span><b>Refund terms before payment</b>The “didn't receive your code?” note sits beside the payment form, not in an FAQ.</span></li>
+          <li><span class="k">04</span><span><b>Free coins as a way in</b>Small tasks let new users get coins before they spend any money.</span></li>
+        </ol>
+      </div>
+      <div class="panel solid">
+        <h3>What I'd measure next</h3>
+        <ul>
+          <li><span class="k">→</span><span><b>Time to code</b>From tapping Get New Number to the OTP showing on the card.</span></li>
+          <li><span class="k">→</span><span><b>Codes received before expiry</b>How often the timer runs out first, and how often “Generate New OTP” fixes it.</span></li>
+          <li><span class="k">→</span><span><b>Free-coin claims</b>Which of the three tasks people complete, and whether they go on to buy a pack.</span></li>
+          <li><span class="k">→</span><span><b>Pack mix</b>Which pack sizes sell, to check whether the bonus tiers are working.</span></li>
+        </ul>
+        <p class="note">Results will be added here once there is real usage data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTRO -->
+<div class="outro">
+  <div class="wrap"><div class="word">Get<span>OTP</span></div></div>
+  <div class="wrap">
+    <div class="outro-stage">
+      <div class="mac"><div class="lid"><div class="scr"><img src="media/getotp/buy-service.webp" alt="Buy Number service selection"></div></div><div class="base"></div></div>
+      <div class="iphone"><div class="screen"><img src="media/getotp/coins-light.webp" alt="More Coins screen"></div></div>
+    </div>
+  </div>
+</div>
+<footer><div class="wrap"><span>GetOTP · Mobile &amp; web case study</span><span>Designed by Zoya Abbasi · 2026</span></div></footer>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script>
+// Coin packs exactly as listed on the More Coins screen
+const packs=[{c:70,x:0,p:"Rs 300"},{c:150,x:33,p:"Rs 500"},{c:250,x:40,p:"Rs 900"},{c:400,x:96,p:"Rs 1,300"},{c:800,x:123,p:"Rs 2,900"}];
+const max=1000, bars=document.getElementById('bars');
+bars.innerHTML=packs.map(k=>`
+  <div class="lbl">${k.c} coins<small>${k.p}</small></div>
+  <div class="track" role="img" aria-label="${k.c} base coins${k.x?` plus ${k.x} bonus`:''}">
+    <span class="base" style="width:${k.c/max*100}%"></span>${k.x?`<span class="extra" style="width:${k.x/max*100}%"></span>`:''}
+  </div>
+  <div class="tot">${(k.c+k.x).toLocaleString()} total${k.x?` <small>+${k.x}</small>`:''}</div>`).join('');
+
+// Mind-map connectors
+const edges=[["hub","m-home"],["hub","m-svc"],["hub","m-coins"],["hub","m-set"],["hub","w-dash"],["hub","w-buy"],["hub","w-wal"],["hub","w-set"],["hub","w-help"],
+ ["m-home","m-n1"],["m-home","m-n2"],["m-home","m-n3"],["m-home","m-n4"],["m-coins","m-c1"],["m-coins","m-c2"],["m-set","m-s1"],["m-set","m-s2"],["m-set","m-s3"],["m-set","m-s4"],
+ ["w-dash","w-d1"],["w-dash","w-d2"],["w-dash","w-d3"],["w-buy","w-b1"],["w-buy","w-b2"],["w-buy","w-b3"],["w-buy","w-b4"]];
+const ia=document.getElementById('ia'), svg=document.getElementById('ia-lines');
+function draw(){
+  const o=ia.getBoundingClientRect();
+  svg.setAttribute('viewBox',`0 0 ${o.width} ${o.height}`);
+  svg.innerHTML=edges.map(([a,b])=>{
+    const A=document.getElementById(a).getBoundingClientRect(),B=document.getElementById(b).getBoundingClientRect();
+    const left=B.left<A.left;
+    const x1=(left?A.left:A.right)-o.left, y1=A.top+A.height/2-o.top;
+    const x2=(left?B.right:B.left)-o.left, y2=B.top+B.height/2-o.top;
+    const m=(x1+x2)/2;
+    return `<path d="M${x1},${y1} C${m},${y1} ${m},${y2} ${x2},${y2}"/>`;
+  }).join('');
+}
+new ResizeObserver(draw).observe(ia);
+document.fonts&&document.fonts.ready.then(draw);
+</script>
+</body>
+</html>
