@@ -30,6 +30,44 @@
             margin: 0;
             padding: 0;
         }
+
+        .solar-tabs {
+            position: sticky;
+            top: 97px;
+            z-index: 900;
+            margin: 12px auto;
+            transition: top 0.3s;
+        }
+
+        .solar-tabs .portfolio-filter-button {
+            width: auto;
+            min-width: 110px;
+        }
+
+        .solar-panel[hidden] {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .solar-tabs {
+                width: calc(100% - 28px);
+                max-width: max-content;
+                overflow-x: auto;
+                justify-content: flex-start;
+                scrollbar-width: none;
+            }
+
+            .solar-tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .solar-tabs .portfolio-filter-button {
+                flex: 0 0 auto;
+                min-width: 0;
+                padding: 0 16px;
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -51,17 +89,52 @@
     </header>
 
     <main id="empowering-solar-gallery" aria-label="Empowering Solar project images">
-        <img src="media/empowering-solar/hero.webp" alt="Empowering Solar project hero" fetchpriority="high">
-        <img src="media/empowering-solar/energy-controller.webp" alt="Empowering Solar — energy controller" loading="lazy" decoding="async">
-        <img src="media/empowering-solar/archieve-true.webp" alt="Empowering Solar — true energy independence" loading="lazy" decoding="async">
-        <img src="media/empowering-solar/empower-home.webp" alt="Empowering Solar — empower your home" loading="lazy" decoding="async">
-        <img src="media/empowering-solar/leading-way.webp" alt="Empowering Solar — leading the way in energy transformation" loading="lazy" decoding="async">
-        <img src="media/empowering-solar/sigenstor.webp" alt="Empowering Solar — SigenStor" loading="lazy" decoding="async">
-        <img src="media/empowering-solar/revolutionize.webp" alt="Empowering Solar — 5-in-1 energy solution" loading="lazy" decoding="async">
-        <img src="media/empowering-solar/real-time.webp" alt="Empowering Solar — real-time monitoring" loading="lazy" decoding="async">
-        <img src="media/empowering-solar/power-future.webp" alt="Empowering Solar — energy app" loading="lazy" decoding="async">
-        <img src="media/empowering-solar/explore-products.webp" alt="Empowering Solar — explore products" loading="lazy" decoding="async">
-        <img src="media/empowering-solar/get-touch.webp" alt="Empowering Solar — get in touch" loading="lazy" decoding="async">
+        <div class="portfolio-filter solar-tabs" role="tablist" aria-label="Empowering Solar pages">
+            <button type="button" class="portfolio-filter-button is-active" role="tab" id="tab-home" aria-controls="panel-home" aria-selected="true" data-panel="home">Home</button>
+            <button type="button" class="portfolio-filter-button" role="tab" id="tab-about" aria-controls="panel-about" aria-selected="false" data-panel="about">About</button>
+            <button type="button" class="portfolio-filter-button" role="tab" id="tab-products" aria-controls="panel-products" aria-selected="false" data-panel="products">Products</button>
+            <button type="button" class="portfolio-filter-button" role="tab" id="tab-accessories" aria-controls="panel-accessories" aria-selected="false" data-panel="accessories">Accessories</button>
+            <button type="button" class="portfolio-filter-button" role="tab" id="tab-services" aria-controls="panel-services" aria-selected="false" data-panel="services">Services</button>
+        </div>
+
+        <section class="solar-panel" id="panel-home" role="tabpanel" aria-labelledby="tab-home">
+            <img src="media/empowering-solar/hero.webp" alt="Empowering Solar project hero" fetchpriority="high">
+            <img src="media/empowering-solar/energy-controller.webp" alt="Empowering Solar — energy controller" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/archieve-true.webp" alt="Empowering Solar — true energy independence" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/empower-home.webp" alt="Empowering Solar — empower your home" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/leading-way.webp" alt="Empowering Solar — leading the way in energy transformation" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/sigenstor.webp" alt="Empowering Solar — SigenStor" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/revolutionize.webp" alt="Empowering Solar — 5-in-1 energy solution" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/real-time.webp" alt="Empowering Solar — real-time monitoring" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/power-future.webp" alt="Empowering Solar — energy app" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/explore-products.webp" alt="Empowering Solar — explore products" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/get-touch.webp" alt="Empowering Solar — get in touch" loading="lazy" decoding="async">
+        </section>
+
+        <section class="solar-panel" id="panel-about" role="tabpanel" aria-labelledby="tab-about" hidden>
+            <img src="media/empowering-solar/about/about-hero.webp" alt="Empowering Solar — about hero" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/about/about-leading.webp" alt="Empowering Solar — leading the charge in solar inverter technology" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/about/about-core.webp" alt="Empowering Solar — core values" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/about/about-envisioning.webp" alt="Empowering Solar — envisioning the future" loading="lazy" decoding="async">
+        </section>
+
+        <section class="solar-panel" id="panel-products" role="tabpanel" aria-labelledby="tab-products" hidden>
+            <img src="media/empowering-solar/products/products-hero.webp" alt="Empowering Solar — products hero" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/products/products-explore.webp" alt="Empowering Solar — explore all products" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/products/products-app.webp" alt="Empowering Solar — mySigen app and energy gateway" loading="lazy" decoding="async">
+        </section>
+
+        <section class="solar-panel" id="panel-accessories" role="tabpanel" aria-labelledby="tab-accessories" hidden>
+            <img src="media/empowering-solar/accessories/accessories-hero.webp" alt="Empowering Solar — accessories hero" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/accessories/accessories-explore.webp" alt="Empowering Solar — explore all accessories" loading="lazy" decoding="async">
+        </section>
+
+        <section class="solar-panel" id="panel-services" role="tabpanel" aria-labelledby="tab-services" hidden>
+            <img src="media/empowering-solar/services/services-hero.webp" alt="Empowering Solar — services hero" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/services/service-looking.webp" alt="Empowering Solar — installation and maintenance" loading="lazy" decoding="async">
+            <img src="media/empowering-solar/services/service-modular.webp" alt="Empowering Solar — modular and stackable installation" loading="lazy" decoding="async">
+        </section>
+
         <img src="media/empowering-solar/end.webp" alt="Empowering Solar — footer" loading="lazy" decoding="async">
     </main>
 
@@ -150,5 +223,40 @@
     </div>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        (function () {
+            const tabs = document.querySelectorAll('.solar-tabs [data-panel]');
+            const panels = document.querySelectorAll('.solar-panel');
+            const tabBar = document.querySelector('.solar-tabs');
+            const header = document.getElementById('header');
+
+            function show(name, scroll) {
+                if (!document.getElementById('panel-' + name)) name = 'home';
+                tabs.forEach(function (tab) {
+                    const active = tab.dataset.panel === name;
+                    tab.classList.toggle('is-active', active);
+                    tab.setAttribute('aria-selected', active ? 'true' : 'false');
+                });
+                panels.forEach(function (panel) {
+                    panel.hidden = panel.id !== 'panel-' + name;
+                });
+                if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    history.replaceState(null, '', '#' + tab.dataset.panel);
+                    show(tab.dataset.panel, true);
+                });
+            });
+
+            // Keep the tab bar under the header as it hides and shows on scroll
+            window.addEventListener('scroll', function () {
+                tabBar.style.top = header.style.top === '-85px' ? '12px' : '97px';
+            });
+
+            show(location.hash.slice(1) || 'home', false);
+        })();
+    </script>
 </body>
 </html>
